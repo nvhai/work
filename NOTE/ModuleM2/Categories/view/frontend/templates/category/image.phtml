@@ -1,0 +1,43 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Category view template
+ *
+ * @var $block \Magento\Catalog\Block\Category\View
+ */
+?>
+<?php
+    $_helper    = $this->helper('Magento\Catalog\Helper\Output');
+    $_category  = $block->getCurrentCategory();
+    $_imgHtml   = '';
+    if ($_category->getImageUrl()) {
+		$_imgUrl = $_category->getImageUrl();
+    }else {
+		$_imgUrl = $this->helper('Convert\CategoriesCollection\Helper\Data')->getImageCapsulePlaceholder();
+	}
+	
+	$_imgHtml = '<img src="' . $_imgUrl . '" alt="' . $block->escapeHtml($_category->getName()) . '" title="' . $block->escapeHtml($_category->getName()) . '" class="image" />';
+	$_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'image');
+?>
+
+<div class="category-capsule-info">
+	<div class="category-image">
+		<?= $_imgHtml; ?>
+	</div>
+	<div class="category-details">
+		<h1 class="category-name"><?= $_category->getName(); ?></h1>
+		<?php if ($_description = $_category->getDescription()): ?>
+			<div class="category-description">
+				<?= $_helper->categoryAttribute($_category, $_description, 'description') ?>
+			</div>
+		<?php endif; ?>
+	</div>
+</div>

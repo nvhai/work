@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+		<tab id="categories_collection" translate="label" sortOrder="200">
+            <label>Categories Collection Config</label>
+        </tab>
+        <section id="categories_collection_section" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Accessories and Homeware</label>
+            <tab>categories_collection</tab>
+            <resource>Categories_Collection::accessories_homeware_config</resource>
+			<group id="accessories_homeware_settings" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>Accessories and Homeware Settings</label>
+				<field id="accessories_homeware_ids" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Accessories and Homeware ID</label>
+					<comment><![CDATA[ID of category Accessories, Homeware]]></comment>
+				</field>
+			</group>			
+        </section>
+    </system>
+</config>

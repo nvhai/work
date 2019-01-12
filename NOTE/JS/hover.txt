@@ -1,0 +1,5 @@
+$('.products-grid .product-items .product-item .product-item-info .product-item-photo').hover(function () {
+            $('.products-grid .product-items .product-item .product-item-info').css('box-shadow','none');
+            },function () {
+            $(".products-grid .product-items .product-item .product-item-info").removeAttr("style");
+        });

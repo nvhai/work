@@ -1,0 +1,36 @@
+All material on dropbox: https://www.dropbox.com/home/Vessel-ArrowTech
+
+Discovery update file at: https://docs.google.com/spreadsheets/d/1nHa6xH21e0q_OiTq-thLrCE6EY1ITCwboOrnQ3ATxFg/edit?ts=5bff6253#gid=0
+
+Invission app to clear: https://projects.invisionapp.com/d/main#/projects
+
+Account: phongnt@arrowhitech.com/Admin1234
+
+ 
+
+Bitbucket: https://bitbucket.org/arrowhitech/vessel/src
+
+ 
+
+Dev site:
+
+http://g3a.arrowhitech.net/aht3731_vessel/
+
+http://g3a.arrowhitech.net/aht3731_vessel/admin/
+
+admin/Admin@9100
+
+ Vassel_Daily Day:  https://docs.google.com/spreadsheets/d/1lMNmRiNeTWTh6-pPcE3o-ahjgs-G0EKe1odAzMpso10/edit?userstoinvite=danghieuit96@gmail.com&ts=5c0548d4&actionButton=1#gid=0
+ Discovery Updated Version 2 ( FRONT END )  https://docs.google.com/spreadsheets/d/1nHa6xH21e0q_OiTq-thLrCE6EY1ITCwboOrnQ3ATxFg/edit?ts=5bff6253#gid=0
+
+DEV SITE INFORMATIONS
+
+URL: http://furniturebx.com.au/
+
+Admin URL: http://furniturebx.com.au/admin/
+Username: ath
+Password: Peter123
+
+HTTP Authentication:
+Username: vesselstaging
+Password: vessel1staging

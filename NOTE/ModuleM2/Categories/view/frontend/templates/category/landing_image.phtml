@@ -1,0 +1,10 @@
+<?php
+/*
+	$block Convert\CategoriesCollection\Block\Slider
+*/
+?>
+<?php 
+	$cateId = $block->getCurrentCategory()->getId();
+	
+	echo $this->getLayout()->createBlock("Convert\CategoriesCollection\Block\AbstractCategories")->setTemplate("Convert_CategoriesCollection::category/landing_image_content.phtml")->setCateId($cateId)->toHtml();
+?>

@@ -1,0 +1,60 @@
+<?php
+/*
+	$block Convert\CategoriesCollection\Block\Slider
+*/
+?>
+<?php 
+	$parentCategory = $block->getCategory($block->getParentId());
+	
+	$blockId = rand() . time();
+?>
+<?php if($block->getTitle()): ?>
+<div class="title-wrapper">
+	<h2 class="title"><?= $block->getTitle() ?></h2>
+</div>
+<?php endif ?>
+
+<?php if($parentCategory): ?>
+	<?php $childCate = $parentCategory->getChildrenCategories(); ?>
+	<div class="clear-margin-owl">
+		<div id="cate-slider-<?= $blockId ?>" class="categories-collection-slider owl-carousel">
+			<?php foreach($childCate as $_subCategory): ?>
+				<div class="cate-item">
+					<a class="image" href="<?= $block->getCategoryUrl($_subCategory) ?>">
+						<img src="<?= $block->getImageUrl($_subCategory->getId()) ?>" />
+					</a>
+					<div class="cate-link">
+						<a href="<?= $block->getCategoryUrl($_subCategory) ?>"><?= $_subCategory->getName() ?></a>
+					</div>
+				</div>
+			<?php endforeach ?>
+		</div>
+	</div>
+	<script type="text/javascript">
+		require([
+			'jquery', 
+			'carousel',
+		],function(jQuery){
+			jQuery(document).ready(function(){
+				jQuery('#cate-slider-<?= $blockId ?>').owlCarousel({
+					items: 4,
+					loop:true,
+					margin:0,
+					nav:true,
+					dots:true,
+					responsive:{
+						0:{
+							items:1
+						},
+						600:{
+							items:3
+						},
+						992:{
+							items:4
+						}
+					}
+				})
+			});
+		});
+	</script>
+<?php endif ?>

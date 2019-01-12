@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Store\Model\Store">
+        <plugin name="meetanshi_currencyswitch" type="Meetanshi\CurrencySwitcher\Plugin\Store" />
+    </type>
+    <type name="Magento\Framework\App\PageCache\Version">
+        <plugin name="meetanshi_currency_fullpagecache" type="Meetanshi\CurrencySwitcher\Plugin\Fullpagecache" />
+    </type>
+</config>

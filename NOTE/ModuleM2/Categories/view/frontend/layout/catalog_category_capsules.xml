@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <attribute name="class" value="category_landing_capsules"/>
+        
+        <referenceContainer name="div.sidebar.main" remove="true"/>
+        <referenceContainer name="category.view.container" remove="true"/>
+        <referenceBlock name="catalog.leftnav" remove="true"/>
+        <referenceBlock name="category.cms" remove="true" />
+		
+		<referenceBlock name="product_list_toolbar" remove="true" />
+		
+		<referenceBlock name="category.products.list" template="Convert_CategoriesCollection::product/list_capsules.phtml">
+			<block class="Magento\Catalog\Block\Category\View" name="category.image.capsule" template="Convert_CategoriesCollection::category/image.phtml"/>
+			
+			<block class="Magento\Catalog\Block\Category\View" name="category.capsules.cms" template="Magento_Catalog::category/cms.phtml" />
+
+			<block class="Convert\CategoriesCollection\Block\Product\ProductList\Toolbar" name="product_list_toolbar_capsules" template="Magento_Catalog::product/list/toolbar.phtml">
+				<block class="Magento\Theme\Block\Html\Pager" name="product_list_toolbar_pager"/>
+			</block>
+			<action method="setToolbarBlockName">
+				<argument name="name" xsi:type="string">product_list_toolbar_capsules</argument>
+			</action>
+		</referenceBlock>
+    </body>
+</page>

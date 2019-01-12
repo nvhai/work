@@ -1,0 +1,57 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+use Magento\Framework\App\Action\Action;
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+$_productCollection = $block->getLoadedProductCollection();
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+$_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+$templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+?>
+
+<?= $block->getChildHtml('category.image.capsule'); ?>
+
+<?php if (!$_productCollection->count()): ?>
+    <div class="message info empty"><div><?= /* @escapeNotVerified */ __('We can\'t find products matching the selection.') ?></div></div>
+<?php else: ?>
+	<?php 
+		$image = 'category_page_grid';
+		$showDescription = true;
+	?>
+	<div class="products-capsule-title"><?= __('Collection'); ?></div>
+	<div class="products list items products-grid">
+		<?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
+		<?php foreach ($_productCollection as $_product): ?>
+			<div class="product-item-info" data-container="product-grid">
+				<?php
+				$productImage = $_imagehelper->init($_product, 'category_page_grid')->resize(292, 292)->getUrl();
+				$_productNameStripped = $block->stripTags($_product->getName(), null, true);
+				?>
+				<?php // Product Image ?>
+				<a href="<?= /* @escapeNotVerified */ $_product->getProductUrl() ?>" class="product photo product-item-photo" tabindex="-1">
+					<img alt="<?= $_productNameStripped ?>" src="<?= $productImage ?>" class="product-image-photo"/>
+				</a>
+				<div class="product details product-item-details">
+					<strong class="product name product-item-name">
+						<a class="product-item-link"
+						   href="<?= /* @escapeNotVerified */ $_product->getProductUrl() ?>">
+							<?= /* @escapeNotVerified */ $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
+						</a>
+					</strong>
+					<?= /* @escapeNotVerified */ $block->getProductPrice($_product) ?>
+					<?= $block->getProductDetailsHtml($_product) ?>
+					<?= $block->getReviewsSummaryHtml($_product, $templateType) ?>
+				</div>
+			</div>
+		<?php endforeach ?>
+	</div>
+	<div class="bottom-toolbar">
+        <?=$block->getToolbarHtml() ?>
+    </div>
+<?php endif ?>

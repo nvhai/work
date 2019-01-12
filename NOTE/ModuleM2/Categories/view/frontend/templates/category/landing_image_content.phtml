@@ -1,0 +1,25 @@
+<?php
+/*
+	$block Convert\CategoriesCollection\Block\Slider
+*/
+?>
+<?php 
+	$parentCategory = $block->getCategory($block->getCateId());
+?>
+<?php if($parentCategory): ?>
+	<?php $childCate = $parentCategory->getChildrenCategories(); ?>
+	<div class="clear-margin-owl">
+		<div class="categories-collection-slider">
+			<?php foreach($childCate as $_subCategory): ?>
+				<div class="cate-item">
+					<a class="image" href="<?= $block->getCategoryUrl($_subCategory) ?>">
+						<img src="<?= $block->getImageUrl($_subCategory->getId(), 'gray_image') ?>" />
+					</a>
+					<div class="cate-link">
+						<a href="<?= $block->getCategoryUrl($_subCategory) ?>"><?= $_subCategory->getName() ?></a>
+					</div>
+				</div>
+			<?php endforeach ?>
+		</div>
+	</div>
+<?php endif ?>

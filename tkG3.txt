@@ -1,0 +1,46 @@
+tk G3
+aht_hainv2
+ Hui68YnxA
+ssh G3
+g3s.arrowhitech.net
+port 21198
+user: ahtg3
+admin: UHaK&989
+
+ssh-keygen
+vao C:\Users\NANI\.ssh mo file id_rsa.pub
+copy ssh-rsa  
+vao
+https://bitbucket.org/account/user/phongnt/ssh-keys/
+click Add key paste vao
+
+user: apache
+admin: @htadmin2016
+
+jara
+http://g0s.arrowhitech.net:8080
+aht_hainv2
+hainv1804
+
+
+bitbucket.
+ducdbv@arrowhitech.com/ Admin$123
+
+rm -r var/*; rm -r pub/static/*; rm -r generated/*
+
+php bin/magento setup:static-content:deploy -f en_US da_DK ar_SA
+
+php -dmemory_limit=6G bin/magento setup:static-content:deploy -f
+
+chmod -R 777 var/*; chmod -R 777 pub/static/*; chmod -R 777 generated/*
+link phpmyadmin: http://g0.arrowhitech.net/admindb
+
+
+
+php -f bin/magento setup:install –base-url=http://localhost/magento2/ --backend-frontname=admin --db-host=localhost --db-name=magento2 --db-user=root --db-password=yes --admin-firstname=admin --admin-lastname=admin --admin-email=admin@gmail.com --admin-user=admin --admin-password=admin123 --language=en_US --currency=USD --timezone=America/Chicago –use-rewrites=1
+
+repo magento 2
+Public Key: 7d55151684ae92bf5dc2d4d8cfa9abe9
+Private Key: 57680678a930808057d2b1d0ad643395
+
+

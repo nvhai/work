@@ -1,0 +1,29 @@
+<!-- Remove Account Dashboard-->
+<referenceBlock name="customer-account-navigation-account-link" remove="true"/>
+
+<!-- Remove Account Information-->
+<referenceBlock name="customer-account-navigation-account-edit-link" remove="true"/>
+
+<!-- Remove Address Book-->
+<referenceBlock name="customer-account-navigation-address-link" remove="true"/>
+
+<!-- Remove My Orders-->
+<referenceBlock name="customer-account-navigation-orders-link" remove="true"/>
+
+<!-- Remove My Downloadable Products-->
+<referenceBlock name="customer-account-navigation-downloadable-products-link" remove="true"/>
+
+<!-- Remove Newsletter Subscriptions-->
+<referenceBlock name="customer-account-navigation-newsletter-subscriptions-link" remove="true"/>
+
+<!-- Remove My Credit Cards-->
+<referenceBlock name="customer-account-navigation-my-credit-cards-link" remove="true"/>
+
+<!-- Remove Billing Agreements-->
+<referenceBlock name="customer-account-navigation-billing-agreements-link" remove="true"/>
+
+<!-- Remove My Product Reviews-->
+<referenceBlock name="customer-account-navigation-product-reviews-link" remove="true"/>
+
+<!-- Remove My Wish List-->
+<referenceBlock name="customer-account-navigation-wish-list-link" remove="true"/>

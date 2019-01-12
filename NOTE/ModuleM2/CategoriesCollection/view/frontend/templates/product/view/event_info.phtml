@@ -1,0 +1,85 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * Product view template
+ *
+ * @see \Magento\Catalog\Block\Product\View\Description
+ */
+?>
+<?php
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+$_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+$_product = $block->getProduct();
+?>
+<?php if($_product->getPastEvent()): ?>
+	<div class="event-alert">
+		<?= __('This event has taken place'); ?><a href="<?php echo $this->getUrl('events'); ?>"><?= __('View All Upcoming Events'); ?></a>
+	</div>
+<?php endif ?>
+<div class="event-detail-main">
+	<?php
+		$productImage = $_imagehelper->init($_product, 'product_base_image')->resize(847, 554)->getUrl();
+		$_productNameStripped = $block->stripTags($_product->getName(), null, true);
+	?>
+	<div class="event-detail-image">
+		<img alt="<?= $_productNameStripped ?>" src="<?= $productImage ?>" class="product-event-photo"/>
+	</div>
+	<div class="event-detail-wrapper">
+		<h1 class="product name product-item-name">
+			<?= /* @escapeNotVerified */ $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
+		</h1>
+		<div class="event-time">
+			<?= strip_tags($_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description')); ?>
+		</div>
+		<?php echo $block->getChildHtml('descriptionevents'); ?>
+		<?php if(!$_product->getPastEvent()): ?>
+			<div class="actions">
+				<?php if(!$_product->getSoldOut()): ?>
+					<a href="#booking-form" class="action book-event primary"><?= __('Book Now'); ?></a>
+					<div id="booking-form" class="booking-form" style="display: none;">
+						<div class="form-title"><?= __('Booking Form') ?></div>
+						<div class="event-info">
+							<h5 class="product name product-item-name">
+								<?= /* @escapeNotVerified */ $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
+							</h5>
+							<div class="event-time">
+								<?= strip_tags($_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description')); ?>
+							</div>
+						</div>
+						<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('booking_form')->toHtml();?>
+					</div>
+				<?php else: ?>
+					<button class="action sold-out-event primary"><?= __('Sold Out'); ?></button>
+				<?php endif ?>
+			</div>
+		<?php endif ?>
+	</div>
+</div>
+<?php echo $this->getLayout()
+          ->createBlock('Convert\CategoriesCollection\Block\Event\ProductEvent')
+          ->setTemplate('Convert_CategoriesCollection::product/view/events_related.phtml')->toHtml(); ?>
+		  
+<script type="text/javascript">
+	require([
+		'jquery', 
+		'fancybox',
+	],function($, fancybox){
+        $(document).ready(function(){
+            $('.fsSubmitButton').val('<?= __('Book Now') ?>');
+
+            $(".book-event").fancybox({
+				'transitionIn'	:	'elastic',
+				'transitionOut'	:	'elastic',
+				'speedIn'		:	600, 
+				'speedOut'		:	200, 
+				'overlayShow'	:	false
+			});
+		});
+	});
+</script>

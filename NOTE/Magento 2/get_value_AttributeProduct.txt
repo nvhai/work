@@ -1,0 +1,1 @@
+$myattribute = $_product->getResource()->getAttribute('Your_Attribute_Code')->getFrontend()->getValue($_product);

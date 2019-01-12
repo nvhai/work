@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <attribute name="class" value="product_landing_events"/>
+		
+		<referenceContainer name="product.info.container.wrapper" remove="true" />
+		<referenceBlock name="stamped.reviews.widget" remove="true" />
+		
+		<referenceContainer name="content">
+			<block class="Magento\Catalog\Block\Product\View" name="product.events.info" template="Convert_CategoriesCollection::product/view/event_info.phtml">
+				<block class="Magento\Catalog\Block\Product\View\Description" name="product.info.description.events" as="descriptionevents" template="Magento_Catalog::product/view/attribute.phtml">
+                    <arguments>
+                        <argument name="at_call" xsi:type="string">getDescription</argument>
+                        <argument name="at_code" xsi:type="string">description</argument>
+                        <argument name="css_class" xsi:type="string">description</argument>
+                        <argument name="at_label" xsi:type="string">none</argument>
+                        <argument name="title" translate="true" xsi:type="string">Details</argument>
+                    </arguments>
+                </block>
+			</block>
+		</referenceContainer>
+    </body>
+</page>

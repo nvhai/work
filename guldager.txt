@@ -1,0 +1,8 @@
+FTP
+prod4.magentohotel.dk
+username: guldager-symaski
+pass: AgZDeFQb
+
+admindev / AdminPass@007
+
+113.190.235.28

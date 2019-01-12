@@ -1,0 +1,41 @@
+http://helpdesk.graphicallyspeaking.ca/browse/WB-140
+
+https://dev.weedbay.ca/admin_9w3e3e3d2b2a9y/
+
+pass admin: 
+admindev
+AdminPass@007
+
+pass access: 
+
+weedbayc
+LeagueDavitMagellanicBonehead4468
+
+
+
+***************
+ACCESS CREDENTIALS
+*****************
+https://sipsjc4-57.nexcess.net:2443/siteworx
+username: weedbay@graphicallyspeaking.ca
+password: CuteDisbarOrchidFoggy96
+domain: weedbay-nexcess.developmentwebsite.ca
+
+FTP:
+209.126.28.67
+username: ftp@weedbay-nexcess.developmentwebsite.ca
+password: DaddyFormsAuguryWhips72
+
+SSH:
+Hostname : sip4-1170.nexcess.net
+Username : weedbayc
+Password : jUh0m48hgVy8
+
+Database:
+database: weedbayn_weedbay
+username: weedbayn_weedbay
+password: DunnedWeeperDareBrunts83
+
+Magento Admin
+User: Sergio
+Pass: Sergio@1234

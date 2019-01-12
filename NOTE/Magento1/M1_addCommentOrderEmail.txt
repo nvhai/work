@@ -1,0 +1,43 @@
+<sales_model_service_quote_submit_after>
+                <observers>
+                    <onepagecheckout>
+                        <type>model</type>
+                        <class>onepagecheckout/observer</class>
+                        <method>removeHistoryComment</method>
+                    </onepagecheckout>
+                </observers>
+            </sales_model_service_quote_submit_after>
+            <sales_model_service_quote_submit_before>
+                <observers>
+                    <onepagecheckout>
+                        <type>model</type>
+                        <class>onepagecheckout/observer</class>
+                        <method>addHistoryComment</method>
+                    </onepagecheckout>
+                </observers>
+            </sales_model_service_quote_submit_before>
+
+
+
+
+
+public function addHistoryComment($data)
+{
+$comment    = Mage::getSingleton('customer/session')->getOrderCustomerComment();
+$comment    = trim($comment); 
+    if (!empty($comment))
+    {
+    $data['order']->addStatusHistoryComment($comment)->setIsVisibleOnFront(true)->setIsCustomerNotified(false);
+    $order = $data->getEvent()->getOrder(); 
+    $order->setCustomerComment($comment);
+    $order->setCustomerNoteNotify(true);
+    $order->setCustomerNote($comment);
+    }
+}
+ public function removeHistoryComment()
+    {
+        Mage::getSingleton('customer/session')->setOrderCustomerComment(null);
+    }
+
+
+{{var order.getEmailCustomerNote()}}

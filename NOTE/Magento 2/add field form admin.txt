@@ -1,0 +1,48 @@
+Vendor/Module/etc/adminhtml/di.xml
+
+
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\User\Block\User\Edit\Tab\Main">
+        <plugin name="sr_stackexchange_user_form" type="Vendor\Module\Plugin\Block\Adminhtml\User\Edit\Tab\Main" sortOrder="1"/>
+    </type>
+</config>
+
+
+namespace Vendor\Module\Plugin\Block\Adminhtml\User\Edit\Tab;
+
+class Main
+{
+    /**
+     * Get form HTML
+     *
+     * @return string
+     */
+    public function aroundGetFormHtml(
+        \Magento\User\Block\User\Edit\Tab\Main $subject,
+        \Closure $proceed
+    )
+    {
+        $form = $subject->getForm();
+        if (is_object($form)) {
+            $fieldset = $form->addFieldset('admin_user_image', ['legend' => __('User Image')]);
+            $fieldset->addField(
+                'user_image',
+                'image',
+                [
+                    'name' => 'user_image',
+                    'label' => __('Image'),
+                    'id' => 'user_image',
+                    'title' => __('Image'),
+                    'required' => false,
+                    'note' => 'Allow image type: jpg, jpeg, png'
+                ]
+            );
+
+            $subject->setForm($form);
+        }
+
+        return $proceed();
+    }
+}

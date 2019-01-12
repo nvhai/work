@@ -1,0 +1,31 @@
+topmenu. Ves_Megamenu
+
+// TABLET
+                    $("#<?php echo $navId ?> .nav-item .nav-anchor").click(function() {
+                        if ($(window).width() >= 768 && $(window).width() < 1024) {
+                            if ($(this).parent().children('.submenu').length == 1) {
+                                if ($(this).parent().hasClass('level0')) {
+                                    if ($(this).parent().hasClass('current')) {
+                                        $(this).parent().removeClass('current');
+                                        return false;
+                                    }
+                                    $("#<?php echo $navId ?> .level0").removeClass('current');
+                                    var mParent = $('#<?php echo $blockId ?> .navigation').offset().top;
+                                    var mHeight = $(this).parent().offset().top;
+                                    var mTop    = (mHeight - mParent) + $(this).parent().height();
+                                    $(this).parent().children('.submenu').css({top:mTop});
+                                }
+                                $(this).parent().addClass('current');
+                                if ($(this).parent().hasClass('submenu-alignleft') || $(this).parent().hasClass('submenu-alignright')){
+                                    if (($(this).parent().offset().left + $(this).parent().children('.submenu').width()) > $(window).width()) {
+                                        $(this).parent().children('.submenu').css('max-width','100%');
+                                        $(this).parent().css('position','static');
+                                    }
+                                }
+                                return false;
+                            }
+                        } else {
+                            $("#<?php echo $navId ?>").find('.submenu').css('max-width','');
+                            $("#<?php echo $navId ?>").find('.submenu-alignleft').css('position','relative');
+                        }
+                    });

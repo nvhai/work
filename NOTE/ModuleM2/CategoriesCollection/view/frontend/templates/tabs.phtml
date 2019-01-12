@@ -1,0 +1,66 @@
+<?php
+/*
+	$block Convert\CategoriesCollection\Block\Tab
+*/
+?>
+<?php 
+	$categoryIds = $block->getCategoryIds();
+	$blockId = rand() . time();
+?>
+<div class="tab-collection">
+	<?php $tabCollection = $block->getTabCollection(); ?>
+	<?php if($tabCollection): ?>
+	<ul class="tab-menu-items">
+		<?php $i = 0; foreach($tabCollection as $_category): $i++ ?>
+		<li class="tab-menu-item">
+			<a <?php if($i == 1): ?> class="active"<?php endif ?> href="#tab_cate_<?= $_category->getId(); ?>">
+				<?= __('Shop By %1', $_category->getName()); ?>
+			</a>
+		</li>
+		<?php endforeach ?>
+	</ul>
+	<div class="tab-content">
+		<?php $i = 0; foreach($tabCollection as $_category): $i++ ?>
+		<div id="tab_cate_<?= $_category->getId(); ?>" class="tab-item-content<?php if($i == 1): ?> active<?php endif ?>">
+			<div id="cate-slider-<?= $_category->getId(); ?>-<?= $blockId ?>" class="categories-collection-slider owl-carousel">
+				<?php $childCate = $_category->getChildrenCategories(); ?>
+				<?php $z = 0; foreach($childCate as $_subCategory): $z++ ?>
+					<?php if($z % 4 == 1): ?>
+					<div class="d-flex">
+					<?php endif ?>
+						<div class="flex-col">
+							<div class="cate-item">
+								<a class="image" href="<?= $block->getCategoryUrl($_subCategory) ?>">
+									<img src="<?= $block->getImageUrl($_subCategory->getId()) ?>" />
+								</a>
+								<div class="cate-link">
+									<a href="<?= $block->getCategoryUrl($_subCategory) ?>"><?= $_subCategory->getName() ?></a>
+								</div>
+							</div>
+						</div>
+					<?php if($z % 4 == 0 || $z == count($childCate)): ?>
+					</div>
+					<?php endif ?>
+				<?php endforeach ?>
+			</div>
+			<script type="text/javascript">
+				require([
+					'jquery', 
+					'carousel',
+				],function(jQuery){
+					jQuery(document).ready(function(){
+						jQuery('#cate-slider-<?= $_category->getId(); ?>-<?= $blockId ?>').owlCarousel({
+							items: 1,
+							loop:true,
+							margin:0,
+							nav:false,
+							dots:true
+						})
+					});
+				});
+			</script>
+		</div>
+		<?php endforeach ?>
+	</div>
+	<?php endif ?>
+</div>

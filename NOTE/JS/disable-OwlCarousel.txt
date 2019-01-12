@@ -1,0 +1,12 @@
+if ($(window).width() < 992) {
+                $('.home-banner .container > .row').addClass('owl-carousel');
+                $('.home-banner .container .row.owl-carousel').owlCarousel({
+                    items: 1,
+                    loop: true,
+                    dots: false
+                });
+            }else {
+                var owl = $('.home-banner .container .row.owl-carousel');
+                owl.trigger('destroy.owl.carousel');
+                owl.addClass('off');
+            }

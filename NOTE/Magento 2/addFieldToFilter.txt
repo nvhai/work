@@ -1,0 +1,56 @@
+1)OR
+->addFieldToFilter(['color', 'size', 'country'],
+    [
+        ['eq' => $yellowId],
+        ['eq' => $smallId],
+        ['neq' => $chinaId]
+    ]);
+
+$_products->addAttributeToFilter('status', array('eq' => 1)); // Using the operator
+$_products->addAttributeToFilter('status', 1); // Without using the operator
+
+3)Not Equals - neq
+
+$_products->addAttributeToFilter('sku', array('neq' => 'test-product'));
+
+4)Like - like
+
+$_products->addAttributeToFilter('sku', array('like' => 'UX%'));
+One thing to note about like is that you can include SQL wildcard characters such as the percent sign, which matches any characters.
+
+5)Not Like - nlike
+
+$_products->addAttributeToFilter('sku', array('nlike' => 'err-prod%'));
+
+6)In - in
+
+$_products->addAttributeToFilter('id', array('in' => array(1,4,98)));
+When using in, the value parameter accepts an array of values.
+
+7)Not In - nin
+
+$_products->addAttributeToFilter('id', array('nin' => array(1,4,98)));
+
+8)NULL - null
+
+$_products->addAttributeToFilter('description', array('null' => true));
+
+9)Not NULL - notnull
+
+$_products->addAttributeToFilter('description', array('notnull' => true));
+
+10)Greater Than - gt
+
+$_products->addAttributeToFilter('id', array('gt' => 5));
+
+11)Less Than - lt
+
+$_products->addAttributeToFilter('id', array('lt' => 5));
+
+12)Greater Than or Equals To- gteq
+
+$_products->addAttributeToFilter('id', array('gteq' => 5));
+
+13)Less Than or Equals To - lteq
+
+$_products->addAttributeToFilter('id', array('lteq' => 5));

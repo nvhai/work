@@ -1,0 +1,90 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * Product view template
+ *
+ * @see \Convert\CategoriesCollection\Block\Event\ProductEvent
+ */
+?>
+
+<?php 
+$events = $block->getProductCollection(); 
+?>
+<?php if(count($events)): ?>
+	<?php
+	$_helper = $this->helper('Magento\Catalog\Helper\Output');
+	$_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+	?>
+<div class="products wrapper products-events">
+	<div class="title-block">
+		<h3><?= __('Upcoming store events'); ?></h3>
+	</div>
+	<div id="list-event-slider" class="products list items event-items owl-carousel">
+		<?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
+		<?php foreach ($events as $_product): ?>
+			<div class="event-item">
+				<div class="event-item-info">
+					<?php 
+					$productImage = $_imagehelper->init($_product, 'category_page_grid')->resize(298, 220)->getUrl();
+					$_productNameStripped = $block->stripTags($_product->getName(), null, true);
+					?>
+					<div class="event-item-image">
+						<a href="<?= /* @escapeNotVerified */ $_product->getProductUrl() ?>">
+							<img alt="<?= $_productNameStripped ?>" src="<?= $productImage ?>" class="product-event-photo"/>
+						</a>
+					</div>
+					<div class="event-item-detail">
+						<strong class="product name product-item-name">
+							<a class="product-item-link"
+							   href="<?= /* @escapeNotVerified */ $_product->getProductUrl() ?>">
+								<?= /* @escapeNotVerified */ $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
+							</a>
+						</strong>
+						<div class="event-time">
+							<?= strip_tags($_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description')); ?>
+						</div>
+						<div class="product description product-item-description">
+							<?= substr(strip_tags($_helper->productAttribute($_product, $_product->getDescription(), 'description')), 0, 128); ?>...
+							<a href="<?= /* @escapeNotVerified */ $_product->getProductUrl() ?>" title="<?= /* @escapeNotVerified */ $_productNameStripped ?>"
+							   class="action more"><?= /* @escapeNotVerified */ __('Read more') ?></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		<?php endforeach ?>
+	</div>
+	<script type="text/javascript">
+		require([
+			'jquery', 
+			'carousel',
+		],function(jQuery){
+			jQuery(document).ready(function(){
+				jQuery('#list-event-slider').owlCarousel({
+					items: 4,
+					loop:true,
+					margin:0,
+					nav:true,
+					dots:false,
+					responsive:{
+						0:{
+							items:1
+						},
+						600:{
+							items:3
+						},
+						992:{
+							items:4
+						}
+					}
+				})
+			});
+		});
+	</script>
+</div>
+<?php endif ?>

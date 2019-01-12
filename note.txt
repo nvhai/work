@@ -1,0 +1,31 @@
+account access: convertdigital/cdigital16
+
+ip devmagento1: 54.66.151.219
+
+
+ip devmagento2: 54.79.99.137
+
+luon phai chay 2 lenh nay nha:
+sudo -s
+su www
+
+tiep theo cd vao du an can pull code:
+
+cd /home/www/tenduan
+
+/home/www/openpay.convert.build/src/
+
+su khi cd vao dung thu muc du an roi thi h dung lenh git nhu bthg
+git branch, git checkout, git pull....
+
+h ban chuyen qua branch develop va pull code ve cho ho
+
+
+ssh -i /home/www/g3/.ssh/cdm2.pem ubuntu@54.79.99.137
+ssh -i /home/www/g3/.ssh/cdm1.pem ubuntu@54.66.151.219
+chú vào jira convert t? g3s theo l?nh này nhé
+a setup cho r?i d?y
+dây là ssh d? vào jira convert
+tao setup hôm qua d?c nó h?i
+luu l?i c?n thì dùng nhé
+m?ng ? cty du?ng .1 cung ko vào tr?c ti?p dc dâu

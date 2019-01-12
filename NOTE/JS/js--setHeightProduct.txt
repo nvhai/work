@@ -1,0 +1,27 @@
+//set same height for all category product item
+        if(jQuery('.products-grid .product-items .product-item').length > 0){
+            if(jQuery('.products-grid .product-items .product-item .product-item-name').length > 0){
+                var maxHeightNameDesc = 0;
+                jQuery('.products-grid .product-items .product-item .product-item-name').each(function(){
+                    if(jQuery(this).height() > maxHeightNameDesc){
+                        maxHeightNameDesc = jQuery(this).height();
+                    }
+                });
+                if(maxHeightNameDesc > 0){
+                    jQuery('.products-grid .product-items .product-item .product-item-name').height(maxHeightNameDesc);
+                }
+                jQuery(window).resize(function(){
+                    jQuery('.products-grid .product-items .product-item .product-item-name').css('height','');
+                    var maxHeightNameDesc = 0;
+                    jQuery('.products-grid .product-items .product-item .product-item-name').each(function(){
+                        if(jQuery(this).height() > maxHeightNameDesc){
+                            maxHeightNameDesc = jQuery(this).height();
+                        }
+                    });
+                    if(maxHeightNameDesc > 0){
+                        jQuery('.products-grid .product-items .product-item .product-item-name').height(maxHeightNameDesc);
+                    }
+                });
+            }
+        }
+        //end set same height for all category product item
