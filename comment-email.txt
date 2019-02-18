@@ -1,0 +1,20 @@
+﻿Subject: G3O - HaiNV Em - 18/02/2019
+To: thongvv@arrowhitech.com
+CC: phongnt@arrowhitech.com, email bên giám sát (hiện tại chưa có)
+
+Task 1(link task) - DONE - Estimate time
+	Note: 
+	- Những files đã custom
+	- Cần update những gì từ Admin
+	- Cần làm rõ phần nào
+	- Cần extension nào
+
+Task 2(link task) - Inprogress(% hoàn thành) - Estimate time - Ngày finish
+	Note:
+	- .....................
+	- .....................
+	
+Task 3(link task) - Pending - Estimate time - Ngày start - Ngày Finish
+	Note:
+	- .....................
+	- .....................

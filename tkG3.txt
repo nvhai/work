@@ -44,3 +44,8 @@ Public Key: 7d55151684ae92bf5dc2d4d8cfa9abe9
 Private Key: 57680678a930808057d2b1d0ad643395
 
 
+mysql -u weedbayc_gssi -p (enter)
+pass: zgk23niqeg 
+use conv_mylightinghub
+source D:/mylightinghub.sql
+
