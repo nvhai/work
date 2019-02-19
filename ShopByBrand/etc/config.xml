@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <shopbybrand>
+            <general>
+                <enable_shopbybrand>1</enable_shopbybrand>
+                <frontend_url_path>brands</frontend_url_path>
+                <display_top_link>1</display_top_link>
+                <show_link_to_brand>1</show_link_to_brand>
+            </general>
+            <brand_listing_page>
+                <group_brand>0</group_brand>
+                <hide_brand>0</hide_brand>
+                <show_number>0</show_number>
+                <display_logo>1</display_logo>
+                <logo_width>125</logo_width>
+                <logo_height>125</logo_height>
+                <display_featured_brand>1</display_featured_brand>
+                <show_on_slide>1</show_on_slide>
+            </brand_listing_page>
+
+
+        </shopbybrand>
+    </default>
+</config>

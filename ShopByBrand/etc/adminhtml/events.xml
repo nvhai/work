@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="shopbybrand_brands_afterSave">
+        <observer name="shopbybrand_brand_product" instance="Vnecoms\ShopByBrand\Observer\Adminhtml\Brand\SaveProductObserver" />
+    </event>
+</config>

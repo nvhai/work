@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Vnecoms_ShopByBrand::shopbybrand" title="Shop By Brand" module="Vnecoms_ShopByBrand"  sortOrder="40" resource="Vnecoms_ShopByBrand::shopbybrand"/>
+        <add id="Vnecoms_ShopByBrand::shopbybrand_brands" title="Manage Brands" sortOrder="10" module="Vnecoms_ShopByBrand" parent="Vnecoms_ShopByBrand::shopbybrand" action="shopbybrand/brands" dependsOnModule="Vnecoms_ShopByBrand" resource="Vnecoms_ShopByBrand::brands"/>
+        <add id="Vnecoms_ShopByBrand::shopbybrand_config" title="Setting" sortOrder="20" module="Vnecoms_ShopByBrand" parent="Vnecoms_ShopByBrand::shopbybrand" action="adminhtml/system_config/edit/section/shopbybrand" dependsOnModule="Vnecoms_ShopByBrand" resource="Vnecoms_ShopByBrand::config"/>
+    </menu>
+</config>

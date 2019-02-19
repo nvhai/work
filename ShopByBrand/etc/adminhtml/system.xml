@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <!-- Add new Tab -->
+        <tab id="vnecoms" translate="label" sortOrder="200">
+            <label>VNECOMS</label>
+        </tab>
+        <section id="shopbybrand" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Shop By Brand</label>
+            <tab>vnecoms</tab>
+            <resource>Vnecoms_ShopByBrand::shopbybrand</resource>
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+
+                <field id="enable_shopbybrand" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Module</label>
+                    <source_model>Vnecoms\ShopByBrand\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="frontend_url_path" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Frontend URL Path</label>
+                </field>
+
+                <field id="display_top_link" translate="label" type="select" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Display Top Link</label>
+                    <source_model>Vnecoms\ShopByBrand\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_link_to_brand" translate="label" type="select" sortOrder="4" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Show Link to Brand Listing Page</label>
+                    <source_model>Vnecoms\ShopByBrand\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="number_brand" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Number of Brands Displayed</label>
+                </field>
+
+
+            </group>
+
+            <group id="brand_listing_page" translate="label" type="text" sortOrder="2" showInDefault="2" showInWebsite="1" showInStore="0">
+                <label>Brand Listing Page</label>
+                <field id="group_brand" translate="label" type="select" sortOrder="1" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Group Brands by First Character</label>
+                    <source_model>Vnecoms\ShopByBrand\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="hide_brand" translate="label" type="select" sortOrder="2" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Hide Brands Without Products</label>
+                    <source_model>Vnecoms\ShopByBrand\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_number" translate="label" type="select" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Show Number of Products</label>
+                    <source_model>Vnecoms\ShopByBrand\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="display_logo" translate="label" type="select" sortOrder="4" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Display Logo</label>
+                    <source_model>Vnecoms\ShopByBrand\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="logo_width" translate="label" type="text" sortOrder="5" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Width Logo</label>
+                    <depends>
+                        <field id="display_logo">1</field>
+                    </depends>
+                </field>
+                <field id="logo_height" translate="label" type="text" sortOrder="6" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Height Logo</label>
+                    <depends>
+                        <field id="display_logo">1</field>
+                    </depends>
+                </field>
+                <field id="display_featured_brand" translate="label" type="select" sortOrder="7" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Display Featured Brands</label>
+                    <source_model>Vnecoms\ShopByBrand\Model\Config\Source\Yesno</source_model>
+
+                </field>
+                    <field id="show_on_slide" translate="label" type="select" sortOrder="8" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Shown as Slider</label>
+                    <source_model>Vnecoms\ShopByBrand\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+        </section>
+    </system>
+</config>
