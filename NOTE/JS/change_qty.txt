@@ -1,0 +1,46 @@
+
+<div class="control qty">
+                    <span class="edit-qty minus">-</span>
+                    <input id="cart-<?= /* @escapeNotVerified */ $_item->getId() ?>-qty"
+                           name="cart[<?= /* @escapeNotVerified */ $_item->getId() ?>][qty]"
+                           data-cart-item-id="<?= $block->escapeHtml($_item->getSku()) ?>"
+                           value="<?= /* @escapeNotVerified */ $block->getQty() ?>"
+                           type="number"
+                           size="4"
+                           title="<?= $block->escapeHtml(__('Qty')) ?>"
+                           class="input-text qty"
+                           data-validate="{required:true,'validate-greater-than-zero':true}"
+                           data-role="cart-item-qty"/>
+                    <span class="edit-qty plus">+</span>
+                </div>
+
+
+
+
+/*change Qty*/
+        $('.box-cart .edit-qty.plus').click(function () {
+            if ($(this).parent().children('.qty').attr('disabled')!='disabled'){
+                qty = $(this).parent().children('.qty').attr('value');
+                qty = parseInt(qty);
+                qty++;
+                $(this).parent().children('.qty').val(qty);
+            }
+        });
+        $('.box-cart .edit-qty.minus').click(function () {
+            if ($(this).parent().children('.qty').attr('disabled')!='disabled'){
+                qty = $(this).parent().children('.qty').attr('value');
+                qty = parseInt(qty);
+                if($("body.page-product-grouped").length){
+                    if (qty>0){
+                        qty--;
+                        $(this).parent().children('.qty').val(qty);
+                    }
+                }else{
+                    if (qty>1){
+                        qty--;
+                        $(this).parent().children('.qty').val(qty);
+                    }
+                }
+
+            }
+        });

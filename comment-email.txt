@@ -18,3 +18,81 @@ Task 3(link task) - Pending - Estimate time - Ngày start - Ngày Finish
 	Note:
 	- .....................
 	- .....................
+
+
+
+
+
+
+Subject: GO3 - HaiNV Em - 18/02/2019
+To: thongvv@arrowhitech.com
+CC: phongnt@arrowhitech.com, email bên giám sát (celine@arrowhitech.com)
+
+Hi Thongvv,
+
+1. Project Name: Gofoods
+
+GOF-8: Creat Header Desktop & Mobile (18/2/2019 -> 19/2/2019) Processing 20%
+
+        - Link Task: http://pm.arrowhitech.net:8080/browse/GOF-8
+        - Link dev task:  http://g3a.arrowhitech.net/gofoods/
+
+         htpassword: admin/admin2018
+       - Link live task: if site live.
+       - Status: Processing (20%)
+       - Time start: 18/Feb/19
+       - Due Date: 19/Feb/19
+       - Estimate time done: 10 hours.
+Note:
+
+Done:
+     - Add "delivery text" static block: added
+Doing:
+     - Add "need help" static block: processing
+     - Logo, search box, add to wishlish, minicart, my account: processing
+Issue need make clear:
+     - Delivery Area: need clear function  popup, how to it work?
+
+GOF-8: Creat Header Desktop & Mobile (18/2/2019 -> 19/2/2019) DONE
+
+       - Link Task: http://pm.arrowhitech.net:8080/browse/GOF-8
+       - Status: Done (100%)
+       - Link dev task:
+
+http://g3a.arrowhitech.net/gofoods/
+
+htaccess: admin/admin2018
+ 
+Note:
+Link Dev Test:
+      http://g3a.arrowhitech.net/gofoods/
+Image tested:
+      - link image tested
+Function tested:
+      - if have need demo.
+Sourcode: 
+      - Bitbucket commit: e67ef16, comment: GOF-8: create header. Branch:development.
+Admin changes :
+      - Add static block: derlivery text, need help....
+      - Add cms page:....
+ .....
+Or nothing
+
+GOF-8: Creat Header Desktop & Mobile (18/2/2019 -> 19/2/2019) Blocking
+
+        - Link Task: http://pm.arrowhitech.net:8080/browse/GOF-8
+        - Status: Blocking
+        - Link Dev:
+        - PSD file: develivery popup
+        - Invision app: link description on invision app
+Note:
+
+Problem:
+- need have extension for function, or can't build this function because....
+
+Requirement Solution:
+- Need disccuss to clear requirement follow PSD, invision app
+- Need provide extension for the function
+- Need solution to do this function....
+......
+Or something else.
