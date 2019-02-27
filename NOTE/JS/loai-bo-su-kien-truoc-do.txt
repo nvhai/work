@@ -1,0 +1,3 @@
+﻿unbind(): Loại bỏ sự kiện được đính kèm trước đó từ thành phần.
+
+$(".qty-dec").unbind('click').click(function(){
