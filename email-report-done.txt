@@ -1,0 +1,73 @@
+﻿
+1-Processing
+1. Project name: workwear 
+    G1SJ-114: Workwear -McLoughlin & Harvey
+           - Link task: http://pm.arrowhitech.net:8080/browse/G1SJ-1xx
+           - Link dev task: http://pm.arrowhitech.net:8080/browse/G1SJ-1xx
+           - Status: Processing (75%)
+           - Start date: 05/03/2019
+           - Due date: 07/03/2019
+           - ETA: 12 hours
+           - Time done: 4hrs
+        Done:
+           - auto switch store for customer
+           - Setup this site on local .
+           - Install ZipPay extensions.
+           - Config ZipPay .
+       Doing:
+           - Create landing page 'Request a Quote'
+           - Upgrade magento to V2.3.2
+
+"				
+2- DONE
+1. Project name: workwear
+    G1SJ-114: Workwear -McLoughlin & Harvey
+           - Link task: http://pm.arrowhitech.net:8080/browse/G1SJ-1xx
+           - Link dev task: http://pm.arrowhitech.net:8080/browse/G1SJ-1xx
+           - Status: Done
+           - Start date: 05/03/2019
+           - Due date: 07/03/2019
+           - ETA: 12 hours
+           - Time done: 4hrs
+        Done:
+           - auto switch store for customer
+           - Setup this site on local .
+           - Install ZipPay extensions.
+           - Config ZipPay .
+"
+3-Pendding			
+"1. Project name: workwear
+    G1SJ-114: Workwear -McLoughlin & Harvey
+           - Link task: http://pm.arrowhitech.net:8080/browse/G1SJ-1xx
+           - Link dev task: http://pm.arrowhitech.net:8080/browse/G1SJ-1xx
+           - Status: Pending
+           - Start date: 
+           - Due date: 
+           - ETA: 
+           - Time done: 0hrs
+     Pending:
+           - Create landing page 'Request a Quote'
+           - Upgrade magento to V2.3.2
+
+"
+
+4-Blocking				
+"4. Project name: workwear
+    G1SJ-114: Workwear -McLoughlin & Harvey
+           - Link task: http://pm.arrowhitech.net:8080/browse/G1SJ-1xx
+           - Link dev task: http://pm.arrowhitech.net:8080/browse/G1SJ-1xx
+           - Status: Processing (75%)
+           - Start date: 05/03/2019
+           - Due date: 07/03/2019
+           - ETA: 12 hours
+           - Time done: 4hrs
+        Done:
+           - auto switch store for customer
+           - Setup this site on local .
+           - Install ZipPay extensions.
+           - Config ZipPay .
+       Doing:
+           - Create landing page 'Request a Quote'
+           - Upgrade magento to V2.3.2
+      Troubleshooting: 
+           - Need clarifying Status/ Cost/ Pricing fields in inventory"					
