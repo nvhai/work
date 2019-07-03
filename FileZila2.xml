@@ -1,0 +1,924 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FileZilla3 version="3.43.0" platform="windows">
+	<Servers>
+		<Server>
+			<Host>prod1.magentohotel.dk</Host>
+			<Port>21</Port>
+			<Protocol>0</Protocol>
+			<Type>0</Type>
+			<User>smykkelykke_dk</User>
+			<Pass encoding="base64">SjQyTUtJMzE=</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>3553-smykkelykke</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>172.16.0.64</Host>
+			<Port>22</Port>
+			<Protocol>1</Protocol>
+			<Type>0</Type>
+			<User>sweetmag</User>
+			<Pass encoding="base64">c3dlZXRtYWcxMjMhIQ==</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>aht3674_Fashion_valet</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>54.214.94.137</Host>
+			<Port>22</Port>
+			<Protocol>1</Protocol>
+			<Type>0</Type>
+			<User>porto.alex</User>
+			<Pass encoding="base64">YWRtaW4xMjM=</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>aht3688-TLM</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>furniturebx.com.au</Host>
+			<Port>21</Port>
+			<Protocol>0</Protocol>
+			<Type>0</Type>
+			<User>aht@furniturebx.com.au</User>
+			<Pass encoding="base64">eV9aRSVtZThXW0A2</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>aht3731_VS_vessel</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>s981.tmd.cloud</Host>
+			<Port>21</Port>
+			<Protocol>0</Protocol>
+			<Type>0</Type>
+			<User>classilk</User>
+			<Pass encoding="base64">S2E3djZqejYzQQ==</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>aht3733_Classilk</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>archidasia.com</Host>
+			<Port>3879</Port>
+			<Protocol>1</Protocol>
+			<Type>0</Type>
+			<User>archidasia</User>
+			<Pass encoding="base64">TkVWVDZLUkt7c0FV</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>Archisasia</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>104.152.109.63</Host>
+			<Port>21</Port>
+			<Protocol>0</Protocol>
+			<Type>0</Type>
+			<User>athlet56</User>
+			<Pass encoding="base64">YFhjdUtKeUFmOWRoQTg4Kg==</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>Athletecentral(AC)</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>45.114.117.15</Host>
+			<Port>21</Port>
+			<Protocol>0</Protocol>
+			<Type>0</Type>
+			<User>aveovisionmy </User>
+			<Pass encoding="base64">ZkAnemJqeDxTYnU3PVpzNw==</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>aveo</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>ftp.bebbo.bg</Host>
+			<Port>21</Port>
+			<Protocol>0</Protocol>
+			<Type>0</Type>
+			<User>bebboftp2@bebbo.bg</User>
+			<Pass encoding="base64">KFNpTzBhTHtSa3p7</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>bebboftp2@bebbo.bg</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>54.79.99.137</Host>
+			<Port>22</Port>
+			<Protocol>1</Protocol>
+			<Type>0</Type>
+			<User>ubuntu</User>
+			<Logontype>3</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>DEV Convert M2</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>g3.arrowhitech.net</Host>
+			<Port>21198</Port>
+			<Protocol>1</Protocol>
+			<Type>0</Type>
+			<User>ahtg3</User>
+			<Pass encoding="base64">T0FEUzc4OQ==</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>G0.arrowhitech.vn</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>g1a.arrowhitech.net</Host>
+			<Port>21198</Port>
+			<Protocol>1</Protocol>
+			<Type>0</Type>
+			<User>ahtg1</User>
+			<Pass encoding="base64">WUlXRVI4OTc=</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>G1</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>g3.arrowhitech.net</Host>
+			<Port>21</Port>
+			<Protocol>0</Protocol>
+			<Type>0</Type>
+			<User>aht_hainv2</User>
+			<Pass encoding="base64">SHVpNjhZbnhB</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>g3.arrowhitech.net</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>g3a.arrowhitech.net</Host>
+			<Port>21</Port>
+			<Protocol>0</Protocol>
+			<Type>0</Type>
+			<User>ahtg3</User>
+			<Pass encoding="base64">VUhhSyY5ODk=</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>g3a.arrowhitech.net</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>g3s.arrowhitech.net</Host>
+			<Port>21</Port>
+			<Protocol>0</Protocol>
+			<Type>0</Type>
+			<User>aht_hainv2</User>
+			<Pass encoding="base64">SHVpNjhZbnhB</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>G3S</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>g3s.arrowhitech.net</Host>
+			<Port>21198</Port>
+			<Protocol>1</Protocol>
+			<Type>0</Type>
+			<User>ahtg3</User>
+			<Pass encoding="base64">VUhhSyY5ODk=</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>g3s.arrowhitech.net</Name>
+			<Comments>HIE&amp;910</Comments>
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>gofoods.com.my</Host>
+			<Port>21</Port>
+			<Protocol>0</Protocol>
+			<Type>0</Type>
+			<User>gofoodsmy</User>
+			<Pass encoding="base64">SW1USng5SVd1cn1N</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>Gofoods</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>linux79.unoeuro.com</Host>
+			<Port>21</Port>
+			<Protocol>0</Protocol>
+			<Type>0</Type>
+			<User>guldager-symaski.dk</User>
+			<Pass encoding="base64">MjM1bjZhemM=</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>guidager</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>prod4.magentohotel.dk</Host>
+			<Port>21</Port>
+			<Protocol>0</Protocol>
+			<Type>0</Type>
+			<User>guldager-symaski</User>
+			<Pass encoding="base64">QWdaRGVGUWI=</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>guidager2</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>weedbayc.nextmp.net</Host>
+			<Port>21</Port>
+			<Protocol>0</Protocol>
+			<Type>0</Type>
+			<User>ftp@weedbay.ca</User>
+			<Pass encoding="base64">RGluZ2VkTGluYWdlU29ubnlFbGlkZXM2NA==</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>LiveWeedbay</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>216.81.62.229</Host>
+			<Port>21</Port>
+			<Protocol>6</Protocol>
+			<Type>0</Type>
+			<User>loungeworkswpgss</User>
+			<Pass encoding="base64">RmJdemY3dGIpJkw7</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>LoungeWorks</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>linux33.unoeuro.com</Host>
+			<Port>21</Port>
+			<Protocol>0</Protocol>
+			<Type>0</Type>
+			<User>minguldsmed.dk</User>
+			<Pass encoding="base64">Y21zNHNob3A=</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>minguldsmed.dk</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>konditoriarlington.dk.linux35.unoeuro-server.com</Host>
+			<Port>21</Port>
+			<Protocol>0</Protocol>
+			<Type>0</Type>
+			<User>konditoriarlingt.dk</User>
+			<Pass encoding="base64">Y2FmZXJlMjE=</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>New site</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>linux201.unoeuro.com</Host>
+			<Port>21</Port>
+			<Protocol>0</Protocol>
+			<Type>0</Type>
+			<User>poolservice-sho.dk</User>
+			<Pass encoding="base64">dGNiOWg0YWc=</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>poolservice-shop.dk</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>vmcp02.stealth-servers.com.au</Host>
+			<Port>6395</Port>
+			<Protocol>1</Protocol>
+			<Type>0</Type>
+			<User>powercle</User>
+			<Pass encoding="base64">NGoxdEAxMjM=</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>Powerclean</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>3.105.183.229</Host>
+			<Port>22</Port>
+			<Protocol>1</Protocol>
+			<Type>0</Type>
+			<User>ath</User>
+			<Pass encoding="base64">QVRIQFZlc3NlbA==</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>Pre.Vessel</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>199.187.242.26</Host>
+			<Port>22</Port>
+			<Protocol>1</Protocol>
+			<Type>0</Type>
+			<User>root</User>
+			<Pass encoding="base64">VGtndEhRcjcwMTFlMQ==</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>Scalematrix</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>209.126.28.67</Host>
+			<Port>22</Port>
+			<Protocol>1</Protocol>
+			<Type>0</Type>
+			<User>ftp@solecityshoes-nexcess.developmentwebsite.ca</User>
+			<Pass encoding="base64">U2lldmVzU3Rld2VkQ2hvaXJzUm92ZXJzODc=</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>solecity</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>solecity.nextmp.net</Host>
+			<Port>21</Port>
+			<Protocol>0</Protocol>
+			<Type>0</Type>
+			<User>ftp@solecityshoes.com</User>
+			<Pass encoding="base64">T3ZlcnNUdWNrZWRDcmFuZXNNYXJpbmU1NQ==</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>solecity.nextmp.net</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>sip4-1237.nexcess.net</Host>
+			<Port>21</Port>
+			<Protocol>6</Protocol>
+			<Type>0</Type>
+			<User>ftp@solecityshoes.com</User>
+			<Pass encoding="base64">T3ZlcnNUdWNrZWRDcmFuZXNNYXJpbmU1NQ==</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>solecityshoes.gssi.net</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>linux110.unoeuro.com</Host>
+			<Port>21</Port>
+			<Protocol>0</Protocol>
+			<Type>0</Type>
+			<User>swimmingpool.dk</User>
+			<Pass encoding="base64">eHphZmU0bWdkMw==</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>swimmingpool.dk</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>54.153.189.27</Host>
+			<Port>21</Port>
+			<Protocol>0</Protocol>
+			<Type>0</Type>
+			<User>ath</User>
+			<Pass encoding="base64">QVRIQFZlc3NlbA==</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>Vessel</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>watafun.eu</Host>
+			<Port>21</Port>
+			<Protocol>0</Protocol>
+			<Type>0</Type>
+			<User>support-prod</User>
+			<Pass encoding="base64">UmVmYWt0b3IyMDE4</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>watafun.eu</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>209.126.28.67</Host>
+			<Port>21</Port>
+			<Protocol>0</Protocol>
+			<Type>0</Type>
+			<User>ftp@weedbay-nexcess.developmentwebsite.ca</User>
+			<Pass encoding="base64">RGFkZHlGb3Jtc0F1Z3VyeVdoaXBzNzI=</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>Webay</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>weedbay-m2-nexcess.developmentwebsite.ca</Host>
+			<Port>21</Port>
+			<Protocol>0</Protocol>
+			<Type>0</Type>
+			<User>ftp@weedbay-m2-nexcess.developmentwebsite.ca</User>
+			<Pass encoding="base64">UGlkZGxlRmlydGhzTW9udGhHdWxjaDgw</Pass>
+			<Logontype>1</Logontype>
+			<TimezoneOffset>0</TimezoneOffset>
+			<PasvMode>MODE_DEFAULT</PasvMode>
+			<MaximumMultipleConnections>0</MaximumMultipleConnections>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>weedbay</Name>
+			<Comments />
+			<Colour>0</Colour>
+			<LocalDir />
+			<RemoteDir />
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+	</Servers>
+	<Settings>
+		<Setting name="Use Pasv mode">1</Setting>
+		<Setting name="Limit local ports">0</Setting>
+		<Setting name="Limit ports low">6000</Setting>
+		<Setting name="Limit ports high">7000</Setting>
+		<Setting name="Limit ports offset">0</Setting>
+		<Setting name="External IP mode">0</Setting>
+		<Setting name="External IP" />
+		<Setting name="External address resolver">http://ip.filezilla-project.org/ip.php</Setting>
+		<Setting name="Last resolved IP" />
+		<Setting name="No external ip on local conn">1</Setting>
+		<Setting name="Pasv reply fallback mode">0</Setting>
+		<Setting name="Timeout">20</Setting>
+		<Setting name="Logging Debug Level">0</Setting>
+		<Setting name="Logging Raw Listing">0</Setting>
+		<Setting name="fzsftp executable" />
+		<Setting name="fzstorj executable" />
+		<Setting name="Allow transfermode fallback">1</Setting>
+		<Setting name="Reconnect count">2</Setting>
+		<Setting name="Reconnect delay">5</Setting>
+		<Setting name="Enable speed limits">0</Setting>
+		<Setting name="Speedlimit inbound">1000</Setting>
+		<Setting name="Speedlimit outbound">100</Setting>
+		<Setting name="Speedlimit burst tolerance">0</Setting>
+		<Setting name="Preallocate space">0</Setting>
+		<Setting name="View hidden files">0</Setting>
+		<Setting name="Preserve timestamps">0</Setting>
+		<Setting name="Socket recv buffer size (v2)">4194304</Setting>
+		<Setting name="Socket send buffer size (v2)">262144</Setting>
+		<Setting name="FTP Keep-alive commands">0</Setting>
+		<Setting name="FTP Proxy type">0</Setting>
+		<Setting name="FTP Proxy host" />
+		<Setting name="FTP Proxy user" />
+		<Setting name="FTP Proxy password" />
+		<Setting name="FTP Proxy login sequence" />
+		<Setting name="SFTP keyfiles">F:\Work1\CDSD\convert-magento2.ppk</Setting>
+		<Setting name="SFTP compression">0</Setting>
+		<Setting name="Proxy type">0</Setting>
+		<Setting name="Proxy host" />
+		<Setting name="Proxy port">0</Setting>
+		<Setting name="Proxy user" />
+		<Setting name="Proxy password" />
+		<Setting name="Logging file" />
+		<Setting name="Logging filesize limit">10</Setting>
+		<Setting name="Logging show detailed logs">0</Setting>
+		<Setting name="Size format">0</Setting>
+		<Setting name="Size thousands separator">1</Setting>
+		<Setting name="Size decimal places">1</Setting>
+		<Setting name="TCP Keepalive Interval">15</Setting>
+		<Setting name="Cache TTL">600</Setting>
+		<Setting name="Number of Transfers">2</Setting>
+		<Setting name="Ascii Binary mode">0</Setting>
+		<Setting name="Auto Ascii files">am|asp|bat|c|cfm|cgi|conf|cpp|css|dhtml|diz|h|hpp|htm|html|in|inc|java|js|jsp|lua|m4|mak|md5|nfo|nsi|pas|patch|pem|php|phtml|pl|po|py|qmail|sh|sha1|sha256|sha512|shtml|sql|svg|tcl|tpl|txt|vbs|xhtml|xml|xrc</Setting>
+		<Setting name="Auto Ascii no extension">1</Setting>
+		<Setting name="Auto Ascii dotfiles">1</Setting>
+		<Setting name="Language Code" />
+		<Setting name="Concurrent download limit">0</Setting>
+		<Setting name="Concurrent upload limit">0</Setting>
+		<Setting name="Update Check">1</Setting>
+		<Setting name="Update Check Interval">7</Setting>
+		<Setting name="Last automatic update check">2019-07-01 07:48:13</Setting>
+		<Setting name="Last automatic update version">3.42.1</Setting>
+		<Setting name="Update Check New Version">nightly 2019-07-01 https://filezilla-project.org/nightlies/2019-07-01/win64/FileZilla_3_setup.exe 8383184 sha512 99e79a00d9116206747470c0cbd8bdae80cbe27efde45c036c8eae497d7fc096936436b9a512e220a660e0dda3e362ae0636a5cce6ae8b519e6f7244481e40f5 sig:dQKUyFqL/4C32otBo+e8g9866C/AZ633VdegQK7iZ2xU4TSFegjCVoMTdaq45Vz7/KEs0tMTYd9ODX5Wx7AhDg
+release 3.43.0 https://dl4.cdn.filezilla-project.org/FileZilla_3.43.0_win64-setup.exe 7892544 sha512 a6a75fc15bed5a5011b9fd40f619cdb451405b0ab7fd231d79f32595af91da6878bd68da48a29744b476200d59f229744e0074288e47a577d1b2cc7a20d2c7fe sig:JzdyWXU5SGCbL9Yvjyq7rMWS6alsQOGJQI8JroGNUPlKYKCmnIsw/e+e9GBAHf7Exktdx0jEuzrPhs76e4MRCw
+resources 3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d225554462d38223f3e3c7265736f757263652076657273696f6e3d22322e332e302e312220786d6c6e733d22687474703a2f2f7777772e777877696e646f77732e6f72672f7778787263223e3c6f626a65637420636c6173733d22777850616e656c22206e616d653d2249445f5550444154455f484541444552223e3c6f626a65637420636c6173733d227778426f7853697a6572223e3c6f7269656e743e7778564552544943414c3c2f6f7269656e743e3c6f626a65637420636c6173733d2273697a65726974656d223e3c666c61673e777847524f573c2f666c61673e3c6f626a65637420636c6173733d227778537461746963426f7853697a6572223e3c6c6162656c3e46696c655a696c6c612050726f3c2f6c6162656c3e3c6f7269656e743e7778564552544943414c3c2f6f7269656e743e3c6f626a65637420636c6173733d2273697a65726974656d223e3c666c61673e7778414c49474e5f43454e5445525f484f52495a4f4e54414c7c7778414c4c3c2f666c61673e3c626f726465723e32643c2f626f726465723e3c6f626a65637420636c6173733d227778466c65784772696453697a6572223e3c686761703e3130643c2f686761703e3c636f6c733e323c2f636f6c733e3c6f626a65637420636c6173733d2273697a65726974656d223e3c666c61673e7778414c49474e5f43454e5445525f564552544943414c3c2f666c61673e3c6f626a65637420636c6173733d227778466c65784772696453697a6572223e3c636f6c733e313c2f636f6c733e3c6f626a65637420636c6173733d2273697a65726974656d223e3c6f626a65637420636c6173733d22777853746174696354657874223e3c6c6162656c3e4e65656420746f2061636365737320476f6f676c652044726976652c20416d617a6f6e2053332c204f6e6544726976652c204d6963726f736f667420417a7572652c5c6e44726f70626f782c20476f6f676c6520436c6f75642c205765624441562c204261636b626c617a65204232206f7220426f783f3c2f6c6162656c3e3c2f6f626a6563743e3c626f726465723e31643c2f626f726465723e3c666c61673e7778424f54544f4d3c2f666c61673e3c2f6f626a6563743e3c6f626a65637420636c6173733d2273697a65726974656d223e3c6f626a65637420636c6173733d227778426f7853697a6572223e3c6f7269656e743e7778484f52495a4f4e54414c3c2f6f7269656e743e3c6f626a65637420636c6173733d2273697a65726974656d223e3c6f626a65637420636c6173733d22777848797065726c696e6b4374726c223e3c6c6162656c3e4765742046696c655a696c6c612050726f3c2f6c6162656c3e3c75726c3e68747470733a2f2f6f66666572732e66696c657a696c6c612d70726f6a6563742e6f72672f72656469726563742e7068703f633d667a70726f5f656e26616d703b733d753c2f75726c3e3c2f6f626a6563743e3c2f6f626a6563743e3c6f626a65637420636c6173733d2273697a65726974656d223e3c6f626a65637420636c6173733d22777853746174696354657874223e3c6c6162656c3e2c2066696c65207472616e73666572206d6164652065617379213c2f6c6162656c3e3c2f6f626a6563743e3c2f6f626a6563743e3c2f6f626a6563743e3c2f6f626a6563743e3c2f6f626a6563743e3c2f6f626a6563743e3c6f626a65637420636c6173733d2273697a65726974656d223e3c666c61673e7778414c49474e5f43454e5445525f564552544943414c3c2f666c61673e3c6f626a65637420636c6173733d227778426f7853697a6572223e3c6f7269656e743e7778564552544943414c3c2f6f7269656e743e3c6f626a65637420636c6173733d2273697a65726974656d223e3c6f626a65637420636c6173733d2277785374617469634269746d6170223e3c6269746d61703e626c6f623a38393530346534373064306131613061303030303030306434393438343435323030303030303430303030303030343030383033303030303030396462373831656330303030303266313530346335343435303030303030626630303030613130303030386630303030626630303030393430303030613530303030386630303030386630303030386630303030623930303030626230303030623930303030396530303030386630303030393030303030633030303030386630303030626630303030386630303030393230303030393930303030393730303030633030303030393630303030623930323032626630303030633030303030626630303030616130303030616430303030616130303030396430303030616330303030633030303030623830303030396230303030613330303030396130303030623730303030626630303030393630303030626630303030623030303030613630303030393630303030633030303030623830303030396430303030626630303030626630303030613230303030386630303030626430303030396330303030393830303030633030303030623630303030386630303030396630303030626630303030623130303030626630303030613630303030633030303030393030303030393130303030626630303030393130303030626630303030626530303030393030303030393330303030626630303030613130303030393430303030626530303030393630303030386630303030386430303030393230303030393130303030623230303030613430303030623230303030613430303030623430303030386630303030623430303030386630303030626230303030626130303030393530303030393630303030393030303030386530303030613930303030613930303030616530303030616330303030623230303030666666666666386630303030626630303030393230303030616630303030623330303030623130303030626430303030623730303030623530303030393930303030626230303030393430303030396330303030613130303030613430303030393730303030623930303030613730303030616430303030393630303030396230303030613030313031616130303030613630303030396530303030633935353535613330303030396630303030653038383838663564656465663364646464613930303030616330303030666566646664666566636663666266356635663765366536653663306330633636383638613330613061663064316431656463636363653161636163646161326132646139613961636338313831633837313731633636333633613833303330613530653065666466386638663765396539663365336533663064346434656263396339656263346334653863336333653762636263653262326232653962316231646461346134643739663966643439373937643238623862636137353735623533383338613931353135616431303130613930653065613630373037663164666466663364396439653863376337653362636263653061396139646239633963646139333933643239323932643638643864643038383838643038313831633737643764636137633763636337623762643537363736636537363736636336653665633136363636633335353535626335353535633035323532623835303530633634653465636634373437623134363436626534353435633534303430626134303430623233313331613332343234613632303230616531663166633031643164616231373137613031373137396630663066623530633063393630613061613230373037396630363036613130343034663965656565656163646364656363316331653562376237653462346234653362336233653461616161646361386138653561326132653239623962643639623962646638633863643638343834633837653765633036653665643636633663643236353635633735633563623835623562633435393539633435383538633435373537623735373537643135363536623934363436623334343434636433633363633633363336623033333333633332653265626232383238623532363236623232323232623431363136613431363136396131353135633031333133623231333133396138623935323030303030303036353734353234653533303065663032666565323036306466616634663135333362316466616566653063616266616561313464343633373263313466636638663565636539653432633237323031343132306266646664666366626638663666356631656265616561653965366462646164386430633963346236623361636139613039373935386438363836376337623737366336613661363236313566356434373333326131653137663065396539653765366434643364326431633262666236623339353933376437633731366633666638336636663735303030303034373334393434343135343538633361353936363535343162353131343834363735333932353261343530386164356464646464646464646435643932643432643530613334326561313436383831623635303737373737373737373737373737663766363537326663393762326230396462623338373763376636366466626433333933636465366563333930313734366538323930303338306166323030343931663830393432343339326361383235303866613438363230643432306139323730383935343931613061383231663439393032306638393265343130303433373164653561623961636465363861376164343232323936623830303738393666373637386536333739623862376232313238613364393563333830386439386139626364313933633931646439373936316533303934323561393064376434353932616133613930383531303861643932343833396234646432646232353266343932323665373965643932646532653139366335323463623034393631393835646334663530323266336635376532376535653830323137646632663366393733303264303039633932666338303861323536336631376138306439343732396331643162613763653237613738363532313865346338313261333361633730363339653135633330633761386365396632343061336364623066353537306665336666393064343331646539653030393634346661373138626433376161663363303331396632653037383832326664653533633336616166336263626630333435343037383238363762373863656137636565656638383037353032653866373231346131396539663964636561393230346633393063353066323935626261373865373736326339383032343730326337386331306263653066643030363363356166373931663339306466343031663464623466353030626331343933363961633630383962363032326631306364666234613563396563323061663666366435343234623130336465353933393334366336633962653961663030343261313565383264363332666362346662656463356231333035326134313339623863373061653666356436306138363262313863663061313638636664336664666334303462613637393665353766316133353732393430353332663730306232346339323338616162356530326630623634303539313639393463383133386466393639636339663139343439363531313238623334313636636535383132633430643734633133323536653638326333386338303339396261363139383863656635616266633131613239613332383738633931646533323733383333356263633466613762633038616131343163326462323935626638616133396437393362343563616433663163376665313338396433383235353830633031303931663963633132313365326334316233316266363032643164636632643365313862333964333431303434306236653561633765663732396635336665623539383866356331623432656333623135313262326538343234383262313064393732383533333536373164336139373030373636346465366162646265626332383931333837653363326333623761633064636639353064613835666332633264396366356663353034386231323239376636373964383535383164363764393365376666333461626132613531316633326466353266653261616165363633616535613263313730653237633434643866623661633565366435663232346336323033623336643039353332306535333735663066306233623764373765376634653861383035653766383136313562636164386330346565386262326361383933323732393635656237356161333137343635623737616562326165356131343636356237613537303066636337333033653730653365393331333261343763396339353865353736333633613339373236383864623030313034353837643864396333386331316437383634386363313466336362633764383237353137333637386164626132323039613761623364333632653635633938363437653835333866623332656430386266663430653036303234613866363434636535643639313232353237656337343838393566623164376638363565393030306365343963653564653433653236386135393431666138343236656139653031303337396665353933336436323765613532633732653934306534323537393431393935306336306136363965633330376262633566633063336562616638373163366336323963363739613131323635383062616563333239326239313762336633306361336334396363386662646231656335343462326137623434636361333730303531363834343232613131316363626339623065303465356435333833303832353330383834323139666564336139656166386664623865363732366162313763343862303566393732303235393362306534653932363561616639383835306339643532393262303661623730353166356366643234323835306662646434373861613932646637383563363138333866356163313935623934366533646339623962333663643566326634626166356631656166373466393430353735646164653163386233646661633261666564646165366462316362393665663761373563366431353331333830616539393239643961346436303164306262323762666330356430663138643239613563323061643031323934633265393131323236643734383831393466363232373766623331393532343434366138356134346132313137663739343736383162653333343966393963626165613234363938323735373536396464616530396663363965646433313838316139323831653838633633656634313130313638643238366261316232303338306435393662656130636535343962616538656462663432333038303932323635333233313264616661393364306133616434333532636436346161343635323837316531373839336637643036343932333933613932343439353362613162336466653031633939663763656565323666653932393030303030303030343934353465343461653432363038323c2f6269746d61703e3c73697a653e36342c36343c2f73697a653e3c746f6f6c7469703e68747470733a2f2f6f66666572732e66696c657a696c6c612d70726f6a6563742e6f72672f72656469726563742e7068703f633d667a70726f5f656e26616d703b733d753c2f746f6f6c7469703e3c2f6f626a6563743e3c2f6f626a6563743e3c2f6f626a6563743e3c2f6f626a6563743e3c2f6f626a6563743e3c2f6f626a6563743e3c2f6f626a6563743e3c2f6f626a6563743e3c6f626a65637420636c6173733d2273697a65726974656d223e3c6f626a65637420636c6173733d22777848797065726c696e6b4374726c223e3c68696464656e3e313c2f68696464656e3e3c6c6162656c3e5768617420697320746869733f3c2f6c6162656c3e3c75726c3e68747470733a2f2f66696c657a696c6c612d70726f6a6563742e6f72672f73706f6e736f7265645f757064617465732e7068703c2f75726c3e3c2f6f626a6563743e3c666c61673e7778414c49474e5f52494748543c2f666c61673e3c2f6f626a6563743e3c6f626a65637420636c6173733d22737061636572223e3c73697a653e31302c333c2f73697a653e3c2f6f626a6563743e3c2f6f626a6563743e3c2f6f626a6563743e3c6f626a65637420636c6173733d22777850616e656c22206e616d653d2249445f57454c434f4d455f484541444552223e3c6f626a65637420636c6173733d227778426f7853697a6572223e3c6f7269656e743e7778564552544943414c3c2f6f7269656e743e3c6f626a65637420636c6173733d2273697a65726974656d223e3c666c61673e777847524f573c2f666c61673e3c6f626a65637420636c6173733d227778537461746963426f7853697a6572223e3c6c6162656c3e46696c655a696c6c612050726f3c2f6c6162656c3e3c6f7269656e743e7778564552544943414c3c2f6f7269656e743e3c6f626a65637420636c6173733d2273697a65726974656d223e3c666c61673e7778414c49474e5f43454e5445525f484f52495a4f4e54414c7c7778414c4c3c2f666c61673e3c626f726465723e32643c2f626f726465723e3c6f626a65637420636c6173733d227778466c65784772696453697a6572223e3c686761703e3130643c2f686761703e3c636f6c733e323c2f636f6c733e3c6f626a65637420636c6173733d2273697a65726974656d223e3c666c61673e7778414c49474e5f43454e5445525f564552544943414c3c2f666c61673e3c6f626a65637420636c6173733d227778466c65784772696453697a6572223e3c636f6c733e313c2f636f6c733e3c6f626a65637420636c6173733d2273697a65726974656d223e3c6f626a65637420636c6173733d22777853746174696354657874223e3c6c6162656c3e4e65656420746f2061636365737320476f6f676c652044726976652c20416d617a6f6e2053332c204f6e6544726976652c204d6963726f736f667420417a7572652c5c6e44726f70626f782c20476f6f676c6520436c6f75642c205765624441562c204261636b626c617a65204232206f7220426f783f3c2f6c6162656c3e3c2f6f626a6563743e3c626f726465723e31643c2f626f726465723e3c666c61673e7778424f54544f4d3c2f666c61673e3c2f6f626a6563743e3c6f626a65637420636c6173733d2273697a65726974656d223e3c6f626a65637420636c6173733d227778426f7853697a6572223e3c6f7269656e743e7778484f52495a4f4e54414c3c2f6f7269656e743e3c6f626a65637420636c6173733d2273697a65726974656d223e3c6f626a65637420636c6173733d22777848797065726c696e6b4374726c223e3c6c6162656c3e4765742046696c655a696c6c612050726f3c2f6c6162656c3e3c75726c3e68747470733a2f2f6f66666572732e66696c657a696c6c612d70726f6a6563742e6f72672f72656469726563742e7068703f633d667a70726f5f656e26616d703b733d773c2f75726c3e3c2f6f626a6563743e3c2f6f626a6563743e3c6f626a65637420636c6173733d2273697a65726974656d223e3c6f626a65637420636c6173733d22777853746174696354657874223e3c6c6162656c3e2c2066696c65207472616e73666572206d6164652065617379213c2f6c6162656c3e3c2f6f626a6563743e3c2f6f626a6563743e3c2f6f626a6563743e3c2f6f626a6563743e3c2f6f626a6563743e3c2f6f626a6563743e3c6f626a65637420636c6173733d2273697a65726974656d223e3c666c61673e7778414c49474e5f43454e5445525f564552544943414c3c2f666c61673e3c6f626a65637420636c6173733d227778426f7853697a6572223e3c6f7269656e743e7778564552544943414c3c2f6f7269656e743e3c6f626a65637420636c6173733d2273697a65726974656d223e3c6f626a65637420636c6173733d2277785374617469634269746d6170223e3c6269746d61703e626c6f623a38393530346534373064306131613061303030303030306434393438343435323030303030303430303030303030343030383033303030303030396462373831656330303030303266313530346335343435303030303030626630303030613130303030386630303030626630303030393430303030613530303030386630303030386630303030386630303030623930303030626230303030623930303030396530303030386630303030393030303030633030303030386630303030626630303030386630303030393230303030393930303030393730303030633030303030393630303030623930323032626630303030633030303030626630303030616130303030616430303030616130303030396430303030616330303030633030303030623830303030396230303030613330303030396130303030623730303030626630303030393630303030626630303030623030303030613630303030393630303030633030303030623830303030396430303030626630303030626630303030613230303030386630303030626430303030396330303030393830303030633030303030623630303030386630303030396630303030626630303030623130303030626630303030613630303030633030303030393030303030393130303030626630303030393130303030626630303030626530303030393030303030393330303030626630303030613130303030393430303030626530303030393630303030386630303030386430303030393230303030393130303030623230303030613430303030623230303030613430303030623430303030386630303030623430303030386630303030626230303030626130303030393530303030393630303030393030303030386530303030613930303030613930303030616530303030616330303030623230303030666666666666386630303030626630303030393230303030616630303030623330303030623130303030626430303030623730303030623530303030393930303030626230303030393430303030396330303030613130303030613430303030393730303030623930303030613730303030616430303030393630303030396230303030613030313031616130303030613630303030396530303030633935353535613330303030396630303030653038383838663564656465663364646464613930303030616330303030666566646664666566636663666266356635663765366536653663306330633636383638613330613061663064316431656463636363653161636163646161326132646139613961636338313831633837313731633636333633613833303330613530653065666466386638663765396539663365336533663064346434656263396339656263346334653863336333653762636263653262326232653962316231646461346134643739663966643439373937643238623862636137353735623533383338613931353135616431303130613930653065613630373037663164666466663364396439653863376337653362636263653061396139646239633963646139333933643239323932643638643864643038383838643038313831633737643764636137633763636337623762643537363736636537363736636336653665633136363636633335353535626335353535633035323532623835303530633634653465636634373437623134363436626534353435633534303430626134303430623233313331613332343234613632303230616531663166633031643164616231373137613031373137396630663066623530633063393630613061613230373037396630363036613130343034663965656565656163646364656363316331653562376237653462346234653362336233653461616161646361386138653561326132653239623962643639623962646638633863643638343834633837653765633036653665643636633663643236353635633735633563623835623562633435393539633435383538633435373537623735373537643135363536623934363436623334343434636433633363633633363336623033333333633332653265626232383238623532363236623232323232623431363136613431363136396131353135633031333133623231333133396138623935323030303030303036353734353234653533303065663032666565323036306466616634663135333362316466616566653063616266616561313464343633373263313466636638663565636539653432633237323031343132306266646664666366626638663666356631656265616561653965366462646164386430633963346236623361636139613039373935386438363836376337623737366336613661363236313566356434373333326131653137663065396539653765366434643364326431633262666236623339353933376437633731366633666638336636663735303030303034373334393434343135343538633361353936363535343162353131343834363735333932353261343530386164356464646464646464646435643932643432643530613334326561313436383831623635303737373737373737373737373737663766363537326663393762326230396462623338373763376636366466626433333933636465366563333930313734366538323930303338306166323030343931663830393432343339326361383235303866613438363230643432306139323730383935343931613061383231663439393032306638393265343130303433373164653561623961636465363861376164343232323936623830303738393666373637386536333739623862376232313238613364393563333830386439386139626364313933633931646439373936316533303934323561393064376434353932616133613930383531303861643932343833396234646432646232353266343932323665373965643932646532653139366335323463623034393631393835646334663530323266336635376532376535653830323137646632663366393733303264303039633932666338303861323536336631376138306439343732396331643162613763653237613738363532313865346338313261333361633730363339653135633330633761386365396632343061336364623066353537306665336666393064343331646539653030393634346661373138626433376161663363303331396632653037383832326664653533633336616166336263626630333435343037383238363762373863656137636565656638383037353032653866373231346131396539663964636561393230346633393063353066323935626261373865373736326339383032343730326337386331306263653066643030363363356166373931663339306466343031663464623466353030626331343933363961633630383962363032326631306364666234613563396563323061663666366435343234623130336465353933393334366336633962653961663030343261313565383264363332666362346662656463356231333035326134313339623863373061653666356436306138363262313863663061313638636664336664666334303462613637393665353766316133353732393430353332663730306232346339323338616162356530326630623634303539313639393463383133386466393639636339663139343439363531313238623334313636636535383132633430643734633133323536653638326333386338303339396261363139383863656635616266633131613239613332383738633931646533323733383333356263633466613762633038616131343163326462323935626638616133396437393362343563616433663163376665313338396433383235353830633031303931663963633132313365326334316233316266363032643164636632643365313862333964333431303434306236653561633765663732396635336665623539383866356331623432656333623135313262326538343234383262313064393732383533333536373164336139373030373636346465366162646265626332383931333837653363326333623761633064636639353064613835666332633264396366356663353034386231323239376636373964383535383164363764393365376666333461626132613531316633326466353266653261616165363633616535613263313730653237633434643866623661633565366435663232346336323033623336643039353332306535333735663066306233623764373765376634653861383035653766383136313562636164386330346565386262326361383933323732393635656237356161333137343635623737616562326165356131343636356237613537303066636337333033653730653365393331333261343763396339353865353736333633613339373236383864623030313034353837643864396333386331316437383634386363313466336362633764383237353137333637386164626132323039613761623364333632653635633938363437653835333866623332656430386266663430653036303234613866363434636535643639313232353237656337343838393566623164376638363565393030306365343963653564653433653236386135393431666138343236656139653031303337396665353933336436323765613532633732653934306534323537393431393935306336306136363965633330376262633566633063336562616638373163366336323963363739613131323635383062616563333239326239313762336633306361336334396363386662646231656335343462326137623434636361333730303531363834343232613131316363626339623065303465356435333833303832353330383834323139666564336139656166386664623865363732366162313763343862303566393732303235393362306534653932363561616639383835306339643532393262303661623730353166356366643234323835306662646434373861613932646637383563363138333866356163313935623934366533646339623962333663643566326634626166356631656166373466393430353735646164653163386233646661633261666564646165366462316362393665663761373563366431353331333830616539393239643961346436303164306262323762666330356430663138643239613563323061643031323934633265393131323236643734383831393466363232373766623331393532343434366138356134346132313137663739343736383162653333343966393963626165613234363938323735373536396464616530396663363965646433313838316139323831653838633633656634313130313638643238366261316232303338306435393662656130636535343962616538656462663432333038303932323635333233313264616661393364306133616434333532636436346161343635323837316531373839336637643036343932333933613932343439353362613162336466653031633939663763656565323666653932393030303030303030343934353465343461653432363038323c2f6269746d61703e3c73697a653e36342c36343c2f73697a653e3c746f6f6c7469703e68747470733a2f2f6f66666572732e66696c657a696c6c612d70726f6a6563742e6f72672f72656469726563742e7068703f633d667a70726f5f656e26616d703b733d773c2f746f6f6c7469703e3c2f6f626a6563743e3c2f6f626a6563743e3c2f6f626a6563743e3c2f6f626a6563743e3c2f6f626a6563743e3c2f6f626a6563743e3c2f6f626a6563743e3c2f6f626a6563743e3c6f626a65637420636c6173733d2273697a65726974656d223e3c6f626a65637420636c6173733d22777848797065726c696e6b4374726c223e3c68696464656e3e313c2f68696464656e3e3c6c6162656c3e5768617420697320746869733f3c2f6c6162656c3e3c75726c3e68747470733a2f2f66696c657a696c6c612d70726f6a6563742e6f72672f73706f6e736f7265645f757064617465732e7068703c2f75726c3e3c2f6f626a6563743e3c666c61673e7778414c49474e5f52494748543c2f666c61673e3c2f6f626a6563743e3c6f626a65637420636c6173733d22737061636572223e3c73697a653e31302c333c2f73697a653e3c2f6f626a6563743e3c2f6f626a6563743e3c2f6f626a6563743e3c2f7265736f757263653e 0
+
+3.43.0 (2019-06-27)
+
+! Filenames containing double-quotation marks were not escaped correctly when selected for opening/editing. Depending on the associated program, parts of the filename could be interpreted as commands.
+- Added a second layer of authentication to the update mechanism
+
+3.43.0-rc2 (2019-06-21)
+
+- Rebuilt against libfilezilla 0.17.1
+
+3.43.0-rc1 (2019-06-19)
+
+- macOS: Minimum required macOS version has been increased to 10.11 (El Capitan)
+- *nix: Official Linux binaries are now built for Debian 10 (Buster)
+- Building FileZilla now requires a C++17 compiler
+- Building and running FileZilla now depends on libfilezilla &gt;= 0.17.0 (https://lib.filezilla-project.org/)
+- When using SFTP, fix fallback to password authentication on a server refusing a password-protected key
+- Fix HTTP proxy support
+- *nix: Improve resolution of program icon
+</Setting>
+		<Setting name="Update Check Check Beta">0</Setting>
+		<Setting name="Show debug menu">0</Setting>
+		<Setting name="File exists action download">0</Setting>
+		<Setting name="File exists action upload">0</Setting>
+		<Setting name="Allow ascii resume">0</Setting>
+		<Setting name="Greeting version">3.43.0</Setting>
+		<Setting name="Greeting resources" />
+		<Setting name="Onetime Dialogs" />
+		<Setting name="Show Tree Local">1</Setting>
+		<Setting name="Show Tree Remote">1</Setting>
+		<Setting name="File Pane Layout">0</Setting>
+		<Setting name="File Pane Swap">0</Setting>
+		<Setting name="Filelist directory sort">0</Setting>
+		<Setting name="Filelist name sort">0</Setting>
+		<Setting name="Queue successful autoclear">0</Setting>
+		<Setting name="Queue column widths">180 60 180 80 60 150</Setting>
+		<Setting name="Local filelist colwidths">120 80 100 120</Setting>
+		<Setting name="Remote filelist colwidths">168 75 80 100 80 146</Setting>
+		<Setting name="Window position and size">1 1730 105 1184 841 </Setting>
+		<Setting name="Splitter positions (v2)">50 -109 445827232 126 190 500000000</Setting>
+		<Setting name="Local filelist sortorder">0 0</Setting>
+		<Setting name="Remote filelist sortorder">0 0</Setting>
+		<Setting name="Time Format">0</Setting>
+		<Setting name="Date Format">0</Setting>
+		<Setting name="Show message log">1</Setting>
+		<Setting name="Show queue">1</Setting>
+		<Setting name="Default editor">2"C:\Program Files\Sublime Text 3\sublime_text.exe"</Setting>
+		<Setting name="Always use default editor">0</Setting>
+		<Setting name="Inherit system associations">1</Setting>
+		<Setting name="Custom file associations">php "C:\Program Files\Sublime Text 3\sublime_text.exe"</Setting>
+		<Setting name="Comparison mode">1</Setting>
+		<Setting name="Comparison threshold">1</Setting>
+		<Setting name="Site Manager position">0 2021 118 594 471 </Setting>
+		<Setting name="Icon theme">default</Setting>
+		<Setting name="Icon scale">125</Setting>
+		<Setting name="Timestamp in message log">0</Setting>
+		<Setting name="Sitemanager last selected">0/g3a.arrowhitech.net</Setting>
+		<Setting name="Local filelist shown columns">1111</Setting>
+		<Setting name="Remote filelist shown columns">111111</Setting>
+		<Setting name="Local filelist column order">0,1,2,3</Setting>
+		<Setting name="Remote filelist column order">0,1,2,3,4,5</Setting>
+		<Setting name="Filelist status bar">1</Setting>
+		<Setting name="Filter toggle state">0</Setting>
+		<Setting name="Show quickconnect bar">1</Setting>
+		<Setting name="Messagelog position">0</Setting>
+		<Setting name="File doubleclick action">0</Setting>
+		<Setting name="Dir doubleclick action">0</Setting>
+		<Setting name="Minimize to tray">0</Setting>
+		<Setting name="Search column widths" />
+		<Setting name="Search column shown" />
+		<Setting name="Search column order" />
+		<Setting name="Search window size" />
+		<Setting name="Comparison hide identical">0</Setting>
+		<Setting name="Search sort order" />
+		<Setting name="Edit track local">1</Setting>
+		<Setting name="Prevent idle sleep">1</Setting>
+		<Setting name="Filteredit window size" />
+		<Setting name="Enable invalid char filter">1</Setting>
+		<Setting name="Invalid char replace">_</Setting>
+		<Setting name="Already connected choice">0</Setting>
+		<Setting name="Edit status dialog size" />
+		<Setting name="Display current speed">0</Setting>
+		<Setting name="Toolbar hidden">0</Setting>
+		<Setting name="Strip VMS revisions">0</Setting>
+		<Setting name="Startup action">0</Setting>
+		<Setting name="Prompt password save">0</Setting>
+		<Setting name="Persistent Choices">1</Setting>
+		<Setting name="Queue completion action">1</Setting>
+		<Setting name="Queue completion command" />
+		<Setting name="Drag and Drop disabled">0</Setting>
+		<Setting name="Disable update footer">0</Setting>
+		<Setting name="Master password encryptor" />
+		<Setting name="Config Location">C:\Users\nvhai93\AppData\Roaming\FileZilla\</Setting>
+		<Setting name="Kiosk mode">0</Setting>
+		<Setting name="Disable update check">0</Setting>
+		<Setting name="Cache directory" />
+		<Setting name="Tab data">
+			<Tabs>
+				<Tab selected="1">
+					<Host>g3a.arrowhitech.net</Host>
+					<Port>21</Port>
+					<Protocol>0</Protocol>
+					<Type>0</Type>
+					<User>ahtg3</User>
+					<Pass encoding="base64">VUhhSyY5ODk=</Pass>
+					<Logontype>1</Logontype>
+					<TimezoneOffset>0</TimezoneOffset>
+					<PasvMode>MODE_DEFAULT</PasvMode>
+					<MaximumMultipleConnections>0</MaximumMultipleConnections>
+					<EncodingType>Auto</EncodingType>
+					<BypassProxy>0</BypassProxy>
+					<Name>g3a.arrowhitech.net</Name>
+					<Site>0/g3a.arrowhitech.net</Site>
+					<RemotePath>1 0 14 aht3731_vessel 3 app 4 code 2 MW 7 EasyFaq 3 etc 8 frontend</RemotePath>
+					<LocalPath>F:\Work1\Archidasa\</LocalPath>
+				</Tab>
+			</Tabs>
+		</Setting>
+	</Settings>
+	<Queue />
+</FileZilla3>
