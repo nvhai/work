@@ -1,0 +1,46 @@
+<?php
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+
+/** @var $block \Aheadworks\OneStepCheckout\Block\Adminhtml\System\Config\GeoIp\DownloadDatabase */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+    $lastUpdated = $block->isDownloadedAndLibInstalled()
+        ? $block->getLastUpdatedAt()
+        : __('Never');
+?>
+<div class="aw-osc_button-container">
+    <button class="action-default"
+            type="button"
+            data-role="download-geo-ip-database"
+            <?php if ($block->isDisabled()): ?> disabled<?php endif; ?>
+            data-mage-init='{"awOscDownloader": {
+                "submitUrl": <?php /* @noEscape */ echo \Zend_Json::encode($block->getSubmitUrl()) ?>,
+                "downloadUrl": <?php /* @noEscape */ echo \Zend_Json::encode($block->getDownloadUrl()) ?>,
+                "fileName": <?php /* @noEscape */ echo \Zend_Json::encode($block->getFileName()) ?>,
+                "downloadedLabel": <?php /* @noEscape */ echo \Zend_Json::encode($block->getButtonLabelDownloaded()) ?>,
+                "isDownloaded": <?php /* @noEscape */ echo \Zend_Json::encode($block->isDownloaded()) ?>,
+                "linkedControlsSelector": <?php /* @noEscape */ echo \Zend_Json::encode('#aw_osc_geo_ip_enabled') ?>,
+                "noteTemplate": <?php /* @noEscape */ echo \Zend_Json::encode(__('Last time updated: <%= updatedAt %>')) ?>
+            }}'
+    ><?php echo $block->escapeHtml($block->getButtonLabel()) ?></button>
+</div>
+<p class="note">
+    <span data-role="download-geo-ip-updated-at"><?php echo $block->escapeHtml(__('Last time updated: %1', $lastUpdated)) ?></span>
+</p>
+<?php if ($block->isDownloadedAndLibInstalled()): ?>
+
+<?php endif; ?>
+<script type="text/x-magento-init">
+    {
+        "#aw_osc_geo_ip_enabled": {
+            "awOscInputEnabler": {
+                "isEnabledInitial": <?php /* @noEscape */ echo \Zend_Json::encode($block->isDownloadedAndLibInstalled()) ?>
+            }
+        }
+    }
+</script>

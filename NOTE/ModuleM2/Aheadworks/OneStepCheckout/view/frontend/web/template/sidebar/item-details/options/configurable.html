@@ -1,0 +1,10 @@
+<div class="aw-sidebar-product-options" data-bind="mageInit: {'collapsible':{'openedState': 'active'}}">
+    <span data-role="title" class="toggle" data-bind="i18n:'View Details'"></span>
+    <div class="aw-sidebar-product-options_content" data-role="content">
+        <dl class="item-options">
+            <!-- ko foreach: { data: elems(), as: 'element' } -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!-- /ko -->
+        </dl>
+    </div>
+</div>

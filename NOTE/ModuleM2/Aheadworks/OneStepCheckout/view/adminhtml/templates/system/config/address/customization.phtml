@@ -1,0 +1,105 @@
+<?php
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+
+/** @var $block \Aheadworks\OneStepCheckout\Block\Adminhtml\System\Config\Address\Customization */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+    $htmlName = $block->getElement()->getName();
+?>
+<div class="aw-osc_fields-customization">
+    <div class="aw-osc_customization-note"><?php echo $block->escapeHtml(__('Define field names and drag and drop them to required position.')) ?></div>
+    <div>
+        <table class="admin__control-table" data-mage-init='{"awOscDraggableFieldArray": {}}'>
+            <tbody data-role="row-container">
+            <?php foreach ($block->getAttrCodesGroupedByFieldRow() as $fieldRowId => $attrCodes): ?>
+                <tr>
+                    <td class="col-draggable">
+                        <?php
+                        $sortOrder = $block->getFieldRowSortOrder($fieldRowId);
+                        ?>
+                        <div data-role="draggable-handle" class="draggable-handle"
+                             title="<?php echo $block->escapeHtml(__('Sort Rows')) ?>"></div>
+                        <input
+                            data-role="sort-order"
+                            type="hidden"
+                            name="<?php /* @noEscape */ echo $htmlName ?>[rows][<?php /* @noEscape */ echo $fieldRowId ?>][sort_order]"
+                            value="<?php /* @noEscape */ echo $sortOrder ?>"/>
+                    </td>
+                    <td class="col-attributes">
+                        <?php foreach ($attrCodes as $attrCode): ?>
+                            <?php
+                                $formValues = $block->getAttributeFormValues($attrCode);
+                                $defaultValues = $block->getAttributeFormDefaultValues($attrCode);
+                                $isMultiline = $block->isMultiline($attrCode);
+                                $lines = $isMultiline ? $block->getMultilineCount($attrCode) : 1;
+                            ?>
+                            <?php for ($line = 0; $line < $lines; $line++): ?>
+                                <?php
+                                    $label = $isMultiline ? $formValues[$line]['label'] : $formValues['label'];
+                                    $defaultLabel = $isMultiline ? $defaultValues[$line]['label'] : $defaultValues['label'];
+                                    $visible = $isMultiline ? $formValues[$line]['visible'] : $formValues['visible'];
+                                    $required = $isMultiline ? $formValues[$line]['required'] : $formValues['required'];
+                                ?>
+                                <div class="attribute-item-<?php /* @noEscape */ echo $attrCode ?>" data-mage-init='{"awOscAttributeMetaEdit": {}}'>
+                                    <input
+                                        id="<?php /* @noEscape */ echo $block->getInputHtmlId($attrCode, 'label', $line) ?>"
+                                        name="<?php /* @noEscape */ echo $block->getInputHtmlName($attrCode, 'label', $line, '__outer') ?>"
+                                        value="<?php /* @noEscape */ echo $label ?>"
+                                        placeholder="<?php /* @noEscape */ echo $defaultLabel ?>"
+                                        class="input-text required-entry"
+                                        type="text"
+                                        <?php if (!$visible): ?>
+                                            disabled="disabled"
+                                        <?php endif; ?>
+                                        data-required="<?php if ($required): ?>1<?php else: ?>0<?php endif; ?>"
+                                        data-meta-field-name="label"/>
+                                    <input
+                                        data-value-input-id="<?php /* @noEscape */ echo $block->getInputHtmlId($attrCode, 'label', $line) ?>"
+                                        type="hidden"
+                                        name="<?php /* @noEscape */ echo $block->getInputHtmlName($attrCode, 'label', $line) ?>"
+                                        value="<?php /* @noEscape */ echo $label ?>"/>
+                                    <div class="edit-actions">
+                                        <?php foreach ($block->getBooleanMetaFields() as $metaField => $inputLabel): ?>
+                                            <?php
+                                            $metaValue = $isMultiline
+                                                ? ($formValues[$line][$metaField] ? 1 : 0)
+                                                : ($formValues[$metaField] ? 1 : 0);
+                                            $canModifyMeta = $block->canModifyMeta($attrCode, $metaField, $line);
+                                            ?>
+                                            <?php if ($canModifyMeta): ?>
+                                                <input type="checkbox"
+                                                       name="<?php /* @noEscape */ echo $block->getInputHtmlName($attrCode, $metaField, $line, '__outer') ?>]"
+                                                       value="1"
+                                                       id="<?php /* @noEscape */ echo $block->getInputHtmlId($attrCode, $metaField, $line) ?>"
+                                                    <?php if ($metaValue): ?>
+                                                        checked="checked"
+                                                    <?php endif; ?>
+                                                       data-meta-field-name="<?php /* @noEscape */ echo $metaField ?>"/>
+                                                <label for="<?php /* @noEscape */ echo $block->getInputHtmlId($attrCode, $metaField, $line) ?>" class="label">
+                                                    <span><?php echo $block->escapeHtml(__($inputLabel)) ?></span>
+                                                </label>
+                                            <?php endif; ?>
+                                            <input
+                                                <?php if ($canModifyMeta): ?>
+                                                    data-value-input-id="<?php /* @noEscape */ echo $block->getInputHtmlId($attrCode, $metaField, $line) ?>"
+                                                <?php endif; ?>
+                                                type="hidden"
+                                                name="<?php /* @noEscape */ echo $block->getInputHtmlName($attrCode, $metaField, $line) ?>]"
+                                                value="<?php /* @noEscape */ echo $metaValue ?>"/>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </div>
+                            <?php endfor; ?>
+                        <?php endforeach; ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+</div>

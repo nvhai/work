@@ -1,0 +1,28 @@
+<div class="primary">
+    <!-- ko if: isMethodSelectionOnAdyenSide() -->
+    <button class="action primary checkout"
+            type="submit"
+            data-bind="
+                click: continueToAdyen,
+                attr: {'title': $t('Continue to Adyen')},
+                css: {disabled: !isPlaceOrderActionAllowed()},
+                enable: isPlaceOrderActionAllowed()
+                "
+            disabled>
+        <span data-bind="i18n: 'Continue to Adyen'"></span>
+    </button>
+    <!-- /ko -->
+    <!-- ko ifnot: isMethodSelectionOnAdyenSide() -->
+    <button class="action primary checkout"
+            type="submit"
+            data-bind="
+                click: continueToAdyenBrand,
+                attr: {'title': $t('Place Order')},
+                css: {disabled: !isPlaceOrderActionAllowed()},
+                enable: isPlaceOrderActionAllowed()
+                "
+            disabled>
+        <span data-bind="i18n: 'Place order'"></span>
+    </button>
+    <!-- /ko -->
+</div>

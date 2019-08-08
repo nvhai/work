@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 2018 IWD Agency - All rights reserved.
+  ~ See LICENSE.txt bundled with this module for license details.
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <!-- Order handling -->
+    <!--<event name="sales_model_service_quote_submit_success">-->
+    <!--<observer name="subscriptions_generate" instance="IWD\BluePaySubs\Observer\GenerateSubscriptionsObserver" />-->
+    <!--</event>-->
+    <!--<event name="sales_order_save_after">-->
+    <!--<observer name="subscriptions_log_fill_order_id" instance="IWD\BluePaySubs\Observer\CorrectLogOrderIdObserver" />-->
+    <!--</event>-->
+    <event name="sales_quote_product_add_after">
+        <observer name="iwd_subs_quote_add_item" instance="IWD\BluePaySubs\Observer\QuoteProductAddAfter"/>
+    </event>
+    <event name="payment_method_is_active">
+        <observer name="iwd_subs_payment_is_active" instance="IWD\BluePaySubs\Observer\PaymentMethodIsActive" shared="true"/>
+    </event>
+    <event name="iwd_subs_order_generate_after">
+        <observer name="iwd_subs_set_order_created_date" instance="IWD\BluePaySubs\Observer\SubsOrderGenerateAfter"/>
+    </event>
+    <event name="catalog_product_delete_after">
+        <observer name="iwd_subs_product_delete_after" instance="IWD\BluePaySubs\Observer\ProductDeleteAfter" />
+    </event>
+</config>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 2018 IWD Agency - All rights reserved.
+  ~ See LICENSE.txt bundled with this module for license details.
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="iwd_subs_synchronize" instance="IWD\BluePaySubs\Console\Command\SyncCommand" method="executeCron">
+            <schedule>*/15 * * * *</schedule>
+        </job>
+    </group>
+</config>

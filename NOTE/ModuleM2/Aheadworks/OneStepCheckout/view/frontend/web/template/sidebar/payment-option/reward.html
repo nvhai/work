@@ -1,0 +1,21 @@
+<div class="aw-onestep-sidebar-block payment-option opc-payment-additional rewardpoints"
+     data-role="aw-async-collapsible"
+     data-bind="visible: isAvailable()">
+    <div class="payment-option-title field choice" data-role="title">
+        <span class="action action-toggle" role="heading" aria-level="2">
+            <span data-bind="i18n: 'Reward points'"></span>
+        </span>
+    </div>
+    <div class="payment-option-content" data-role="content">
+        <div class="payment-option-inner">
+            <span data-bind="html: $t(label)"></span>
+        </div>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button class="action action-use primary" data-bind="click: useRewardPoints">
+                    <span><!-- ko i18n: 'Use reward points'--><!-- /ko --></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

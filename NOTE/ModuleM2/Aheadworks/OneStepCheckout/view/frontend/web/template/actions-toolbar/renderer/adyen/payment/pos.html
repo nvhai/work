@@ -1,0 +1,13 @@
+<div class="primary">
+    <button class="action primary checkout"
+            type="submit"
+            data-bind="
+                click: continueToAdyen,
+                attr: {'title': $t('Continue to Adyen App')},
+                css: {disabled: !isPlaceOrderActionAllowed()},
+                enable: isPlaceOrderActionAllowed()
+                "
+            disabled>
+        <span data-bind="i18n: 'Continue to Adyen App'"></span>
+    </button>
+</div>

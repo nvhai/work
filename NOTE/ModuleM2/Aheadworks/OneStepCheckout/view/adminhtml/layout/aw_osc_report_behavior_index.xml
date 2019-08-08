@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="aw_osc_report_default"/>
+    <body>
+        <referenceBlock name="aw_osc.report.view_container.aggregation_switcher" remove="true"/>
+        <referenceBlock name="aw_osc.report.view_container">
+            <container name="report_content">
+                <block class="Aheadworks\OneStepCheckout\Block\Adminhtml\Report\CheckoutBehavior\View" name="aw_osc.report.checkout_behavior">
+                    <block class="Aheadworks\OneStepCheckout\Block\Adminhtml\Report\CheckoutBehavior\Totals" name="aw_osc.report.checkout_behavior.totals" as="totals">
+                        <arguments>
+                            <argument name="totals_columns" xsi:type="array">
+                                <item name="abandoned_checkouts_count" xsi:type="array">
+                                    <item name="label" xsi:type="string" translate="true">Abandoned Checkouts</item>
+                                </item>
+                                <item name="completed_checkouts_count" xsi:type="array">
+                                    <item name="label" xsi:type="string" translate="true">Number Of Orders</item>
+                                </item>
+                                <item name="abandoned_checkout_rate" xsi:type="array">
+                                    <item name="label" xsi:type="string" translate="true">Abandoned Checkout Rate</item>
+                                    <item name="format" xsi:type="string">formatPercents</item>
+                                </item>
+                            </argument>
+                        </arguments>
+                    </block>
+                    <container name="bar_charts">
+                        <block class="Aheadworks\OneStepCheckout\Block\Adminhtml\Report\CheckoutBehavior\BarChart" name="aw_osc.report.checkout_behavior.email_chart">
+                            <arguments>
+                                <argument name="title" xsi:type="string" translate="true">Email address</argument>
+                                <argument name="description" xsi:type="string" translate="true">Abandoned checkouts with specified email addresses</argument>
+                                <argument name="fetch_criteria" xsi:type="array">
+                                    <item name="email" xsi:type="array">
+                                        <item name="field_name" xsi:type="string">email</item>
+                                    </item>
+                                </argument>
+                            </arguments>
+                        </block>
+                        <block class="Aheadworks\OneStepCheckout\Block\Adminhtml\Report\CheckoutBehavior\MultipleBarChart" name="aw_osc.report.checkout_behavior.shipping_address_chart">
+                            <arguments>
+                                <argument name="title" xsi:type="string" translate="true">Shipping address</argument>
+                                <argument name="description" xsi:type="string" translate="true">This section shows completed fields to the total number of abandoned checkouts ratio</argument>
+                                <argument name="scope" xsi:type="string">shippingAddress</argument>
+                                <argument name="meta_provider_class_name" xsi:type="string">Aheadworks\OneStepCheckout\Block\Adminhtml\Report\CheckoutBehavior\AddressAttributes\MetaProvider\ShippingAddress</argument>
+                            </arguments>
+                        </block>
+                        <block class="Aheadworks\OneStepCheckout\Block\Adminhtml\Report\CheckoutBehavior\MultipleBarChart" name="aw_osc.report.checkout_behavior.billing_address_chart">
+                            <arguments>
+                                <argument name="title" xsi:type="string" translate="true">Billing address</argument>
+                                <argument name="description" xsi:type="string" translate="true">This section shows completed fields to the total number of abandoned checkouts ratio</argument>
+                                <argument name="note" xsi:type="string" translate="true">Current statistics for checkouts with billing address different from the shipping address or billing only</argument>
+                                <argument name="scope" xsi:type="string">billingAddress</argument>
+                                <argument name="meta_provider_class_name" xsi:type="string">Aheadworks\OneStepCheckout\Block\Adminhtml\Report\CheckoutBehavior\AddressAttributes\MetaProvider\BillingAddress</argument>
+                            </arguments>
+                        </block>
+                        <block class="Aheadworks\OneStepCheckout\Block\Adminhtml\Report\CheckoutBehavior\BarChart" name="aw_osc.report.checkout_behavior.shipping_method_chart">
+                            <arguments>
+                                <argument name="title" xsi:type="string" translate="true">Shipping method</argument>
+                                <argument name="description" xsi:type="string" translate="true">Abandoned checkouts with completed shipping method form</argument>
+                                <argument name="fetch_criteria" xsi:type="array">
+                                    <item name="email" xsi:type="array">
+                                        <item name="field_name" xsi:type="string">shippingMethod</item>
+                                    </item>
+                                </argument>
+                            </arguments>
+                        </block>
+                        <block class="Aheadworks\OneStepCheckout\Block\Adminhtml\Report\CheckoutBehavior\BarChart" name="aw_osc.report.checkout_behavior.payment_method_chart">
+                            <arguments>
+                                <argument name="title" xsi:type="string" translate="true">Payment method</argument>
+                                <argument name="description" xsi:type="string" translate="true">Abandoned checkouts with completed billing method form</argument>
+                                <argument name="fetch_criteria" xsi:type="array">
+                                    <item name="email" xsi:type="array">
+                                        <item name="field_name" xsi:type="string">paymentMethod</item>
+                                    </item>
+                                </argument>
+                            </arguments>
+                        </block>
+                    </container>
+                </block>
+            </container>
+        </referenceBlock>
+    </body>
+</page>

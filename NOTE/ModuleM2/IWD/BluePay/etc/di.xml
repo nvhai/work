@@ -1,0 +1,321 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 2018 IWD Agency - All rights reserved.
+  ~ See LICENSE.txt bundled with this module for license details.
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="IWD\BluePay\Api\Data\CardSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+    <preference for="IWD\BluePay\Api\Data\CardInterface" type="IWD\BluePay\Model\Card" />
+    <preference for="IWD\BluePay\Api\CardRepositoryInterface" type="IWD\BluePay\Model\CardRepository" />
+    <preference for="IWD\BluePay\Api\Data\PaymentTokenFactoryInterface" type="IWD\BluePay\Model\PaymentTokenFactory"/>
+
+    <type name="IWD\BluePay\Model\PaymentTokenFactory">
+        <arguments>
+            <argument name="tokenTypes" xsi:type="array">
+                <item name="account" xsi:type="const">IWD\BluePay\Api\Data\PaymentTokenFactoryInterface::TOKEN_TYPE_ACCOUNT</item>
+                <item name="credit_card" xsi:type="const">IWD\BluePay\Api\Data\PaymentTokenFactoryInterface::TOKEN_TYPE_CREDIT_CARD</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="IWDBluePayFacade" type="Magento\Payment\Model\Method\Adapter">
+        <arguments>
+            <argument name="code" xsi:type="const">IWD\BluePay\Model\Ui\ConfigProvider::CODE</argument>
+            <argument name="infoBlockType" xsi:type="string">IWDBluePayInfo</argument>
+            <argument name="formBlockType" xsi:type="string">IWD\BluePay\Block\Form</argument>
+            <argument name="valueHandlerPool" xsi:type="object">IWDBluePayValueHandlerPool</argument>
+            <argument name="validatorPool" xsi:type="object">IWDBluePayValidatorPool</argument>
+            <argument name="commandPool" xsi:type="object">IWDBluePayCommandPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="IWDBluePayInfo" type="IWD\BluePay\Block\Info">
+        <arguments>
+            <argument name="config" xsi:type="object">IWD\BluePay\Gateway\Config\Config</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Value handler pool -->
+    <virtualType name="IWDBluePayValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">IWDBluePayConfigValueHandler</item>
+                <item name="can_void" xsi:type="string">IWD\BluePay\Gateway\Config\CanVoidHandler</item>
+                <item name="can_cancel" xsi:type="string">IWD\BluePay\Gateway\Config\CanVoidHandler</item>
+                <item name="can_capture" xsi:type="string">IWD\BluePay\Gateway\Config\CanVoidHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="IWDBluePayConfigValueHandler" type="Magento\Payment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">IWD\BluePay\Gateway\Config\Config</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Validator pool -->
+    <virtualType name="IWDBluePayValidatorPool" type="Magento\Payment\Gateway\Validator\ValidatorPool">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="country" xsi:type="string">IWDBluePayCountryValidator</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="IWDBluePayCountryValidator" type="Magento\Payment\Gateway\Validator\CountryValidator">
+        <arguments>
+            <argument name="config" xsi:type="object">IWD\BluePay\Gateway\Config\Config</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Command pool -->
+    <virtualType name="IWDBluePayCommandPool" type="Magento\Payment\Gateway\Command\CommandPool">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="authorize" xsi:type="string">IWDBluePayAuthorizeCommand</item>
+                <item name="vault_authorize" xsi:type="string">IWDBluePayVaultAuthorizeCommand</item>
+                <item name="vault_sale" xsi:type="string">IWDBluePayVaultSaleCommand</item>
+                <item name="vault_capture" xsi:type="string">IWDBluePayVaultCaptureCommand</item>
+                <item name="sale" xsi:type="string">IWDBluePaySaleCommand</item>
+                <item name="capture" xsi:type="string">IWDBluePayCaptureStrategyCommand</item>
+                <item name="settlement" xsi:type="string">IWDBluePayCaptureCommand</item>
+                <item name="void" xsi:type="string">IWDBluePayVoidCommand</item>
+                <item name="refund" xsi:type="string">IWDBluePayRefundCommand</item>
+                <item name="cancel" xsi:type="string">IWDBluePayVoidCommand</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="IWDBluePayAuthorizeCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">IWDBluePayAuthorizeRequest</argument>
+            <argument name="handler" xsi:type="object">IWDBluePayAuthorizationHandler</argument>
+            <argument name="transferFactory" xsi:type="object">IWD\BluePay\Gateway\Http\TransferFactory</argument>
+            <argument name="client" xsi:type="object">IWD\BluePay\Gateway\Http\Client\TransactionAuthorize</argument>
+            <argument name="validator" xsi:type="object">IWD\BluePay\Gateway\Validator\ResponseValidator</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="IWDBluePaySaleCommand" type="IWDBluePayAuthorizeCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">IWDBluePaySaleRequest</argument>
+            <argument name="client" xsi:type="object">IWD\BluePay\Gateway\Http\Client\TransactionSale</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="IWDBluePayCaptureStrategyCommand" type="IWD\BluePay\Gateway\Command\CaptureStrategyCommand">
+        <arguments>
+            <argument name="commandPool" xsi:type="object">IWDBluePayCommandPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="IWDBluePayCaptureCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">IWDBluePayCaptureRequest</argument>
+            <argument name="transferFactory" xsi:type="object">IWD\BluePay\Gateway\Http\TransferFactory</argument>
+            <argument name="client" xsi:type="object">IWD\BluePay\Gateway\Http\Client\TransactionCapture</argument>
+            <argument name="handler" xsi:type="object">IWD\BluePay\Gateway\Response\TransactionIdHandler</argument>
+            <argument name="validator" xsi:type="object">IWD\BluePay\Gateway\Validator\ResponseValidator</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="IWDBluePayVoidCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="client" xsi:type="object">IWD\BluePay\Gateway\Http\Client\TransactionVoid</argument>
+            <argument name="requestBuilder" xsi:type="object">IWD\BluePay\Gateway\Request\VoidDataBuilder</argument>
+            <argument name="handler" xsi:type="object">IWD\BluePay\Gateway\Response\VoidHandler</argument>
+            <argument name="validator" xsi:type="object">IWD\BluePay\Gateway\Validator\ResponseValidator</argument>
+            <argument name="transferFactory" xsi:type="object">IWD\BluePay\Gateway\Http\TransferFactory</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="IWDBluePayRefundCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="client" xsi:type="object">IWD\BluePay\Gateway\Http\Client\TransactionRefund</argument>
+            <argument name="requestBuilder" xsi:type="object">IWD\BluePay\Gateway\Request\RefundDataBuilder</argument>
+            <argument name="validator" xsi:type="object">IWD\BluePay\Gateway\Validator\ResponseValidator</argument>
+            <argument name="handler" xsi:type="object">IWD\BluePay\Gateway\Response\RefundHandler</argument>
+            <argument name="transferFactory" xsi:type="object">IWD\BluePay\Gateway\Http\TransferFactory</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="IWDBluePayAuthorizationHandler" type="Magento\Payment\Gateway\Response\HandlerChain">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="payment_details" xsi:type="string">IWD\BluePay\Gateway\Response\PaymentDetailsHandler</item>
+                <item name="txn_id" xsi:type="string">IWD\BluePay\Gateway\Response\TransactionIdHandler</item>
+                <item name="vault_details" xsi:type="string">IWD\BluePay\Gateway\Response\VaultDetailsHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="IWDBluePaySaleRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="authorize" xsi:type="string">IWDBluePayAuthorizeRequest</item>
+                <item name="settlement" xsi:type="string">IWD\BluePay\Gateway\Request\SettlementDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="IWDBluePayAuthorizeRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="customer" xsi:type="string">IWD\BluePay\Gateway\Request\CustomerDataBuilder</item>
+                <item name="payment" xsi:type="string">IWD\BluePay\Gateway\Request\PaymentDataBuilder</item>
+                <item name="channel" xsi:type="string">IWD\BluePay\Gateway\Request\ChannelDataBuilder</item>
+                <item name="vault" xsi:type="string">IWD\BluePay\Gateway\Request\VaultDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="IWDBluePayCaptureRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="capture" xsi:type="string">IWD\BluePay\Gateway\Request\CaptureDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="IWDBluePayMethodLogger" type="Magento\Payment\Model\Method\Logger">
+        <arguments>
+            <argument name="config" xsi:type="object">IWD\BluePay\Gateway\Config\Config</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="IWD\BluePay\Gateway\Http\Client\AbstractTransaction">
+        <arguments>
+            <argument name="customLogger" xsi:type="object">IWDBluePayMethodLogger</argument>
+        </arguments>
+    </type>
+
+    <type name="IWD\BluePay\Gateway\Config\Config">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">IWD\BluePay\Model\Ui\ConfigProvider::CODE</argument>
+        </arguments>
+    </type>
+
+    <!-- Vault payment integration -->
+    <virtualType name="IWDBluePayCreditCardVaultFacade" type="Magento\Vault\Model\Method\Vault">
+        <arguments>
+            <argument name="config" xsi:type="object">IWDBluePayVaultPaymentConfig</argument>
+            <argument name="valueHandlerPool" xsi:type="object">IWDBluePayVaultPaymentValueHandlerPool</argument>
+            <argument name="vaultProvider" xsi:type="object">IWDBluePayFacade</argument>
+            <argument name="code" xsi:type="const">IWD\BluePay\Model\Ui\ConfigProvider::CC_VAULT_CODE</argument>
+            <argument name="commandManagerPool" xsi:type="object">IWDBluePayCcVaultCommandManagerPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="IWDBluePayVaultPaymentConfig" type="Magento\Payment\Gateway\Config\Config">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">IWD\BluePay\Model\Ui\ConfigProvider::CC_VAULT_CODE</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="IWDBluePayVaultPaymentValueHandlerPool" type="VaultPaymentValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">IWDBluePayVaultPaymentValueHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="IWDBluePayVaultPaymentValueHandler" type="VaultPaymentDefaultValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">IWDBluePayVaultPaymentConfig</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Vault Command Pool -->
+    <virtualType name="IWDBluePayVaultAuthorizeCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">IWDBluePayVaultAuthorizeRequest</argument>
+            <argument name="transferFactory" xsi:type="object">IWD\BluePay\Gateway\Http\TransferFactory</argument>
+            <argument name="client" xsi:type="object">IWD\BluePay\Gateway\Http\Client\TransactionAuthorize</argument>
+            <argument name="handler" xsi:type="object">IWDBluePayVaultResponseHandler</argument>
+            <argument name="validator" xsi:type="object">IWD\BluePay\Gateway\Validator\ResponseValidator</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="IWDBluePayVaultResponseHandler" type="Magento\Payment\Gateway\Response\HandlerChain">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="payment_details" xsi:type="string">IWD\BluePay\Gateway\Response\PaymentDetailsHandler</item>
+                <item name="txn_id" xsi:type="string">IWD\BluePay\Gateway\Response\TransactionIdHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="IWDBluePayVaultAuthorizeRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="customer" xsi:type="string">IWD\BluePay\Gateway\Request\CustomerDataBuilder</item>
+                <item name="payment" xsi:type="string">IWD\BluePay\Gateway\Request\PaymentDataBuilder</item>
+                <item name="channel" xsi:type="string">IWD\BluePay\Gateway\Request\ChannelDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="IWDBluePayVaultSaleCommand" type="IWDBluePayVaultAuthorizeCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">IWDBluePayVaultSaleRequest</argument>
+            <argument name="client" xsi:type="object">IWD\BluePay\Gateway\Http\Client\TransactionSale</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="IWDBluePayVaultSaleRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="authorize" xsi:type="string">IWDBluePayVaultAuthorizeRequest</item>
+                <item name="settlement" xsi:type="string">IWD\BluePay\Gateway\Request\SettlementDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="IWDBluePayVaultCaptureCommand" type="IWDBluePayCaptureCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">IWDBluePayVaultCaptureRequest</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="IWDBluePayVaultCaptureRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="vault_capture" xsi:type="string">IWD\BluePay\Gateway\Request\VaultCaptureDataBuilder</item>
+                <item name="settlement" xsi:type="string">IWD\BluePay\Gateway\Request\SettlementDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <!-- END Vault Command Pool -->
+
+    <virtualType name="IWDBluePayCommandManager" type="Magento\Payment\Gateway\Command\CommandManager">
+        <arguments>
+            <argument name="commandPool" xsi:type="object">IWDBluePayCommandPool</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Payment\Gateway\Command\CommandManagerPool">
+        <arguments>
+            <argument name="executors" xsi:type="array">
+                <item name="iwd_bluepay" xsi:type="string">IWDBluePayCommandManager</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="IWDBluePayCcVaultCommandManagerPool" type="Magento\Payment\Gateway\Command\CommandManagerPool">
+        <arguments>
+            <argument name="executors" xsi:type="array">
+                <item name="iwd_bluepay" xsi:type="string">IWDBluePayCommandManager</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Vault\Model\Ui\TokensConfigProvider">
+        <arguments>
+            <argument name="tokenUiComponentProviders" xsi:type="array">
+                <item name="iwd_bluepay" xsi:type="object">IWD\BluePay\Model\Ui\TokenUiComponentProvider</item>
+            </argument>
+        </arguments>
+    </type>
+    <!-- END Vault payment integration -->
+</config>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <referenceBlock name="sales.order.print.info" template="Aheadworks_OneStepCheckout::order/info.phtml">
+                <block class="Aheadworks\OneStepCheckout\Block\Order\DeliveryDate" name="aw_osc.order.delivery_date" as="aw_delivery_date"/>
+            </referenceBlock>
+            <block class="Aheadworks\OneStepCheckout\Block\Order\Note" name="aw_osc.order.print.note" before="sales.order.print.info"/>
+        </referenceContainer>
+    </body>
+</page>

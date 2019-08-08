@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+-->
+
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Ui/etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">aw_osc_abandoned_checkout_report_listing.aw_osc_abandoned_checkout_report_listing_data_source</item>
+            <item name="deps" xsi:type="string">aw_osc_abandoned_checkout_report_listing.aw_osc_abandoned_checkout_report_listing_data_source</item>
+        </item>
+        <item name="spinner" xsi:type="string">aw_osc_abandoned_checkout_report_columns</item>
+    </argument>
+    <dataSource name="aw_osc_abandoned_checkout_report_listing_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">AwOscAbandonedCheckoutReportDataProvider</argument>
+            <argument name="name" xsi:type="string">aw_osc_abandoned_checkout_report_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">index_id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="cacheRequests" xsi:type="boolean">false</item>
+                    </item>
+                </item>
+            </argument>
+        </argument>
+    </dataSource>
+    <container name="conversion_chart">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/ui/grid/chart</item>
+                <item name="storageConfig" xsi:type="array">
+                    <item name="provider" xsi:type="string">ns = ${ $.ns }, index = bookmarks</item>
+                    <item name="namespace" xsi:type="string">current.conversion_chart</item>
+                </item>
+                <item name="imports" xsi:type="array">
+                    <item name="rows" xsi:type="string">${ $.provider }:data.conversion_chart.rows</item>
+                </item>
+            </item>
+        </argument>
+    </container>
+    <container name="conversion_chart_totals">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/ui/grid/totals</item>
+            </item>
+        </argument>
+    </container>
+    <container name="statistics_chart">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/ui/grid/chart</item>
+                <item name="storageConfig" xsi:type="array">
+                    <item name="provider" xsi:type="string">ns = ${ $.ns }, index = bookmarks</item>
+                    <item name="namespace" xsi:type="string">current.statistics_chart</item>
+                </item>
+                <item name="imports" xsi:type="array">
+                    <item name="rows" xsi:type="string">${ $.provider }:data.statistics_chart.rows</item>
+                </item>
+            </item>
+        </argument>
+    </container>
+    <container name="statistics_chart_totals">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/ui/grid/totals</item>
+            </item>
+        </argument>
+    </container>
+    <listingToolbar name="listing_top">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="sticky" xsi:type="boolean">true</item>
+            </item>
+        </argument>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filters name="listing_filters">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="stickyTmpl" xsi:type="string">Aheadworks_OneStepCheckout/ui/grid/sticky/filters</item>
+                </item>
+            </argument>
+        </filters>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="aw_osc_abandoned_checkout_report_columns">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/ui/grid/listing</item>
+            </item>
+        </argument>
+        <column name="period_from" class="Aheadworks\OneStepCheckout\Ui\Component\Listing\Column\Period">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Period</item>
+                    <item name="visibleInTotalsRow" xsi:type="boolean">false</item>
+                    <item name="visibleOnChart" xsi:type="boolean">true</item>
+                    <item name="chartType" xsi:type="string">string</item>
+                    <item name="chartLabel" xsi:type="string" translate="true">Time Unit</item>
+                    <item name="chartIndexes" xsi:type="array">
+                        <item name="0" xsi:type="string">conversion_chart</item>
+                        <item name="1" xsi:type="string">statistics_chart</item>
+                    </item>
+                </item>
+            </argument>
+        </column>
+        <column name="abandoned_checkouts_count">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Abandoned Checkouts</item>
+                    <item name="filter" xsi:type="string">textRange</item>
+                    <item name="visibleInTotalsRow" xsi:type="boolean">true</item>
+                    <item name="visibleInTopTotals" xsi:type="boolean">true</item>
+                    <item name="topTotalsIndexes" xsi:type="array">
+                        <item name="0" xsi:type="string">statistics_chart_totals</item>
+                    </item>
+                    <item name="visibleOnChart" xsi:type="boolean">true</item>
+                    <item name="displayOnChartAfterLoad" xsi:type="boolean">true</item>
+                    <item name="chartType" xsi:type="string">number</item>
+                    <item name="color" xsi:type="string">#4daf4a</item>
+                    <item name="chartIndexes" xsi:type="array">
+                        <item name="0" xsi:type="string">statistics_chart</item>
+                    </item>
+                </item>
+            </argument>
+        </column>
+        <column name="abandoned_checkouts_revenue" class="Aheadworks\OneStepCheckout\Ui\Component\Listing\Column\Price">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/ui/grid/columns/price</item>
+                    <item name="label" xsi:type="string" translate="true">Abandoned Revenue</item>
+                    <item name="filter" xsi:type="string">textRange</item>
+                    <item name="visibleInTotalsRow" xsi:type="boolean">true</item>
+                    <item name="visibleInTopTotals" xsi:type="boolean">true</item>
+                    <item name="topTotalsIndexes" xsi:type="array">
+                        <item name="0" xsi:type="string">statistics_chart_totals</item>
+                    </item>
+                    <item name="visibleOnChart" xsi:type="boolean">true</item>
+                    <item name="chartType" xsi:type="string">number</item>
+                    <item name="color" xsi:type="string">#9580e7</item>
+                    <item name="chartIndexes" xsi:type="array">
+                        <item name="0" xsi:type="string">statistics_chart</item>
+                    </item>
+                </item>
+            </argument>
+        </column>
+        <column name="completed_checkouts_count">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Number Of Orders</item>
+                    <item name="filter" xsi:type="string">textRange</item>
+                    <item name="visibleInTotalsRow" xsi:type="boolean">true</item>
+                    <item name="visibleInTopTotals" xsi:type="boolean">true</item>
+                    <item name="topTotalsIndexes" xsi:type="array">
+                        <item name="0" xsi:type="string">statistics_chart_totals</item>
+                    </item>
+                    <item name="visibleOnChart" xsi:type="boolean">true</item>
+                    <item name="chartType" xsi:type="string">number</item>
+                    <item name="color" xsi:type="string">#fc9418</item>
+                    <item name="chartIndexes" xsi:type="array">
+                        <item name="0" xsi:type="string">statistics_chart</item>
+                    </item>
+                </item>
+            </argument>
+        </column>
+        <column name="completed_checkouts_revenue" class="Aheadworks\OneStepCheckout\Ui\Component\Listing\Column\Price">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/ui/grid/columns/price</item>
+                    <item name="label" xsi:type="string" translate="true">Orders Revenue</item>
+                    <item name="filter" xsi:type="string">textRange</item>
+                    <item name="visibleInTotalsRow" xsi:type="boolean">true</item>
+                    <item name="visibleInTopTotals" xsi:type="boolean">true</item>
+                    <item name="topTotalsIndexes" xsi:type="array">
+                        <item name="0" xsi:type="string">statistics_chart_totals</item>
+                    </item>
+                    <item name="visibleOnChart" xsi:type="boolean">true</item>
+                    <item name="chartType" xsi:type="string">number</item>
+                    <item name="color" xsi:type="string">#aa4499</item>
+                    <item name="chartIndexes" xsi:type="array">
+                        <item name="0" xsi:type="string">statistics_chart</item>
+                    </item>
+                </item>
+            </argument>
+        </column>
+        <column name="conversion">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/ui/grid/columns/percent</item>
+                    <item name="label" xsi:type="string" translate="true">Checkout Conversion</item>
+                    <item name="filter" xsi:type="string">textRange</item>
+                    <item name="visibleInTotalsRow" xsi:type="boolean">true</item>
+                    <item name="visibleInTopTotals" xsi:type="boolean">true</item>
+                    <item name="topTotalsIndexes" xsi:type="array">
+                        <item name="0" xsi:type="string">conversion_chart_totals</item>
+                    </item>
+                    <item name="visibleOnChart" xsi:type="boolean">true</item>
+                    <item name="displayOnChartAfterLoad" xsi:type="boolean">true</item>
+                    <item name="chartType" xsi:type="string">number</item>
+                    <item name="chartIndexes" xsi:type="array">
+                        <item name="0" xsi:type="string">conversion_chart</item>
+                    </item>
+                    <item name="color" xsi:type="string">#4daf4a</item>
+                </item>
+            </argument>
+        </column>
+    </columns>
+</listing>

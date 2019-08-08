@@ -1,0 +1,21 @@
+<?php
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+
+/** @var \Aheadworks\OneStepCheckout\Block\Adminhtml\Report\View\AggregationSwitcher $block */
+
+// @codingStandardsIgnoreFile
+?>
+<div class="aw-report_period_box">
+    <div class="aw-report_periods_list">
+        <?php foreach ($block->getOptions() as $item): ?>
+            <?php $buttonClass = $block->getAggregation() == $item['value'] ? 'disabled active' : '' ?>
+            <button class="aw-report_period_item <?php /* @noEscape */ echo $buttonClass ?>"
+                    onclick="setLocation('<?php /* @noEscape */ echo $block->escapeXssInUrl($block->getAggregatedByUrl($item['value'])) ?>')">
+                <?php echo $block->escapeHtml($item['label']) ?>
+            </button>
+        <?php endforeach ?>
+    </div>
+</div>

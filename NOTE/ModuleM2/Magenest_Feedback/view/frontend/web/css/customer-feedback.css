@@ -1,0 +1,50 @@
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    list-style: none;
+}
+ul > li {
+    margin-bottom: 0rem !important;
+}
+/* Style the buttons inside the tab */
+.tab li {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab li:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab li.ui-tabs-active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.list-product .product {
+    display: inline-block;
+
+    margin: 5px 0px;
+
+    text-align: center;
+
+    border: #d7d7d7 1px solid;
+
+    padding: 3px;
+}

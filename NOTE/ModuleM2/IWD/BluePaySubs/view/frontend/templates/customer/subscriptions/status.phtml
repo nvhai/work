@@ -1,0 +1,19 @@
+<?php
+/**
+ * Copyright © 2018 IWD Agency - All rights reserved.
+ * See LICENSE.txt bundled with this module for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * @var $block \Magento\Framework\View\Element\Template
+ */
+?>
+<?php $status = $block->getStatus() ?>
+<?php if($status): ?>
+    <div class="subs status subs-item-status-code">
+        <span class="status-text"><?php echo $block->escapeHtml($block->getStatusText()) ?></span>
+        <span class="status-icon <?php echo $block->escapeHtml($status) ?>"></span>
+    </div>
+<?php endif; ?>

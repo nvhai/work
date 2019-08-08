@@ -1,0 +1,15 @@
+<div class="aw-sidebar-product-qty">
+	<span data-bind="i18n: 'Qty:'" class="aw-qty-placeholder"></span>
+	<a href="#" data-bind="click: function (data, event) {onDecrementQtyClick($parents[1], event);}" class="aw-sidebar-product_count-down"></a>
+	<input data-bind="attr: {id: 'cart-item-' + $parents[1].item_id + '-qty'},
+            value: $parents[1].qty,
+            event: {
+                focusout: function (data, event) {onQtyFocusOut($parents[1], event);},
+                focusin: function (data, event) {onQtyFocusIn($parents[1], event);}
+            }"
+		   type="number"
+		   size="4"
+		   class="item-qty cart-item-qty"
+		   maxlength="12"/>
+	<a href="#" data-bind="click: function (data, event) {onIncrementQtyClick($parents[1], event);}" class="aw-sidebar-product_count-up"></a>
+</div>

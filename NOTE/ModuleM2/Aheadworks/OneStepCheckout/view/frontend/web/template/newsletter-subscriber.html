@@ -1,0 +1,13 @@
+<!-- ko if: isEnabled -->
+<div data-role="newsletter-subscriber">
+    <input type="checkbox"
+           data-bind="attr: {
+                'id': 'is_subscribe_for_newsletter',
+                'name': 'is_subscribe_for_newsletter',
+                'value': 1,
+           }, checked: isSubscribe"/>
+    <label data-bind="attr: {'for': 'is_subscribe_for_newsletter'}">
+        <span data-bind="i18n: 'Sign up for Newsletter'"></span>
+    </label>
+</div>
+<!-- /ko -->

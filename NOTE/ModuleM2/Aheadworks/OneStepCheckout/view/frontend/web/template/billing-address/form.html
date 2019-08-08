@@ -1,0 +1,14 @@
+<form class="form" data-bind="attr: {'data-hasrequired': $t('* Required Fields')}">
+    <!-- ko foreach: getRegion('billing-address-fieldset') -->
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <!--/ko-->
+
+    <!-- ko if: isCustomerLoggedIn -->
+    <div class="field choice">
+        <input type="checkbox" class="checkbox" id="billing-save-in-address-book" data-bind="checked: saveInAddressBook" />
+        <label class="label" for="billing-save-in-address-book">
+            <span data-bind="i18n: 'Save in address book'"></span>
+        </label>
+    </div>
+    <!--/ko-->
+</form>

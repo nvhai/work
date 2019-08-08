@@ -1,0 +1,58 @@
+<?php // @codingStandardsIgnoreFile ?>
+<?php /** @var \IWD\BluePaySubs\Block\Customer\Subscriptions $block */ ?>
+<?php $subscriptions = $block->getCollection(); ?>
+
+<?php echo $block->getChildHtml('info'); ?>
+
+<?php if (!empty($subscriptions->getItems())): ?>
+
+    <div class="subs wrapper list subs-list">
+        <ol class="subs list items subs-items">
+            <?php /** @var \IWD\BluePaySubs\Model\Subscription $subscription */ ?>
+            <?php foreach ($subscriptions->getItems() as $subscription): ?>
+                <li class="item subs subs-item <?php echo $subscription->getStatus() ?>"
+                    data-bind="click: function(){window.location.href = '<?php echo $block->getEditUrl($subscription) ?>'}">
+                    <div class="subs-item-info">
+                        <div class="subs-item-info-wrap">
+                            <div class="subs photo subs-item-photo" tabindex="-1">
+                                <span class="product-image-container">
+                                    <span class="product-image-wrapper">
+                                        <img class="product-image-photo"
+                                             src="<?php echo $block->getProductImage($subscription) ?>"
+                                             alt="<?php echo $subscription->getDescription() ?>">
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="subs details subs-item-details">
+                                <span class="subs name subs-item-name">
+                                        <?php echo $subscription->getDescription() ?>
+                                </span>
+                                <div class="price-box">
+                                <span class="price-container">
+                                    <span class="price-wrapper">
+                                        <span class="price"><?php echo $block->getAmount($subscription) ?></span>
+                                    </span>
+                                </span>
+                                    <span class="subs delimiter">,&nbsp</span>
+                                    <span class="subs-period"><?php echo $block->getPeriodTitle($subscription) ?></span>
+
+                                </div>
+                            </div>
+                            <div class="subs status subs-item-status">
+                                <div class="subs status subs-item-status-code">
+                                    <span class="status-text"><?php echo $block->getStatus($subscription) ?></span>
+                                    <span class="status-icon <?php echo $subscription->getStatus() ?>">
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+        </ol>
+        <?php echo $block->getPagerHtml() ?>
+    </div>
+<?php else: ?>
+    <div class="message info empty">
+        <span><?php echo $block->escapeHtml(__('You have not purchased any subscriptions.')); ?></span></div>
+<?php endif ?>

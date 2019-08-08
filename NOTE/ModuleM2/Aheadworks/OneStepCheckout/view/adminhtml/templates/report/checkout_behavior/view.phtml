@@ -1,0 +1,19 @@
+<?php
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+
+/** @var \Aheadworks\OneStepCheckout\Block\Adminhtml\Report\CheckoutBehavior\View $block */
+
+// @codingStandardsIgnoreFile
+?>
+<div class="aw-osc-report_checkout-behavior">
+    <div class="report-description"><p><?php echo $block->escapeHtml(__('Use this report to understand when buyers drop off your checkout. Each section of the report represents how many times a field has been completed across all abandoned checkouts for a given period.')) ?></p></div>
+    <div class="checkout-behavior_totals">
+        <?php echo $block->getChildHtml('totals') ?>
+    </div>
+    <div class="checkout-behavior_bar-charts">
+        <?php echo $block->getChildHtml('bar_charts') ?>
+    </div>
+</div>

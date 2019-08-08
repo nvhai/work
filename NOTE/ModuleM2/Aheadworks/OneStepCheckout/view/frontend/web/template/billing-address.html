@@ -1,0 +1,45 @@
+<!-- ko if: isShown -->
+<div class="onestep-billing-address">
+    <div class="field choice" data-bind="visible: canUseShippingAddress()">
+        <input id="billing-address-same-as-shipping"
+               type="checkbox" name="billing-address-same-as-shipping"
+               data-bind="checked: isAddressSameAsShipping, click: onUseShippingAddress"/>
+        <label for="billing-address-same-as-shipping" class="label">
+            <span data-bind="i18n: 'My billing and shipping address are the same'"></span>
+        </label>
+    </div>
+
+    <!-- ko ifnot: isFormInline -->
+        <!-- ko if: showAddressDetails -->
+            <!-- ko template: 'Aheadworks_OneStepCheckout/billing-address/details' --><!-- /ko -->
+        <!--/ko-->
+        <!-- ko if: showAddressList -->
+            <!-- ko template: 'Aheadworks_OneStepCheckout/billing-address/list' --><!-- /ko -->
+        <!--/ko-->
+        <!-- ko if: showForm -->
+            <!-- ko template: 'Aheadworks_OneStepCheckout/billing-address/form' --><!-- /ko -->
+        <!--/ko-->
+        <!-- ko if: showToolbar -->
+            <div class="action-toolbar">
+                <button class="action primary" data-bind="click: onUpdateAddressClick">
+                    <span data-bind="i18n: 'Update'"></span>
+                </button>
+                <button class="action" data-bind="click: onCancelClick">
+                    <span data-bind="i18n: 'Cancel'"></span>
+                </button>
+            </div>
+        <!--/ko-->
+        <!-- ko if: errorValidationMessage().length > 0 -->
+        <div class="message notice">
+            <span><!-- ko text: errorValidationMessage()--><!-- /ko --></span>
+        </div>
+        <!-- /ko -->
+    <!--/ko-->
+
+    <!-- ko if: isFormInline -->
+        <!-- ko if: showForm -->
+            <!-- ko template: 'Aheadworks_OneStepCheckout/billing-address/form' --><!-- /ko -->
+        <!--/ko-->
+    <!--/ko-->
+</div>
+<!--/ko-->

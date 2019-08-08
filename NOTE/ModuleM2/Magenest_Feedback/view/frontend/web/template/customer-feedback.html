@@ -1,0 +1,39 @@
+<div id="horizontal_tabs" data-bind="afterRender: initTabs">
+    <ul class="tab" data-role="title">
+        <li class="tablinks"><a href="#tabs-1">Product ordered</a></li>
+        <li class="tablinks"><a href="#tabs-2">Product Have Feedback</a></li>
+    </ul>
+    <div data-role="content" class="tabcontent">
+        <div id="tabs-1">
+            <div class="list-product" data-bind="foreach: { data: products, as: 'product' }">
+                <!-- ko if: product.comment_status() === false -->
+                <div class="product">
+                    <div class="thumbnail"><img data-bind="attr: {src: product.image}" alt=""></div>
+                    <div class="title" data-bind="text: product.name + ' (Order #' + product.order_id + ')'"></div>
+                    <div class="action"><button data-bind="click: function(data, event) { $parent.openReviewForm(product, data) }">Write comment</button></div>
+                </div>
+                <!-- /ko -->
+            </div>
+        </div>
+        <div id="tabs-2">
+            <div class="list-product" data-bind="foreach: { data: products, as: 'product' }">
+                <!-- ko if: product.comment_status() === true -->
+                <div class="product">
+                    <div class="thumbnail"><img data-bind="attr: {src: product.image}" alt=""></div>
+                    <div class="title" data-bind="text: product.name + '(Order #' + product.order_id + ')'"></div>
+                    <div class="title" data-bind="text: 'Comment: ' + product.message()"></div>
+                </div>
+                <!-- /ko -->
+            </div>
+        </div>
+    </div>
+
+</div>
+<div id="feedback-form" title="Send Feedback" data-bind="afterRender: initModal">
+    <form>
+        <fieldset data-bind="with: product">
+            <label for="name">Message</label>
+            <textarea type="text" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all" data-bind="value: message"></textarea>
+        </fieldset>
+    </form>
+</div>

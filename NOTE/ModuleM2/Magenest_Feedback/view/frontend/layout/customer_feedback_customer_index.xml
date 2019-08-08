@@ -1,0 +1,16 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <head>
+        <css src="Magenest_Feedback::css/customer-feedback.css"/>
+    </head>
+    <body>
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">Customer Feedback</argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block class="Magenest\Feedback\Block\Customer\Feedback" name="customer_feedback" template="Magenest_Feedback::customer_feedback.phtml" cacheable="false"/>
+        </referenceContainer>
+    </body>
+</page>

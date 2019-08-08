@@ -1,0 +1,9 @@
+exception: Warning: Cannot modify header information - headers already sent by 
+
+
+
+
+$block = $this->_view->getLayout()->createBlock('Vessel\PickCity\Block\City')->setTemplate('Vessel_PickCity::list_city.phtml')->toHtml();
+        header('Content-type: text/html');
+        echo $block;
+        return;

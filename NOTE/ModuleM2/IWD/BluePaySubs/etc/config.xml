@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 2018 IWD Agency - All rights reserved.
+  ~ See LICENSE.txt bundled with this module for license details.
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <iwd_subs>
+            <general>
+                <active>1</active>
+                <payment_failed_run_count>3</payment_failed_run_count>
+                <payment_failed_retry_period>1</payment_failed_retry_period>
+                <allow_customer_edit>1</allow_customer_edit>
+                <allow_customer_cancel>1</allow_customer_cancel>
+                <option_label>Subscriptions</option_label>
+                <customer_sidebar_link>Subscriptions</customer_sidebar_link>
+                <customer_grid_limit>10</customer_grid_limit>
+            </general>
+            <generation_failed>
+                <active>1</active>
+                <identity>general</identity>
+                <receiver>general</receiver>
+                <template>iwd_subs_generation_failed_template</template>
+            </generation_failed>
+            <billing_failed>
+                <active>1</active>
+                <identity>general</identity>
+                <receiver>general</receiver>
+                <template>iwd_subs_billing_failed_template</template>
+            </billing_failed>
+            <payment_failed>
+                <active>1</active>
+                <identity>general</identity>
+                <template>iwd_subs_payment_failed_template</template>
+            </payment_failed>
+        </iwd_subs>
+    </default>
+</config>

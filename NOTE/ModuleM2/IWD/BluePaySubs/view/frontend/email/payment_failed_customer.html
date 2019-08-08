@@ -1,0 +1,30 @@
+<!--
+  ~ Copyright © 2018 IWD Agency - All rights reserved.
+  ~ See LICENSE.txt bundled with this module for license details.
+  -->
+
+<!--@subject Payment Failed - Subscription #{{var subscription.getId()}} @-->
+<!--@vars {
+} @-->
+{{template config_path="design/email/header_template"}}
+<table>
+    <tr class="email-intro">
+        <td>
+            <p class="greeting">{{trans "Hello %name," name=$subscription.getQuote().getCustomerFirstname()}}</p>
+            <p>{{trans 'Due to payment failure your subscription of %description has been paused.' description=$subscription.getDescription()}}</p>
+            <p>{{trans 'If you would like to continue taking advantage of your %description ' description=$subscription.getDescription()}}
+                {{trans 'you can simply update your card info in the <a href="%subs_url">My Subscriptions</a> section of your account dashboard. ' subs_url=$this.getUrl($store,'customer/bsubs/edit',[_query:[id:$subscription.getId()],_nosid:1]) |raw}}
+                {{trans 'Once payment is received the system will renew your subscription automatically.'}}
+            </p>
+            <br>
+            <p>
+                {{trans 'Questions? Feel free to reply directly to <a href="mailto:%store_email">%store_email</a>' store_email=$store_email |raw}}{{depend store_phone}} {{trans 'or call us at <a href="tel:%store_phone">%store_phone</a>' store_phone=$store_phone |raw}}{{/depend}}.
+                {{depend store_hours}}
+                {{trans 'Our hours are <span class="no-link">%store_hours</span>.' store_hours=$store_hours |raw}}
+                {{/depend}}
+            </p>
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

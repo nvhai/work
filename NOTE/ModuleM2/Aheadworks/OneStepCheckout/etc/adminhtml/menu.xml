@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Aheadworks_OneStepCheckout::osc" title="One Step Checkout by Aheadworks" translate="title" module="Aheadworks_OneStepCheckout" parent="Magento_Reports::report" sortOrder="90" resource="Aheadworks_OneStepCheckout::osc"/>
+        <add id="Aheadworks_OneStepCheckout::report_abandoned_checkout" title="Abandoned Checkout Statistics" translate="title" module="Aheadworks_OneStepCheckout" sortOrder="10" parent="Aheadworks_OneStepCheckout::osc" action="aw_osc/report_abandoned/index" resource="Aheadworks_OneStepCheckout::report_abandoned_checkout"/>
+        <add id="Aheadworks_OneStepCheckout::report_checkout_behavior" title="Checkout Behavior Report" translate="title" module="Aheadworks_OneStepCheckout" sortOrder="20" parent="Aheadworks_OneStepCheckout::osc" action="aw_osc/report_behavior/index" resource="Aheadworks_OneStepCheckout::report_checkout_behavior"/>
+    </menu>
+</config>

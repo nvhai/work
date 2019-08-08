@@ -1,0 +1,63 @@
+<?php
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+
+/** @var \Aheadworks\OneStepCheckout\Block\Adminhtml\Report\CheckoutBehavior\MultipleBarChart $block */
+
+// @codingStandardsIgnoreFile
+?>
+<div class="aw-bar-chart multiple">
+    <div class="title">
+        <strong><?php echo $block->escapeHtml($block->getTitle()) ?></strong>
+    </div>
+    <div class="description">
+        <span><?php echo $block->escapeHtml($block->getDescription()) ?></span>:
+    </div>
+    <div class="charts-container">
+        <div class="charts-header">
+            <div class="chart-field">
+                <span><?php echo $block->escapeHtml(__('Field')) ?></span>
+            </div>
+            <div class="chart-value">
+                <span><?php echo $block->escapeHtml(__('Completed In')) ?></span>
+            </div>
+        </div>
+        <div class="charts-list" data-mage-init='{"awOscBarChartFilter": {}}'>
+            <?php foreach ($block->getChartsData() as $chartData): ?>
+            <div class="chart-container" <?php if (!$chartData['required']): ?>data-filter-by="required"<?php endif; ?>>
+                <div class="chart-field">
+                    <div class="label"><span><?php echo $block->escapeHtml($chartData['label']) ?></span><?php if ($chartData['required']): ?><span class="asterisk">*</span><?php endif; ?></div>
+                </div>
+                <?php $percentage = $chartData['percentage']; ?>
+                <div class="chart-value">
+                    <span><?php echo $block->escapeHtml($chartData['value']) ?> </span><span class="percentage">(<?php echo $block->escapeHtml($block->formatPercents($percentage)) ?>)</span>
+                </div>
+                <div>
+                    <span class="chart-bar_row">
+                        <span class="chart-bar_empty" style="width: <?php /* @noEscape */ echo (100 - $percentage) ?>%;"></span>
+                    </span>
+                </div>
+            </div>
+            <?php endforeach; ?>
+            <div class="charts-filter">
+                <?php $htmlId = 'filter_by_required_' . uniqid() ?>
+                <input id="<?php /* @noEscape */ echo $htmlId ?>"
+                       type="checkbox"
+                       value="1"
+                       data-role="chart-filter-checkbox"
+                       data-filter-by="required"
+                />
+                <label for="<?php /* @noEscape */ echo $htmlId ?>">
+                    <span><?php echo $block->escapeHtml(__('Show required fields only')) ?></span>
+                </label>
+            </div>
+        </div>
+        <?php if ($block->getNote()): ?>
+            <div class="note">
+                <p><?php echo $block->escapeHtml($block->getNote()) ?></p>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>

@@ -1,0 +1,668 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="checkout" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Aheadworks_OneStepCheckout::css/_module.min.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Aheadworks\OneStepCheckout\Block\Checkout" name="checkout.root" template="checkout.phtml" cacheable="false">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="checkout" xsi:type="array">
+                                <item name="component" xsi:type="string">uiComponent</item>
+                                <item name="config" xsi:type="array">
+                                    <item name="template" xsi:type="string">Aheadworks_OneStepCheckout/onestep</item>
+                                </item>
+                                <item name="children" xsi:type="array">
+                                    <item name="checkoutConfig" xsi:type="array">
+                                        <item name="component" xsi:type="string">uiComponent</item>
+                                        <item name="children" xsi:type="array">
+                                            <item name="shipping-rates-validation" xsi:type="array">
+                                                <item name="children" xsi:type="array">
+                                                    <!-- Shipping rates validation components -->
+                                                </item>
+                                            </item>
+                                            <item name="payment-renders" xsi:type="array">
+                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                <item name="children" xsi:type="array">
+                                                    <!-- Payment renders here -->
+                                                </item>
+                                            </item>
+                                            <item name="payment-post-processors" xsi:type="array">
+                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                <item name="children" xsi:type="array">
+                                                    <item name="float-label-converter" xsi:type="array">
+                                                        <item name="component" xsi:type="string">uiComponent</item>
+                                                        <item name="children" xsi:type="array">
+                                                            <item name="default" xsi:type="array">
+                                                                <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/payment-method/post-processor/float-label-converter/default</item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                            <item name="additional-payment-validators" xsi:type="array">
+                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                <item name="children" xsi:type="array">
+                                                    <!-- Additional payment validators here -->
+                                                    <item name="email-validator" xsi:type="array">
+                                                        <item name="component" xsi:type="string">Magento_Checkout/js/view/payment/email-validator</item>
+                                                    </item>
+                                                    <item name="agreements-validator" xsi:type="array">
+                                                        <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/checkout-agreements/validation</item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                            <item name="additional-services" xsi:type="array">
+                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                <item name="children" xsi:type="array">
+                                                    <item name="google-autocomplete" xsi:type="array">
+                                                        <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/google-autocomplete</item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                    <item name="column-top" xsi:type="array">
+                                        <item name="sortOrder" xsi:type="string">1</item>
+                                        <item name="component" xsi:type="string">uiComponent</item>
+                                        <item name="displayArea" xsi:type="string">column-top</item>
+                                        <item name="children" xsi:type="array">
+                                            <item name="page-title" xsi:type="array">
+                                                <item name="sortOrder" xsi:type="string">0</item>
+                                                <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/html-content</item>
+                                                <item name="displayArea" xsi:type="string">page-title</item>
+                                                <item name="block" xsi:type="array">
+                                                    <item name="class" xsi:type="string">Magento\Theme\Block\Html\Title</item>
+                                                    <item name="template" xsi:type="string">Magento_Theme::html/title.phtml</item>
+                                                </item>
+                                            </item>
+                                            <item name="page-description" xsi:type="array">
+                                                <item name="sortOrder" xsi:type="string">1</item>
+                                                <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/html-content</item>
+                                                <item name="displayArea" xsi:type="string">page-description</item>
+                                                <item name="block" xsi:type="array">
+                                                    <item name="class" xsi:type="string">Aheadworks\OneStepCheckout\Block\Page\Description</item>
+                                                    <item name="template" xsi:type="string">page/description.phtml</item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                    <item name="errors" xsi:type="array">
+                                        <item name="sortOrder" xsi:type="string">2</item>
+                                        <item name="component" xsi:type="string">Magento_Ui/js/view/messages</item>
+                                        <item name="displayArea" xsi:type="string">messages</item>
+                                    </item>
+                                    <item name="authentication" xsi:type="array">
+                                        <item name="sortOrder" xsi:type="string">3</item>
+                                        <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/authentication</item>
+                                        <item name="displayArea" xsi:type="string">authentication</item>
+                                        <item name="children" xsi:type="array">
+                                            <item name="errors" xsi:type="array">
+                                                <item name="sortOrder" xsi:type="string">0</item>
+                                                <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/authentication/messages</item>
+                                                <item name="displayArea" xsi:type="string">messages</item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                    <item name="email" xsi:type="array">
+                                        <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/form/email</item>
+                                        <item name="displayArea" xsi:type="string">email</item>
+                                        <item name="sortOrder" xsi:type="string">4</item>
+                                        <item name="tooltip" xsi:type="array">
+                                            <item name="description" xsi:type="string" translate="true">We'll send your order confirmation here.</item>
+                                        </item>
+                                        <item name="children" xsi:type="array">
+                                            <item name="before-login-form" xsi:type="array">
+                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                <item name="displayArea" xsi:type="string">before-login-form</item>
+                                                <item name="children" xsi:type="array">
+                                                    <!-- Before login form fields -->
+                                                </item>
+                                            </item>
+                                            <item name="additional-login-form-fields" xsi:type="array">
+                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                <item name="displayArea" xsi:type="string">additional-login-form-fields</item>
+                                                <item name="children" xsi:type="array">
+                                                    <!-- Additional login form fields -->
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                    <item name="shippingAddress" xsi:type="array">
+                                        <item name="config" xsi:type="array">
+                                            <item name="deps" xsi:type="array">
+                                                <item name="0" xsi:type="string">checkoutProvider</item>
+                                                <item name="1" xsi:type="string">checkout.checkoutConfig</item>
+                                            </item>
+                                        </item>
+                                        <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/shipping-address</item>
+                                        <item name="displayArea" xsi:type="string">shippingAddress</item>
+                                        <item name="provider" xsi:type="string">checkoutProvider</item>
+                                        <item name="sortOrder" xsi:type="string">5</item>
+                                        <item name="children" xsi:type="array">
+                                            <item name="shipping-address-list" xsi:type="array">
+                                                <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/shipping-address/list</item>
+                                                <item name="displayArea" xsi:type="string">shipping-address-list</item>
+                                            </item>
+                                            <item name="shipping-address-fieldset" xsi:type="array">
+                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                <item name="config" xsi:type="array">
+                                                    <item name="deps" xsi:type="array">
+                                                        <item name="0" xsi:type="string">checkoutProvider</item>
+                                                    </item>
+                                                </item>
+                                                <item name="displayArea" xsi:type="string">shipping-address-fieldset</item>
+                                                <item name="children" xsi:type="array">
+                                                    <item name="name-field-row" xsi:type="array">
+                                                        <item name="component" xsi:type="string">uiComponent</item>
+                                                        <item name="config" xsi:type="array">
+                                                            <item name="template" xsi:type="string">Aheadworks_OneStepCheckout/form/field-row-fluid</item>
+                                                        </item>
+                                                        <item name="sortOrder" xsi:type="string">1</item>
+                                                        <item name="children" xsi:type="array">
+                                                            <item name="prefix" xsi:type="array">
+                                                                <item name="sortOrder" xsi:type="string">1</item>
+                                                            </item>
+                                                            <item name="firstname" xsi:type="array">
+                                                                <item name="sortOrder" xsi:type="string">2</item>
+                                                            </item>
+                                                            <item name="middlename" xsi:type="array">
+                                                                <item name="sortOrder" xsi:type="string">3</item>
+                                                            </item>
+                                                            <item name="lastname" xsi:type="array">
+                                                                <item name="sortOrder" xsi:type="string">4</item>
+                                                            </item>
+                                                            <item name="suffix" xsi:type="array">
+                                                                <item name="sortOrder" xsi:type="string">5</item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                    <item name="address-field-row" xsi:type="array">
+                                                        <item name="component" xsi:type="string">uiComponent</item>
+                                                        <item name="config" xsi:type="array">
+                                                            <item name="template" xsi:type="string">Aheadworks_OneStepCheckout/form/field-row</item>
+                                                        </item>
+                                                        <item name="sortOrder" xsi:type="string">2</item>
+                                                        <item name="children" xsi:type="array">
+                                                            <item name="street" xsi:type="array">
+                                                                <item name="label" xsi:type="string">Address</item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                    <item name="city-field-row" xsi:type="array">
+                                                        <item name="component" xsi:type="string">uiComponent</item>
+                                                        <item name="config" xsi:type="array">
+                                                            <item name="template" xsi:type="string">Aheadworks_OneStepCheckout/form/field-row</item>
+                                                        </item>
+                                                        <item name="sortOrder" xsi:type="string">3</item>
+                                                        <item name="children" xsi:type="array">
+                                                        </item>
+                                                    </item>
+                                                    <item name="country-region-zip-field-row" xsi:type="array">
+                                                        <item name="component" xsi:type="string">uiComponent</item>
+                                                        <item name="config" xsi:type="array">
+                                                            <item name="template" xsi:type="string">Aheadworks_OneStepCheckout/form/field-row-fluid</item>
+                                                        </item>
+                                                        <item name="sortOrder" xsi:type="string">4</item>
+                                                        <item name="children" xsi:type="array">
+                                                            <item name="country_id" xsi:type="array">
+                                                                <item name="sortOrder" xsi:type="string">1</item>
+                                                            </item>
+                                                            <item name="region" xsi:type="array">
+                                                                <item name="visible" xsi:type="boolean">false</item>
+                                                                <item name="sortOrder" xsi:type="string">2</item>
+                                                            </item>
+                                                            <item name="region_id" xsi:type="array">
+                                                                <item name="component" xsi:type="string">Magento_Ui/js/form/element/region</item>
+                                                                <item name="config" xsi:type="array">
+                                                                    <item name="template" xsi:type="string">ui/form/field</item>
+                                                                    <item name="elementTmpl" xsi:type="string">ui/form/element/select</item>
+                                                                    <item name="customEntry" xsi:type="string">shippingAddress.region</item>
+                                                                </item>
+                                                                <item name="validation" xsi:type="array">
+                                                                    <item name="required-entry" xsi:type="boolean">true</item>
+                                                                </item>
+                                                                <item name="filterBy" xsi:type="array">
+                                                                    <item name="target" xsi:type="string"><![CDATA[${ $.provider }:${ $.parentScope }.country_id]]></item>
+                                                                    <item name="field" xsi:type="string">country_id</item>
+                                                                </item>
+                                                                <item name="sortOrder" xsi:type="string">3</item>
+                                                            </item>
+                                                            <item name="postcode" xsi:type="array">
+                                                                <item name="component" xsi:type="string">Magento_Ui/js/form/element/post-code</item>
+                                                                <item name="validation" xsi:type="array">
+                                                                    <item name="required-entry" xsi:type="string">true</item>
+                                                                </item>
+                                                                <item name="sortOrder" xsi:type="string">4</item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                    <item name="phone-company-field-row" xsi:type="array">
+                                                        <item name="component" xsi:type="string">uiComponent</item>
+                                                        <item name="config" xsi:type="array">
+                                                            <item name="template" xsi:type="string">Aheadworks_OneStepCheckout/form/field-row-fluid</item>
+                                                        </item>
+                                                        <item name="sortOrder" xsi:type="string">5</item>
+                                                        <item name="children" xsi:type="array">
+                                                            <item name="telephone" xsi:type="array">
+                                                                <item name="sortOrder" xsi:type="string">1</item>
+                                                                <item name="config" xsi:type="array">
+                                                                    <item name="additionalClasses" xsi:type="string">field-phone</item>
+                                                                    <item name="tooltip" xsi:type="array">
+                                                                        <item name="description" xsi:type="string" translate="true">For delivery questions.</item>
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                            <item name="company" xsi:type="array">
+                                                                <item name="sortOrder" xsi:type="string">2</item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                    <item name="vat-field-row" xsi:type="array">
+                                                        <item name="component" xsi:type="string">uiComponent</item>
+                                                        <item name="config" xsi:type="array">
+                                                            <item name="template" xsi:type="string">Aheadworks_OneStepCheckout/form/field-row</item>
+                                                        </item>
+                                                        <item name="sortOrder" xsi:type="string">6</item>
+                                                        <item name="children" xsi:type="array">
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                    <item name="shippingMethod" xsi:type="array">
+                                        <item name="config" xsi:type="array">
+                                            <item name="deps" xsi:type="array">
+                                                <item name="0" xsi:type="string">checkoutProvider</item>
+                                            </item>
+                                        </item>
+                                        <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/shipping-method</item>
+                                        <item name="displayArea" xsi:type="string">shippingMethod</item>
+                                        <item name="sortOrder" xsi:type="string">6</item>
+                                        <item name="children" xsi:type="array">
+                                            <item name="price" xsi:type="array">
+                                                <item name="component" xsi:type="string">Magento_Tax/js/view/checkout/shipping_method/price</item>
+                                                <item name="displayArea" xsi:type="string">price</item>
+                                            </item>
+                                            <item name="delivery-date" xsi:type="array">
+                                                <item name="config" xsi:type="array">
+                                                    <item name="deps" xsi:type="array">
+                                                        <item name="0" xsi:type="string">checkoutProvider</item>
+                                                    </item>
+                                                </item>
+                                                <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/delivery-date</item>
+                                                <item name="displayArea" xsi:type="string">delivery-date</item>
+                                                <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                <item name="children" xsi:type="array">
+                                                    <item name="delivery-date-fieldset" xsi:type="array">
+                                                        <item name="component" xsi:type="string">uiComponent</item>
+                                                        <item name="displayArea" xsi:type="string">delivery-date-fieldset</item>
+                                                        <item name="children" xsi:type="array">
+                                                            <item name="date" xsi:type="array">
+                                                                <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/delivery-date/date</item>
+                                                                <item name="config" xsi:type="array">
+                                                                    <item name="customScope" xsi:type="string">deliveryDate</item>
+                                                                    <item name="template" xsi:type="string">Aheadworks_OneStepCheckout/form/field</item>
+                                                                    <item name="elementTmpl" xsi:type="string">Aheadworks_OneStepCheckout/form/element/date</item>
+                                                                </item>
+                                                                <item name="dataScope" xsi:type="string">deliveryDate.date</item>
+                                                                <item name="label" xsi:type="string" translate="true">Delivery Date</item>
+                                                                <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                                <item name="sortOrder" xsi:type="string">1</item>
+                                                            </item>
+                                                            <item name="time" xsi:type="array">
+                                                                <item name="component" xsi:type="string">Magento_Ui/js/form/element/select</item>
+                                                                <item name="config" xsi:type="array">
+                                                                    <item name="customScope" xsi:type="string">deliveryDate</item>
+                                                                    <item name="template" xsi:type="string">Aheadworks_OneStepCheckout/form/field</item>
+                                                                </item>
+                                                                <item name="dataScope" xsi:type="string">deliveryDate.time</item>
+                                                                <item name="label" xsi:type="string" translate="true">Delivery Time</item>
+                                                                <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                                <item name="sortOrder" xsi:type="string">2</item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                    <item name="paymentMethod" xsi:type="array">
+                                        <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/payment-method</item>
+                                        <item name="displayArea" xsi:type="string">paymentMethod</item>
+                                        <item name="sortOrder" xsi:type="string">7</item>
+                                        <item name="children" xsi:type="array">
+                                            <item name="billingAddress" xsi:type="array">
+                                                <item name="config" xsi:type="array">
+                                                    <item name="deps" xsi:type="array">
+                                                        <item name="0" xsi:type="string">checkoutProvider</item>
+                                                    </item>
+                                                    <item name="paymentDeps" xsi:type="array">
+                                                        <item name="0" xsi:type="string">checkout.paymentMethod.billingAddress.billing-address-fieldset.country-region-zip-field-row.country_id</item>
+                                                    </item>
+                                                </item>
+                                                <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/billing-address</item>
+                                                <item name="displayArea" xsi:type="string">billingAddress</item>
+                                                <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                <item name="sortOrder" xsi:type="string">1</item>
+                                                <item name="children" xsi:type="array">
+                                                    <item name="billing-address-fieldset" xsi:type="array">
+                                                        <item name="component" xsi:type="string">uiComponent</item>
+                                                        <item name="config" xsi:type="array">
+                                                            <item name="deps" xsi:type="array">
+                                                                <item name="0" xsi:type="string">checkoutProvider</item>
+                                                            </item>
+                                                        </item>
+                                                        <item name="displayArea" xsi:type="string">billing-address-fieldset</item>
+                                                        <item name="children" xsi:type="array">
+                                                            <item name="name-field-row" xsi:type="array">
+                                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                                <item name="config" xsi:type="array">
+                                                                    <item name="template" xsi:type="string">Aheadworks_OneStepCheckout/form/field-row-fluid</item>
+                                                                </item>
+                                                                <item name="sortOrder" xsi:type="string">1</item>
+                                                                <item name="children" xsi:type="array">
+                                                                    <item name="prefix" xsi:type="array">
+                                                                        <item name="sortOrder" xsi:type="string">1</item>
+                                                                    </item>
+                                                                    <item name="firstname" xsi:type="array">
+                                                                        <item name="sortOrder" xsi:type="string">2</item>
+                                                                    </item>
+                                                                    <item name="middlename" xsi:type="array">
+                                                                        <item name="sortOrder" xsi:type="string">3</item>
+                                                                    </item>
+                                                                    <item name="lastname" xsi:type="array">
+                                                                        <item name="sortOrder" xsi:type="string">4</item>
+                                                                    </item>
+                                                                    <item name="suffix" xsi:type="array">
+                                                                        <item name="sortOrder" xsi:type="string">5</item>
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                            <item name="address-field-row" xsi:type="array">
+                                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                                <item name="config" xsi:type="array">
+                                                                    <item name="template" xsi:type="string">Aheadworks_OneStepCheckout/form/field-row</item>
+                                                                </item>
+                                                                <item name="sortOrder" xsi:type="string">2</item>
+                                                                <item name="children" xsi:type="array">
+                                                                    <item name="street" xsi:type="array">
+                                                                        <item name="label" xsi:type="string">Address</item>
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                            <item name="city-field-row" xsi:type="array">
+                                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                                <item name="config" xsi:type="array">
+                                                                    <item name="template" xsi:type="string">Aheadworks_OneStepCheckout/form/field-row</item>
+                                                                </item>
+                                                                <item name="sortOrder" xsi:type="string">3</item>
+                                                                <item name="children" xsi:type="array">
+                                                                </item>
+                                                            </item>
+                                                            <item name="country-region-zip-field-row" xsi:type="array">
+                                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                                <item name="config" xsi:type="array">
+                                                                    <item name="template" xsi:type="string">Aheadworks_OneStepCheckout/form/field-row-fluid</item>
+                                                                </item>
+                                                                <item name="sortOrder" xsi:type="string">4</item>
+                                                                <item name="children" xsi:type="array">
+                                                                    <item name="country_id" xsi:type="array">
+                                                                        <item name="sortOrder" xsi:type="string">1</item>
+                                                                    </item>
+                                                                    <item name="region" xsi:type="array">
+                                                                        <item name="visible" xsi:type="boolean">false</item>
+                                                                        <item name="sortOrder" xsi:type="string">2</item>
+                                                                    </item>
+                                                                    <item name="region_id" xsi:type="array">
+                                                                        <item name="component" xsi:type="string">Magento_Ui/js/form/element/region</item>
+                                                                        <item name="config" xsi:type="array">
+                                                                            <item name="template" xsi:type="string">ui/form/field</item>
+                                                                            <item name="elementTmpl" xsi:type="string">ui/form/element/select</item>
+                                                                            <item name="customEntry" xsi:type="string">billingAddress.region</item>
+                                                                        </item>
+                                                                        <item name="validation" xsi:type="array">
+                                                                            <item name="required-entry" xsi:type="boolean">true</item>
+                                                                        </item>
+                                                                        <item name="filterBy" xsi:type="array">
+                                                                            <item name="target" xsi:type="string"><![CDATA[${ $.provider }:${ $.parentScope }.country_id]]></item>
+                                                                            <item name="field" xsi:type="string">country_id</item>
+                                                                        </item>
+                                                                        <item name="sortOrder" xsi:type="string">3</item>
+                                                                    </item>
+                                                                    <item name="postcode" xsi:type="array">
+                                                                        <item name="component" xsi:type="string">Magento_Ui/js/form/element/post-code</item>
+                                                                        <item name="validation" xsi:type="array">
+                                                                            <item name="required-entry" xsi:type="string">true</item>
+                                                                        </item>
+                                                                        <item name="sortOrder" xsi:type="string">4</item>
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                            <item name="phone-company-field-row" xsi:type="array">
+                                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                                <item name="config" xsi:type="array">
+                                                                    <item name="template" xsi:type="string">Aheadworks_OneStepCheckout/form/field-row-fluid</item>
+                                                                </item>
+                                                                <item name="sortOrder" xsi:type="string">5</item>
+                                                                <item name="children" xsi:type="array">
+                                                                    <item name="telephone" xsi:type="array">
+                                                                        <item name="sortOrder" xsi:type="string">1</item>
+                                                                        <item name="config" xsi:type="array">
+                                                                            <item name="additionalClasses" xsi:type="string">field-phone</item>
+                                                                            <item name="tooltip" xsi:type="array">
+                                                                                <item name="description" xsi:type="string" translate="true">For delivery questions.</item>
+                                                                            </item>
+                                                                        </item>
+                                                                    </item>
+                                                                    <item name="company" xsi:type="array">
+                                                                        <item name="sortOrder" xsi:type="string">2</item>
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                            <item name="vat-field-row" xsi:type="array">
+                                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                                <item name="config" xsi:type="array">
+                                                                    <item name="template" xsi:type="string">Aheadworks_OneStepCheckout/form/field-row</item>
+                                                                </item>
+                                                                <item name="sortOrder" xsi:type="string">6</item>
+                                                                <item name="children" xsi:type="array">
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                            <item name="methodList" xsi:type="array">
+                                                <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/payment-method/list</item>
+                                                <item name="config" xsi:type="array">
+                                                    <item name="deps" xsi:type="array">
+                                                        <item name="0" xsi:type="string">checkoutProvider</item>
+                                                        <item name="1" xsi:type="string">checkout.checkoutConfig</item>
+                                                    </item>
+                                                </item>
+                                                <item name="displayArea" xsi:type="string">methodList</item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                    <item name="cart-items" xsi:type="array">
+                                        <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/sidebar/cart-items</item>
+                                        <item name="config" xsi:type="array">
+                                            <item name="deps" xsi:type="array">
+                                                <item name="0" xsi:type="string">checkoutProvider</item>
+                                            </item>
+                                        </item>
+                                        <item name="sortOrder" xsi:type="string">8</item>
+                                        <item name="displayArea" xsi:type="string">cart-items</item>
+                                        <item name="children" xsi:type="array">
+                                            <item name="details" xsi:type="array">
+                                                <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/sidebar/item-details</item>
+                                                <item name="rendererList" xsi:type="array">
+                                                    <item name="configurable" xsi:type="array">
+                                                        <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/sidebar/item-details/options-renderer/configurable</item>
+                                                    </item>
+                                                </item>
+                                                <item name="children" xsi:type="array">
+                                                    <item name="thumbnail" xsi:type="array">
+                                                        <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/sidebar/item-details/thumbnail</item>
+                                                        <item name="displayArea" xsi:type="string">thumbnail</item>
+                                                    </item>
+                                                    <item name="actions" xsi:type="array">
+                                                        <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/sidebar/item-details/actions</item>
+                                                        <item name="displayArea" xsi:type="string">actions</item>
+                                                    </item>
+                                                    <item name="qty" xsi:type="array">
+                                                        <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/sidebar/item-details/qty</item>
+                                                        <item name="displayArea" xsi:type="string">qty</item>
+                                                    </item>
+                                                    <item name="subtotal" xsi:type="array">
+                                                        <item name="component" xsi:type="string">Magento_Checkout/js/view/summary/item/details/subtotal</item>
+                                                        <item name="displayArea" xsi:type="string">subtotal</item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                    <item name="totals" xsi:type="array">
+                                        <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/sidebar/totals</item>
+                                        <item name="sortOrder" xsi:type="string">9</item>
+                                        <item name="displayArea" xsi:type="string">totals</item>
+                                        <item name="children" xsi:type="array">
+                                            <item name="subtotal" xsi:type="array">
+                                                <item name="config" xsi:type="array">
+                                                    <item name="title" xsi:type="string" translate="true">Cart Subtotal</item>
+                                                </item>
+                                            </item>
+                                            <item name="shipping" xsi:type="array">
+                                                <item name="config" xsi:type="array">
+                                                    <item name="template" xsi:type="string">Aheadworks_OneStepCheckout/totals/shipping</item>
+                                                    <item name="title" xsi:type="string" translate="true">Shipping</item>
+                                                    <item name="notCalculatedMessage" xsi:type="string" translate="true">Not yet calculated</item>
+                                                </item>
+                                            </item>
+                                            <item name="discount" xsi:type="array">
+                                                <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/totals/discount</item>
+                                            </item>
+                                            <item name="customerbalance" xsi:type="array" />
+                                            <item name="before_grandtotal" xsi:type="array" />
+                                            <item name="giftCardAccount" xsi:type="array">
+                                                <item name="config" xsi:type="array">
+                                                    <item name="template" xsi:type="string">Aheadworks_OneStepCheckout/totals/gift-card-account</item>
+                                                </item>
+                                            </item>
+                                            <item name="tax" xsi:type="array" />
+                                            <item name="weee" xsi:type="array" />
+                                            <item name="grand-total" xsi:type="array">
+                                                <item name="config" xsi:type="array">
+                                                    <item name="title" xsi:type="string" translate="true">Order Total</item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                    <item name="payment-options" xsi:type="array">
+                                        <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/sidebar/payment-options</item>
+                                        <item name="sortOrder" xsi:type="string">10</item>
+                                        <item name="displayArea" xsi:type="string">payment-options</item>
+                                        <item name="children" xsi:type="array">
+                                            <item name="discount" xsi:type="array">
+                                                <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/sidebar/payment-option/discount</item>
+                                            </item>
+                                            <item name="giftCardAccount" xsi:type="array">
+                                                <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/sidebar/payment-option/gift-card-account</item>
+                                            </item>
+                                            <item name="storeCredit" xsi:type="array">
+                                                <item name="config" xsi:type="array">
+                                                    <item name="template" xsi:type="string">Aheadworks_OneStepCheckout/sidebar/payment-option/customer-balance</item>
+                                                </item>
+                                            </item>
+                                            <item name="reward" xsi:type="array">
+                                                <item name="config" xsi:type="array">
+                                                    <item name="template" xsi:type="string">Aheadworks_OneStepCheckout/sidebar/payment-option/reward</item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                    <item name="before-place-order" xsi:type="array">
+                                        <item name="component" xsi:type="string">uiComponent</item>
+                                        <item name="sortOrder" xsi:type="string">11</item>
+                                        <item name="displayArea" xsi:type="string">before-place-order</item>
+                                        <item name="dataScope" xsi:type="string">before-place-order</item>
+                                        <item name="provider" xsi:type="string">checkoutProvider</item>
+                                        <item name="config" xsi:type="array">
+                                            <item name="template" xsi:type="string">Magento_Checkout/payment/before-place-order</item>
+                                        </item>
+                                        <item name="children" xsi:type="array">
+                                            <item name="newsletter-subscriber" xsi:type="array">
+                                                <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/newsletter-subscriber</item>
+                                                <item name="sortOrder" xsi:type="string">10</item>
+                                                <item name="displayArea" xsi:type="string">before-place-order</item>
+                                                <item name="dataScope" xsi:type="string">newsletterSubscriber</item>
+                                                <item name="provider" xsi:type="string">checkoutProvider</item>
+                                            </item>
+                                            <item name="agreements" xsi:type="array">
+                                                <item name="component" xsi:type="string">Magento_CheckoutAgreements/js/view/checkout-agreements</item>
+                                                <item name="sortOrder" xsi:type="string">20</item>
+                                                <item name="displayArea" xsi:type="string">before-place-order</item>
+                                                <item name="dataScope" xsi:type="string">checkoutAgreements</item>
+                                                <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                <item name="config" xsi:type="array">
+                                                    <item name="template" xsi:type="string">Aheadworks_OneStepCheckout/checkout-agreements</item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                    <item name="order-note" xsi:type="array">
+                                        <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/sidebar/order-note</item>
+                                        <item name="sortOrder" xsi:type="string">12</item>
+                                        <item name="displayArea" xsi:type="string">order-note</item>
+                                        <item name="dataScope" xsi:type="string">orderNote</item>
+                                        <item name="provider" xsi:type="string">checkoutProvider</item>
+                                    </item>
+                                    <item name="actions-toolbar" xsi:type="array">
+                                        <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/actions-toolbar</item>
+                                        <item name="config" xsi:type="array">
+                                            <item name="deps" xsi:type="array">
+                                                <item name="0" xsi:type="string">checkout.checkoutConfig</item>
+                                                <item name="1" xsi:type="string">checkout.paymentMethod.methodList</item>
+                                            </item>
+                                        </item>
+                                        <item name="rendererList" xsi:type="array">
+                                            <item name="paypal_express" xsi:type="string">Aheadworks_OneStepCheckout/js/view/actions-toolbar/renderer/paypal-express</item>
+                                            <item name="paypal_express_bml" xsi:type="string">Aheadworks_OneStepCheckout/js/view/actions-toolbar/renderer/paypal-express</item>
+                                            <item name="payflow_express" xsi:type="string">Aheadworks_OneStepCheckout/js/view/actions-toolbar/renderer/paypal-express</item>
+                                            <item name="payflow_express_bml" xsi:type="string">Aheadworks_OneStepCheckout/js/view/actions-toolbar/renderer/paypal-express</item>
+                                            <item name="braintree" xsi:type="string">Aheadworks_OneStepCheckout/js/view/actions-toolbar/renderer/braintree-hosted-fields</item>
+                                            <item name="braintree_paypal" xsi:type="string">Aheadworks_OneStepCheckout/js/view/actions-toolbar/renderer/braintree-paypal</item>
+                                        </item>
+                                        <item name="provider" xsi:type="string">checkoutProvider</item>
+                                        <item name="sortOrder" xsi:type="string">13</item>
+                                        <item name="displayArea" xsi:type="string">actions-toolbar</item>
+                                    </item>
+                                    <item name="trustSeals" xsi:type="array">
+                                        <item name="sortOrder" xsi:type="string">13</item>
+                                        <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/trust-seals</item>
+                                        <item name="displayArea" xsi:type="string">trustSeals</item>
+                                    </item>
+                                </item>
+                            </item>
+                            <item name="checkoutProvider" xsi:type="array">
+                                <item name="component" xsi:type="string">uiComponent</item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceBlock name="page.main.title" remove="true"/>
+    </body>
+</page>

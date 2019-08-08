@@ -1,0 +1,36 @@
+<?php
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+
+/** @var \Aheadworks\OneStepCheckout\Block\Adminhtml\Report\View\StoreSwitcher $block */
+
+// @codingStandardsIgnoreFile
+?>
+<div class="aw-report-store aw-page-menu">
+    <div class="actions dropdown closable">
+        <button type="button"
+                class="admin__action-dropdown"
+                data-mage-init='{"dropdown":{}}'
+                data-toggle="dropdown"
+                aria-haspopup="true">
+            <span class="admin__action-dropdown-text">
+                <?php echo $block->escapeHtml(__($block->getCurrentOptionTitle())) ?>
+            </span>
+        </button>
+        <ul class="dropdown-menu">
+            <?php foreach($block->getOptions() as $option): ?>
+                <li>
+                    <?php $class = 'aw-report-store__dropdown-menu-action--'
+                        . (isset($option['filter_by']) ? $option['filter_by'] : '')
+                        . ($block->isCurrent($option) ? ' current' : '')
+                    ?>
+                    <a href="<?php /* @noEscape */ echo $block->escapeXssInUrl($block->getFilterUrl($option)) ?>" class="<?php /* @noEscape */ echo $class ?>">
+                        <?php echo $block->escapeHtml($option['label']) ?>
+                    </a>
+                </li>
+            <?php endforeach;?>
+        </ul>
+    </div>
+</div>

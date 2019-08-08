@@ -1,0 +1,50 @@
+<?php
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+
+/** @var $block \Magento\Shipping\Block\Adminhtml\View */
+
+// @codingStandardsIgnoreFile
+?>
+<?php $order = $block->getOrder() ?>
+<?php if (!$order->getIsVirtual()): ?>
+    <div class="admin__page-section-item order-shipping-method">
+        <div class="admin__page-section-item-title">
+            <span class="title"><?php /* @noEscape */ echo __('Shipping &amp; Handling Information') ?></span>
+        </div>
+        <div class="admin__page-section-item-content">
+            <?php  if ($order->getTracksCollection()->count()) : ?>
+                <p>
+                    <a href="#"
+                       id="linkId"
+                       onclick="popWin('<?php echo $block->escapeUrl($this->helper('Magento\Shipping\Helper\Data')->getTrackingPopupUrlBySalesModel($order)) ?>','trackorder','width=800,height=600,resizable=yes,scrollbars=yes')"
+                       title="<?php /* @noEscape */ echo __('Track Order') ?>"
+                    >
+                        <?php /* @noEscape */ echo __('Track Order') ?>
+                    </a>
+                </p>
+            <?php endif; ?>
+            <?php if ($order->getShippingDescription()): ?>
+                <strong><?php echo $block->escapeHtml($order->getShippingDescription()) ?></strong>
+
+                <?php if ($this->helper('Magento\Tax\Helper\Data')->displayShippingPriceIncludingTax()): ?>
+                    <?php $excl = $block->displayShippingPriceInclTax($order); ?>
+                <?php else: ?>
+                    <?php $excl = $block->displayPriceAttribute('shipping_amount', false, ' '); ?>
+                <?php endif; ?>
+                <?php $incl = $block->displayShippingPriceInclTax($order); ?>
+
+                <?php /* @noEscape */ echo $excl; ?>
+                <?php if ($this->helper('Magento\Tax\Helper\Data')->displayShippingBothPrices() && $incl != $excl): ?>
+                    (<?php /* @noEscape */ echo __('Incl. Tax'); ?> <?php /* @noEscape */ echo $incl; ?>)
+                <?php endif; ?>
+            <?php else: ?>
+                <?php /* @noEscape */ echo __('No shipping information available'); ?>
+            <?php endif; ?>
+            <?php echo $block->getChildHtml('aw_delivery_date') ?>
+        </div>
+    </div>
+
+<?php endif; ?>

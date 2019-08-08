@@ -1,0 +1,7 @@
+<div data-bind="attr: {'id': 'aw-report__data_grid-chart-' + index}"></div>
+<script data-bind="attr: {'id': 'aw-chart-tooltip-template-' + index}" type="text/x-magento-template">
+    <div class="aw-report-chart-tooltip<%- data.style %>">
+        <b><%- data.period %></b><br />
+        <%- data.description %>:&nbsp;<b><%- data.value %></b>
+    </div>
+</script>

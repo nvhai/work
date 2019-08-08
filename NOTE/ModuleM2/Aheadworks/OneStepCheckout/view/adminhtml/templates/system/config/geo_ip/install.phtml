@@ -1,0 +1,24 @@
+<?php
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+
+/** @var $block \Aheadworks\OneStepCheckout\Block\Adminhtml\System\Config\GeoIp\Install */
+
+// @codingStandardsIgnoreFile
+?>
+<div class="aw-osc_button-container">
+    <button class="action-default"
+            type="button"
+            <?php if ($block->isDisabled()): ?> disabled<?php endif; ?>
+            data-mage-init='{"awOscPackageInstaller": {
+                "submitUrl": <?php /* @noEscape */ echo \Zend_Json::encode($block->getSubmitUrl()) ?>,
+                "packageName": <?php /* @noEscape */ echo \Zend_Json::encode($block->getPackageName()) ?>,
+                "installedLabel": <?php /* @noEscape */ echo \Zend_Json::encode($block->getButtonLabelInstalled()) ?>,
+                "isInstalled": <?php /* @noEscape */ echo \Zend_Json::encode($block->isInstalled()) ?>,
+                "linkedControlsSelector": <?php /* @noEscape */ echo \Zend_Json::encode(
+                    "#row_aw_osc_geo_ip_download_database [data-role=download-geo-ip-database]"
+                ) ?>
+            }}'><?php echo $block->escapeHtml($block->getButtonLabel()) ?></button>
+</div>

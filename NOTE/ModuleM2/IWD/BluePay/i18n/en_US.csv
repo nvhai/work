@@ -1,0 +1,6 @@
+CARD_TYPE,"Credit Card Type"
+PAYMENT_ACCOUNT,"Credit Card Number"
+AVS_RESULT,"AVS Result"
+CVV2_RESULT,"CVV Result"
+Result,"Status"
+AUTH_CODE,"Authorization Code"

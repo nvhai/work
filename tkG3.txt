@@ -7,6 +7,8 @@ port 21198
 user: ahtg3
 admin: UHaK&989
 
+ahtg4/OAID886
+
 ssh-keygen
 vao C:\Users\NANI\.ssh mo file id_rsa.pub
 copy ssh-rsa  
@@ -49,3 +51,11 @@ pass: zgk23niqeg
 use conv_mylightinghub
 source D:/mylightinghub.sql
 
+
+
+'host' => 'localhost',
+                'dbname' => 'aht3731_vessel',
+                'username' => 'aht3731_vessel',
+                'password' => '3ysyqmfb9t',
+                'active' => '1',
+                'profiler' => '1'

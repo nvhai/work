@@ -1,0 +1,34 @@
+<div class="aw-sidebar-product-card">
+    <div class="aw-sidebar-product-image">
+        <!-- ko foreach: getRegion('thumbnail') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <!-- /ko -->
+    </div>
+    <div class="aw-sidebar-product-description-container">
+        <div class="aw-sidebar-product-description">
+            <div class="aw-sidebar-product">
+                <div class="aw-sidebar-product-name">
+                    <span data-bind="html: escape($parent.name)"></span>
+                </div>
+                <!-- ko foreach: getRegion('qty') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+                <!-- /ko -->
+            </div>
+            <div class="aw-sidebar-product-subtotals">
+                <div class="aw-sidebar-product-price">
+                    <!-- ko foreach: getRegion('subtotal') -->
+                    <!-- ko template: getTemplate() --><!-- /ko -->
+                    <!-- /ko -->
+                </div>
+                <div class="aw-sidebar-product-action">
+                    <!-- ko foreach: getRegion('actions') -->
+                    <!-- ko template: getTemplate() --><!-- /ko -->
+                    <!-- /ko -->
+                </div>
+            </div>
+        </div>
+            <!-- ko foreach: getOptionsRenderer($parent) -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!-- /ko -->
+    </div>
+</div>

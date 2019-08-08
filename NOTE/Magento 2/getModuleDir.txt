@@ -1,0 +1,4 @@
+$path = $this->moduleReader->getModuleDir(
+            \Magento\Framework\Module\Dir::MODULE_VIEW_DIR,
+            'Meetanshi_CurrencySwitcher'
+        );

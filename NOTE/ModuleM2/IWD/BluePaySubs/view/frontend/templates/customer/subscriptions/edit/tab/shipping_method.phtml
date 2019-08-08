@@ -1,0 +1,71 @@
+<?php
+/**
+ * Copyright © 2018 IWD Agency - All rights reserved.
+ * See LICENSE.txt bundled with this module for license details.
+ */
+?>
+<?php /** @var \IWD\BluePaySubs\Block\Customer\Subscriptions\Edit\Tab\ShippingMethod $block */ ?>
+<?php $formId = $block->escapeHtml($block->getFormId()); ?>
+<?php $submitUrl = $block->escapeUrl($block->getSubmitUrl()); ?>
+<form id="<?php echo $formId ?>" action="<?php echo $submitUrl ?>" method="post" enctype="multipart/form-data">
+    <div class="fieldset-wrapper" data-bind="scope: 'shipping_method'">
+        <fieldset
+                data-bind="attr: {class: 'fieldset shipping items ' + getCode(), id: 'shipping_form_' + getCode()}">
+            <!-- ko if: (getShippingRates())-->
+            <div class="field" data-bind="attr: {id: getCode() + '_choose_rate_div'}">
+                <label data-bind="attr: {for: getCode() + '_choose_rate'}" class="label">
+                    <span><!-- ko i18n: 'Choose Method'--><!-- /ko --></span>
+                </label>
+                <div class="control">
+                    <div class="fields group group-2">
+                        <div class="field no-label">
+                            <div class="control">
+                                <select name="shipping[rate]"
+                                        class="select"
+                                        data-bind="attr: { id: getCode() + '_choose_rate'},
+                                            options: getShippingRates(),
+                                            optionsValue: 'value',
+                                            optionsText: 'label',
+                                            value: currentRate
+                                        ">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /ko -->
+        </fieldset>
+    </div>
+
+    <div class="actions">
+        <button class="secondary subs-update" type="submit">
+            <span><?php /* @escapeNotVerified */
+                echo __('Update') ?></span>
+        </button>
+        <button class="secondary cancel subs-cancel" type="button">
+            <span><?php /* @escapeNotVerified */
+                echo __('Cancel') ?></span>
+        </button>
+    </div>
+</form>
+
+<script type="text/x-magento-init">
+    {
+        "#<?= $formId ?>": {
+            "validation": {}
+        },
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "shipping_method": {
+                        "component": "IWD_BluePaySubs/js/view/shipping_method",
+                        "config":  <?php /* @escapeNotVerified */
+    echo $block->getConfig() ?>
+                    }
+                }
+            }
+        }
+    }
+
+</script>

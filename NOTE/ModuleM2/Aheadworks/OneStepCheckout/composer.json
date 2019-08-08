@@ -1,0 +1,39 @@
+{
+    "name": "aheadworks/module-onestepcheckout",
+    "description": "N/A",
+    "require": {
+        "magento/module-backend": ">100.0",
+        "magento/module-checkout": ">100.0",
+        "magento/module-checkout-agreements": ">100.0",
+        "magento/module-cms": ">100.0",
+        "magento/module-config": ">100.0",
+        "magento/module-configurable-product": ">100.0",
+        "magento/module-customer": ">100.0",
+        "magento/module-directory": ">100.0",
+        "magento/module-indexer": ">100.0",
+        "magento/module-newsletter": ">100.0",
+        "magento/module-quote": ">100.0",
+        "magento/module-payment": ">100.0",
+        "magento/module-paypal": ">100.0",
+        "magento/module-sales": ">100.0",
+        "magento/module-sales-rule": ">100.0",
+        "magento/module-shipping": ">100.0",
+        "magento/module-store": ">100.0",
+        "magento/module-tax": ">100.0",
+        "magento/module-ui": ">100.0",
+        "magento/framework": ">100.0"
+    },
+    "type": "magento2-module",
+    "version": "1.1.0",
+    "license": [
+        "proprietary"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Aheadworks\\OneStepCheckout\\": ""
+        }
+    }
+}

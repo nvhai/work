@@ -6,6 +6,14 @@
         ['neq' => $chinaId]
     ]);
 
+->addAttributeToFilter('customer_group',
+                    array(
+                        ['null' => true],
+                        ['finset' => (int)$customerGroupId]
+                    ),'left')
+                ->getAllIds();
+
+
 $_products->addAttributeToFilter('status', array('eq' => 1)); // Using the operator
 $_products->addAttributeToFilter('status', 1); // Without using the operator
 

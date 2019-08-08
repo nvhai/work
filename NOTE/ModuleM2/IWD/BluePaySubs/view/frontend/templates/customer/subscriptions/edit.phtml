@@ -1,0 +1,93 @@
+<?php /* @codingStandardsIgnoreFile */ ?>
+<?php /** @var \IWD\BluePaySubs\Block\Customer\Subscriptions\Edit $block */ ?>
+<?php $childNames = $block->getChildNames() ?>
+
+<div class="subs-message message warning">
+    <span><?php echo $block->escapeHtml(__('All changes will take effect on the next billing.')); ?></span>
+</div>
+
+<div class="subs wrapper list edit-list">
+    <ol class="subs edit-list items subs-items">
+        <?php /** @var \IWD\BluePaySubs\Model\Subscription $subscription */ ?>
+        <?php foreach ($childNames as $_childName): ?>
+            <?php /** @var \IWD\BluePaySubs\Block\Customer\Subscriptions\Edit\Tab $childBlock */ ?>
+            <?php $childBlock = $block->getChildBlock($_childName) ?>
+            <?php if ($childBlock->canShow()): ?>
+                <li class="item subs subs-item"
+                    data-mage-init='{"accordion":{"openedState": "active", "collapsible": true, "active": false, "multipleCollapsible": true}}'>
+                    <div class="subs-item-info">
+                        <div class="subs-item-info-wrap" data-role="collapsible">
+                            <div
+                                <?php if ($_childName != 'subscriptions_edit_tab_1') echo "data-role=\"trigger\"" ?>>
+                                <div class="subs details subs-item-details">
+                                    <span class="subs name subs-item-name"><?php echo $block->escapeHtml($childBlock->getTitle()) ?></span>
+                                    <div class="subs-summary">
+                                        <span class="subs summary-info subs-summary-info"><?php echo $block->escapeHtml($childBlock->getSummaryInfo()) ?></span>
+                                    </div>
+                                </div>
+                                <?php if ($_childName != 'subscriptions_edit_tab_1') { ?>
+                                    <div class="subs item-trigger-icon subs-item-trigger-icon">
+                                <span class="subs-icon">
+                                    <i class="fa fa-angle-down"></i>
+                                </span>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                            <div class="subs-content" data-role="content">
+                                <?php echo $block->getChildHtml($_childName) ?>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </ol>
+
+    <div class="navigation-subs">
+        <div class="child-subs-icon back">
+            <span class="back-button"><</span>
+        </div>
+        <div class="child-subs-text back">
+            <span><?php echo __('Back') ?></span>
+        </div>
+        <?php if (!$block->isStopped() && $block->canCustomerStop()): ?>
+            <div class="subs-cancel">
+                <span class="cancel-text"><?php echo __('Cancel Subscription') ?></span>
+                <div class="cancel-block">
+                    <span class="are-you-sure"><?php echo __('Are you sure?') ?></span>
+                    <a href="<?php echo $block->escapeUrl($block->getCancelUrl()) ?>" class="yes">
+                        <?php echo __('Yes') ?>
+                    </a>
+                    <span class="delimiter"></span>
+                    <a href="#" class="no"><?php echo __('No') ?></a>
+                </div>
+            </div>
+        <?php endif; ?>
+    </div>
+
+</div>
+<script>
+    require(['jquery'], function ($) {
+        var navigation = $('.navigation-subs');
+        $(document).on('click', '.subs-cancel', function () {
+            $(this).closest('[data-role="collapsible"]').collapsible("deactivate");
+        });
+        navigation.on('click', '.cancel-text', function () {
+            $(this).hide();
+            $(this).siblings('.cancel-block').show();
+        });
+        navigation.on('click', '.cancel-block .no', function (e) {
+            e.preventDefault();
+            var block = $(this).closest('.cancel-block');
+            block.hide();
+            block.siblings('.cancel-text').show();
+        });
+        navigation.on('click', '.child-subs-icon', function (e) {
+            e.preventDefault();
+            window.location = '<?php echo $block->escapeUrl($block->getBackUrl()) ?>';
+        });
+        setInterval(function () {
+            $(".subs-message").hide();
+        }, 5000);
+    });
+</script>

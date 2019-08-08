@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright © 2018 IWD Agency - All rights reserved.
+  ~ See LICENSE.txt bundled with this module for license details.
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Mview/etc/mview.xsd">
+    <view id="bluepay_subscriptions" class="IWD\BluePaySubs\Model\Product\Option\Indexer" group="indexer">
+        <subscriptions>
+            <table name="catalog_product_option" entity_column="option_id" />
+        </subscriptions>
+    </view>
+</config>

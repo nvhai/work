@@ -1,0 +1,35 @@
+<?php
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+
+/** @var \Aheadworks\OneStepCheckout\Block\Adminhtml\Report\CheckoutBehavior\BarChart $block */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+    $percentage = $block->getPercentage();
+?>
+<div class="aw-bar-chart">
+    <div class="title">
+        <strong><?php echo $block->escapeHtml($block->getTitle()) ?></strong>
+    </div>
+    <div class="description">
+        <span><?php echo $block->escapeHtml($block->getDescription()) ?></span>:
+    </div>
+    <div class="value">
+        <span><?php echo $block->escapeHtml($block->getValue()) ?></span>
+        <span class="percentage">(<?php echo $block->escapeHtml($block->formatPercents($percentage)) ?>)</span>
+    </div>
+    <div class="chart-container">
+        <div>
+            <div class="chart-bar_label" style="width: <?php /* @noEscape */ echo (100 - $percentage) ?>%;">
+                <span data-role="value"><?php echo $block->escapeHtml($block->formatPercents($percentage)) ?></span>
+            </div>
+            <span class="chart-bar_row">
+                <span class="chart-bar_empty" style="width: <?php /* @noEscape */ echo (100 - $percentage) ?>%;"></span>
+            </span>
+        </div>
+    </div>
+</div>

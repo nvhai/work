@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+    <extension_attributes for="Magento\Quote\Api\Data\PaymentInterface">
+        <attribute code="is_subscribe_for_newsletter" type="bool" />
+        <attribute code="subscriber_email" type="string" />
+        <attribute code="order_note" type="string" />
+        <attribute code="delivery_date" type="string" />
+        <attribute code="delivery_time_slot" type="string" />
+    </extension_attributes>
+    <extension_attributes for="Magento\Quote\Api\Data\CartInterface">
+        <attribute code="aw_order_note" type="string" />
+        <attribute code="aw_delivery_date" type="string" />
+        <attribute code="aw_delivery_date_from" type="string" />
+        <attribute code="aw_delivery_date_to" type="string" />
+    </extension_attributes>
+    <extension_attributes for="Magento\Sales\Api\Data\OrderInterface">
+        <attribute code="aw_order_note" type="string" />
+        <attribute code="aw_delivery_date" type="string" />
+        <attribute code="aw_delivery_date_from" type="string" />
+        <attribute code="aw_delivery_date_to" type="string" />
+    </extension_attributes>
+</config>

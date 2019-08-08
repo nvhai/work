@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 2018 IWD Agency - All rights reserved.
+  ~ See LICENSE.txt bundled with this module for license details.
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="iwd_subs_billing_failed_template" label="Subscription billing failed" file="billing_failed_admin.html" type="html" module="IWD_BluePaySubs" area="frontend" />
+    <template id="iwd_subs_payment_failed_template" label="Subscription payment failed" file="payment_failed_customer.html" type="html" module="IWD_BluePaySubs" area="frontend" />
+    <template id="iwd_subs_generation_failed_template" label="Subscription generation order failed" file="order_generation_failed.html" type="html" module="IWD_BluePaySubs" area="frontend" />
+</config>

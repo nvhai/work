@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 2018 IWD Agency - All rights reserved.
+  ~ See LICENSE.txt bundled with this module for license details.
+  -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <update handle="checkout_cart_item_renderers"/>
+    <update handle="checkout_shipping_price_renderer"/>
+    <head>
+        <css src="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" src_type="url"/>
+        <css src="IWD_BluePaySubs::css/subscriptions.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Magento\Framework\View\Element\Template" name="customer_account_dashboard_top" as="top" />
+            <block class="IWD\BluePaySubs\Block\Customer\Subscriptions\Edit" name="subscriptions_edit" template="IWD_BluePaySubs::customer/subscriptions/edit.phtml" cacheable="false">
+                <!--Subscription Tab-->
+                <block class="IWD\BluePaySubs\Block\Customer\Subscriptions\Edit\Tab" name="subscriptions_edit_tab_1" template="IWD_BluePaySubs::customer/subscriptions/edit/tab.phtml" >
+                    <arguments>
+                        <argument name="title" xsi:type="string" translate="true">Subscription frequency</argument>
+                        <argument name="summary_info" xsi:type="array">
+                            <item name="child_tabs_delimiter" xsi:type="array">
+                                <item name="subscriptions_edit_tab_frequency" xsi:type="string">1</item>
+                            </item>
+                        </argument>
+                    </arguments>
+                    <block class="IWD\BluePaySubs\Block\Customer\Subscriptions\Edit\Tab\Frequency" name="subscriptions_edit_tab_frequency">
+                        <arguments>
+                            <argument name="title" xsi:type="string" translate="true">Frequency</argument>
+                            <argument name="form_id" xsi:type="string" translate="true">subs_frequency</argument>
+                        </arguments>
+                    </block>
+                </block>
+                <!--Payment Tab-->
+                <block class="IWD\BluePaySubs\Block\Customer\Subscriptions\Edit\Tab" name="subscriptions_edit_tab_2" template="IWD_BluePaySubs::customer/subscriptions/edit/tab.phtml" >
+                    <arguments>
+                        <argument name="title" xsi:type="string" translate="true">Payment</argument>
+                        <argument name="summary_info" xsi:type="array">
+                            <item name="child_tabs_delimiter" xsi:type="array">
+                                <item name="subscriptions_edit_tab_payment_method" xsi:type="string">1</item>
+                                <item name="subscriptions_edit_tab_billing_address" xsi:type="string">2</item>
+                            </item>
+                        </argument>
+                    </arguments>
+                    <block class="IWD\BluePaySubs\Block\Customer\Subscriptions\Edit\Tab\PaymentMethod" name="subscriptions_edit_tab_payment_method" template="IWD_BluePaySubs::customer/subscriptions/edit/tab/payment_method.phtml" >
+                        <arguments>
+                            <argument name="title" xsi:type="string" translate="true">Payment Method</argument>
+                            <argument name="form_id" xsi:type="string" translate="true">subs_payment_method</argument>
+                        </arguments>
+                    </block>
+                    <block class="IWD\BluePaySubs\Block\Customer\Subscriptions\Edit\Tab\BillingAddress" name="subscriptions_edit_tab_billing_address" template="IWD_BluePaySubs::customer/subscriptions/edit/tab/billing_address.phtml" >
+                        <arguments>
+                            <argument name="title" xsi:type="string" translate="true">Billing Address</argument>
+                            <argument name="form_id" xsi:type="string" translate="true">subs_billing_address</argument>
+                        </arguments>
+                    </block>
+                </block>
+                <!--Shipment Tab-->
+                <block class="IWD\BluePaySubs\Block\Customer\Subscriptions\Edit\Tab" name="subscriptions_edit_tab_3" template="IWD_BluePaySubs::customer/subscriptions/edit/tab.phtml" >
+                    <arguments>
+                        <argument name="title" xsi:type="string" translate="true">Shipping</argument>
+                        <argument name="can_show" xsi:type="helper" helper="IWD\BluePaySubs\Block\Customer\Subscriptions\Edit\Tab::canShowShipping"/>
+                        <argument name="summary_info" xsi:type="array">
+                            <item name="child_tabs_delimiter" xsi:type="array">
+                                <item name="subscriptions_edit_tab_shipping_method" xsi:type="string">1</item>
+                                <item name="subscriptions_edit_tab_shipping_address" xsi:type="string">2</item>
+                            </item>
+                        </argument>
+                    </arguments>
+                    <block class="IWD\BluePaySubs\Block\Customer\Subscriptions\Edit\Tab\ShippingMethod" name="subscriptions_edit_tab_shipping_method" template="IWD_BluePaySubs::customer/subscriptions/edit/tab/shipping_method.phtml">
+                        <arguments>
+                            <argument name="title" xsi:type="string" translate="true">Shipping Method</argument>
+                            <argument name="form_id" xsi:type="string" translate="true">subs_shipping_method</argument>
+                        </arguments>
+                    </block>
+                    <block class="IWD\BluePaySubs\Block\Customer\Subscriptions\Edit\Tab\ShippingAddress" name="subscriptions_edit_tab_shipping_address" template="IWD_BluePaySubs::customer/subscriptions/edit/tab/shipping_address.phtml">
+                        <arguments>
+                            <argument name="title" xsi:type="string" translate="true">Shipping Address</argument>
+                            <argument name="form_id" xsi:type="string" translate="true">subs_shipping_address</argument>
+                        </arguments>
+                    </block>
+                </block>
+            </block>
+        </referenceContainer>
+        <referenceBlock name="page.main.title">
+            <block class="Magento\Framework\View\Element\Template" name="subs.status" template="IWD_BluePaySubs::customer/subscriptions/status.phtml"/>
+        </referenceBlock>
+        <referenceBlock name="customer-account-navigation-bluepay-subs-link">
+            <arguments>
+                <argument name="is_highlighted" xsi:type="boolean">true</argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

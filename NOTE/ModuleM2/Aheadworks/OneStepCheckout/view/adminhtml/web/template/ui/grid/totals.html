@@ -1,0 +1,10 @@
+<div class="aw-report__data-grid-column-totals">
+    <ul class="aw-report__column-totals-list" repeat="foreach: totals, item: '$row'">
+        <li class="aw-report__column-totals-item" outerfasteach="data: elems, as: '$col'" visible="$col.visible"
+            data-bind="style: {'border-color': $col.color}">
+            <div class="aw-report__column-totals-value" text="$col.getLabel($row())"
+                 data-bind="style: {color: $col.color}"/>
+            <div class="aw-report__column-totals-label" text="$parent.getTotalLabel($col)"/>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,71 @@
+<?php
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+
+/** @var $block \Aheadworks\OneStepCheckout\Block\Adminhtml\System\Config\TrustSeals\Badges */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+    $htmlId = $block->getHtmlId() ? $block->getHtmlId() : '_' . uniqid();
+    $colSpan = $block->isAddAfter() ? 2 : 1;
+?>
+<div class="aw-osc_field-array aw-osc_trust-seals" id="grid<?php /* @noEscape */ echo $htmlId ?>">
+    <script id="aw-osc_trust-seals_template" data-role="row-template" type="text/x-magento-template">
+        <tr id="<%- _id %>" data-role="row">
+            <?php foreach ($block->getColumns() as $columnName => $column): ?>
+                <td><?php /* @noEscape */ echo $block->renderCellTemplate($columnName) ?></td>
+                <?php if ($block->isAddAfter()): ?>
+                    <td>
+                        <button class="action-add"
+                                type="button"
+                                data-role="add-after-button">
+                            <span><?php echo $block->escapeHtml(__('Add after')) ?></span>
+                        </button>
+                    </td>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            <td class="col-actions">
+                <button class="action-delete"
+                        type="button"
+                        data-role="delete-button"
+                        data-row-id="<%- _id %>">
+                    <span><?php echo $block->escapeHtml(__('Delete')) ?></span>
+                </button>
+            </td>
+        </tr>
+    </script>
+    <div class="admin__control-table-wrapper">
+        <table class="admin__control-table" data-mage-init='{"awOscFieldArray": {
+            "defaultRowData": <?php /* @noEscape */ echo \Zend_Json::encode($block->getDefaultRowData()) ?>,
+            "rows": <?php /* @noEscape */ echo \Zend_Json::encode($block->getRows()) ?>,
+            "template": "#aw-osc_trust-seals_template",
+            "maxRows": 3
+        }}'>
+            <thead>
+            <tr>
+                <?php foreach ($block->getColumns() as $columnName => $column): ?>
+                    <th><?php echo $block->escapeHtml($column['label']) ?></th>
+                <?php endforeach; ?>
+                <th class="col-actions" colspan="<?php /* @noEscape */ echo $colSpan ?>"><?php echo $block->escapeHtml(__('Action')) ?></th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+                <td colspan="<?php /* @noEscape */ echo count($block->getColumns()) + $colSpan ?>" class="col-actions-add">
+                    <button  class="action-add"
+                             title="<?php echo $block->escapeHtml(__('Add')) ?>"
+                             type="button"
+                             data-role="add-button">
+                        <span><?php echo $block->escapeHtml(__('Add')) ?></span>
+                    </button>
+                </td>
+            </tr>
+            </tfoot>
+            <tbody data-role="rows-container"></tbody>
+        </table>
+    </div>
+    <input type="hidden" name="<?php /* @noEscape */ echo $block->getElement()->getName(); ?>[__empty]" value="" />
+</div>

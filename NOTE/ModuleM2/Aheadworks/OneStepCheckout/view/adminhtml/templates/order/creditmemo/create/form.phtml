@@ -1,0 +1,75 @@
+<?php
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+
+/* @var $block \Magento\Sales\Block\Adminhtml\Order\Creditmemo\Create\Form */
+
+// @codingStandardsIgnoreFile
+?>
+<form id="edit_form" method="post" action="<?php echo $block->escapeUrl($block->getSaveUrl()) ?>">
+    <?php echo $block->getBlockHtml('formkey') ?>
+    <?php $order = $block->getCreditmemo()->getOrder() ?>
+    <?php echo $block->getChildHtml('order_info') ?>
+
+    <section class="admin__page-section">
+        <div class="admin__page-section-title">
+            <span class="title"><?php /* @noEscape */ echo __('Payment &amp; Shipping Method') ?></span>
+        </div>
+        <div class="admin__page-section-content">
+        <?php if (!$order->getIsVirtual()): ?>
+        <div class="admin__page-section-item order-payment-method">
+        <?php else: ?>
+        <div class="admin__page-section-item order-payment-method order-payment-method-virtual">
+        <?php endif; ?>
+
+            <?php /* Billing Address */ ?>
+            <div class="admin__page-section-item-title">
+                <span class="title"><?php /* @noEscape */ echo __('Payment Information') ?></span>
+            </div>
+            <div class="admin__page-section-item-content">
+                <div class="order-payment-method-title"><?php echo $block->getChildHtml('order_payment') ?></div>
+                <div class="order-payment-currency">
+                    <?php /* @noEscape */ echo __('The order was placed using %1.', $order->getOrderCurrencyCode()) ?>
+                </div>
+                <div class="order-payment-additional">
+                    <?php /* @noEscape */ echo $block->getChildHtml('order_payment_additional'); ?>
+                </div>
+            </div>
+        </div>
+
+        <?php if (!$order->getIsVirtual()): ?>
+        <div class="admin__page-section-item order-shipping-address">
+            <?php /* Shipping Address */ ?>
+            <div class="admin__page-section-item-title">
+                <span class="title"><?php /* @noEscape */ echo __('Shipping Information') ?></span>
+            </div>
+            <div class="admin__page-section-item-content shipping-description-wrapper">
+                <div class="shipping-description-title"><?php echo $block->escapeHtml($order->getShippingDescription()) ?></div>
+                <div class="shipping-description-content">
+                    <?php /* @noEscape */ echo __('Total Shipping Charges') ?>:
+
+                    <?php if ($this->helper('Magento\Tax\Helper\Data')->displaySalesPriceInclTax($block->getSource()->getStoreId())): ?>
+                        <?php $excl = $block->displayShippingPriceInclTax($order); ?>
+                    <?php else: ?>
+                        <?php $excl = $block->displayPriceAttribute('shipping_amount', false, ' '); ?>
+                    <?php endif; ?>
+                    <?php $incl = $block->displayShippingPriceInclTax($order); ?>
+
+                    <?php /* @noEscape */ echo $excl; ?>
+                    <?php if ($this->helper('Magento\Tax\Helper\Data')->displaySalesBothPrices($block->getSource()->getStoreId()) && $incl != $excl): ?>
+                        (<?php /* @noEscape */ echo __('Incl. Tax'); ?> <?php /* @noEscape */ echo $incl; ?>)
+                    <?php endif; ?>
+                    <?php /* @noEscape */ echo $block->getChildHtml('aw_delivery_date') ?>
+                </div>
+            </div>
+        </div>
+        <?php endif; ?>
+        </div>
+    </section>
+
+    <div id="creditmemo_item_container">
+        <?php echo $block->getChildHtml('order_items') ?>
+    </div>
+</form>

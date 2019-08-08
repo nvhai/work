@@ -1,0 +1,25 @@
+<div class="aw-onestep-sidebar-block payment-option opc-payment-additional customerbalance"
+     data-role="aw-async-collapsible"
+     data-bind="visible: isAvailable && isActive()">
+    <div class="payment-option-title field choice" data-role="title">
+        <span class="action action-toggle" role="heading" aria-level="2">
+            <span data-bind="i18n: 'Store credit'"></span>
+        </span>
+    </div>
+    <div class="payment-option-content" data-role="content">
+        <div class="payment-option-inner">
+            <span id="customerbalance-available-amount" data-bind="text: formatBalance()"></span>
+            <!-- ko i18n: 'Store credit available' --><!-- /ko -->
+        </div>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button id="use-customer-balance"
+                        class="action primary action-use"
+                        name="payment[use_customer_balance]"
+                        data-bind="click: sendRequest">
+                        <span><!-- ko i18n: 'Use Store Credit' --><!-- /ko --></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

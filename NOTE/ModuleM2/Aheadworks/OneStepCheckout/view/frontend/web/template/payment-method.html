@@ -1,0 +1,17 @@
+<li class="aw-onestep-groups_item">
+    <div class="group-title">
+        <h2><span class="mark"></span><span data-bind="i18n: 'Payment method'"></span></h2>
+    </div>
+    <div class="group-content">
+        <form id="co-payment-form" class="form payments" novalidate="novalidate">
+            <input data-bind='attr: {value: getFormKey()}' type="hidden" name="form_key"/>
+
+            <!-- ko foreach: getRegion('billingAddress') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+            <!-- ko foreach: getRegion('methodList') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        </form>
+    </div>
+</li>

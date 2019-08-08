@@ -1,0 +1,21 @@
+<div class="aw-onestep-sidebar-block aw-sidebar-product-list"
+     data-bind="mageInit: {'collapsible':{'openedState': 'active', 'active': false}}">
+    <div class="aw-onestep-sidebar-block_title" data-role="title">
+        <span data-bind="text: itemsQty"></span>
+        <span>
+            <!-- ko if: itemsQty() == 1 -->
+            <!-- ko i18n: 'Item in Cart' --><!-- /ko -->
+            <!-- /ko -->
+            <!-- ko if: itemsQty() > 1 -->
+            <!-- ko i18n: 'Items in Cart' --><!-- /ko -->
+            <!-- /ko -->
+        </span>
+    </div>
+    <div class="aw-onestep-sidebar-block_content" data-role="content">
+        <!-- ko foreach: items() -->
+            <!-- ko foreach: $parent.elems() -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!-- /ko -->
+        <!-- /ko -->
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<!-- ko if: isShown -->
+<li class="aw-onestep-groups_item">
+    <div class="group-title">
+        <h2><span class="mark"></span><span data-bind="i18n: 'Shipping address'"></span></h2>
+    </div>
+    <div class="group-content">
+        <div class="onestep-shipping-address">
+            <!-- ko ifnot: isFormInline -->
+            <div class="new-shipping-address-form"
+                 data-role='new-shipping-address-form'
+                 data-bind="mageInit: {'collapsible':{'openedState': 'active', 'active': false}}">
+                <div class="title" data-role="title" data-bind="visible: showNewAddressFormHeader()">
+                    <strong role="heading">
+                        <span data-bind="i18n: 'Add New Address'"></span>
+                    </strong>
+                </div>
+                <div class="content" data-role="content">
+                    <!-- ko template: 'Aheadworks_OneStepCheckout/shipping-address/form' --><!-- /ko -->
+                    <div class="action-toolbar">
+                        <button class="action primary" data-bind="click: onSaveNewAddressClick">
+                            <span data-bind="i18n: 'Save Address'"></span>
+                        </button>
+                        <button class="action" data-bind="click: onCancelClick">
+                            <span data-bind="i18n: 'Cancel'"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--/ko-->
+
+            <!-- ko foreach: getRegion('shipping-address-list') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+
+            <!-- ko if: showForm -->
+            <!-- ko template: 'Aheadworks_OneStepCheckout/shipping-address/form' --><!-- /ko -->
+            <!-- /ko -->
+        </div>
+    </div>
+</li>
+<!-- /ko -->

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Indexer/etc/indexer.xsd">
+    <indexer id="aw_osc_reports" view_id="aw_osc_reports" class="Aheadworks\OneStepCheckout\Model\Report\Indexer">
+        <title translate="true">Aheadworks One Step Checkout Reports</title>
+        <description translate="true">Index Aheadworks One Step Checkout Reports</description>
+    </indexer>
+</config>
