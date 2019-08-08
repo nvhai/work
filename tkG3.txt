@@ -7,6 +7,8 @@ port 21198
 user: ahtg3
 admin: UHaK&989
 
+ssh ahtg3@g3a.arrowhitech.net -p21198
+
 ssh-keygen
 vao C:\Users\NANI\.ssh mo file id_rsa.pub
 copy ssh-rsa  
@@ -48,4 +50,8 @@ mysql -u weedbayc_gssi -p (enter)
 pass: zgk23niqeg 
 use conv_mylightinghub
 source D:/mylightinghub.sql
+
+
+
+ssh ahtg3@g3a.arrowhitech.net -p21198
 
