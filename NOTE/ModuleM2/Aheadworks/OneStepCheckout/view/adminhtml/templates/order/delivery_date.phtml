@@ -1,0 +1,20 @@
+<?php
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+
+/** @var $block \Aheadworks\OneStepCheckout\Block\Adminhtml\Order\AbstractDeliveryDate */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+    $deliveryDate = $block->getDeliveryDate();
+    $deliveryDateFrom = $block->getDeliveryDateFrom();
+    $deliveryDateTo = $block->getDeliverydateTo();
+?>
+<br />
+<?php echo $block->escapeHtml(__('Delivery Date')) ?>: <?php /* @noEscape */ echo $block->formatDate($block->getDeliveryDate()) ?>
+<?php if ($deliveryDateFrom && $deliveryDateTo): ?>
+    <br /><?php echo $block->escapeHtml(__('Delivery Time')) ?>: <?php /* @noEscape */ echo $block->formatTime($deliveryDateFrom) ?> - <?php /* @noEscape */ echo $block->formatTime($deliveryDateTo) ?>
+<?php endif; ?>

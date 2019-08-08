@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 2018 IWD Agency - All rights reserved.
+  ~ See LICENSE.txt bundled with this module for license details.
+  -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <head>
+        <css src="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" src_type="url"/>
+        <css src="IWD_BluePaySubs::css/subscriptions.css"/>
+    </head>
+    <body>
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">Subscriptions</argument>
+            </action>
+        </referenceBlock>
+
+        <referenceContainer name="content">
+            <block class="IWD\BluePaySubs\Block\Customer\Subscriptions" name="subscriptions_index" template="IWD_BluePaySubs::customer/subscriptions.phtml" cacheable="false">
+                <arguments>
+                    <argument name="limit_per_page" xsi:type="helper" helper="IWD\BluePaySubs\Helper\Data::getCustomerGridLimit"/>
+                </arguments>
+                <block class="Magento\Theme\Block\Html\Pager" name="toolbar_pager"/>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

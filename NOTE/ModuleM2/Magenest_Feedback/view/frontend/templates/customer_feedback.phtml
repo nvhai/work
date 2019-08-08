@@ -1,0 +1,28 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: doanhcn2
+ * Date: 18/03/2019
+ * Time: 13:32
+ * @var \Magenest\Feedback\Block\Customer\Feedback $block ;
+ */
+?>
+<div id="customer-feedback" data-bind="scope: 'feedback-form'">
+    <!-- ko template: getTemplate() --> <!-- /ko -->
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "#customer-feedback": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "feedback-form": {
+                        "component": "Magenest_Feedback\/js\/view\/customer-feedback",
+                        "listProducts": <?php /* @escapeNotVerified */ echo $block->getListProduct(); ?>
+                    }
+                }
+            }
+        }
+    }
+
+</script>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="left">
+            <block class="IWD\BluePaySubs\Block\Adminhtml\Subscription\Edit\Tabs" name="subs_edit_tabs">
+                <block class="IWD\BluePaySubs\Block\Adminhtml\Subscription\Edit\Tab\General"
+                       name="subs_edit_tab_general"/>
+                <block class="IWD\BluePaySubs\Block\Adminhtml\Subscription\Edit\Tab\Payment"
+                       name="subs_edit_tab_payment"/>
+                <block class="IWD\BluePaySubs\Block\Adminhtml\Subscription\Edit\Tab\Shipping"
+                       name="subs_edit_tab_shipping" template="IWD_BluePaySubs::subscriptions/edit/shipping.phtml"/>
+                <block class="IWD\BluePaySubs\Block\Adminhtml\Subscription\Edit\Tab\History"
+                       name="subs_edit_tab_history"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">general_section</argument>
+                    <argument name="block" xsi:type="string">subs_edit_tab_general</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">payment_section</argument>
+                    <argument name="block" xsi:type="string">subs_edit_tab_payment</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">shipping_section</argument>
+                    <argument name="block" xsi:type="string">subs_edit_tab_shipping</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">subs_history_grid</argument>
+                    <argument name="block" xsi:type="string">subs_edit_tab_history</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="IWD\BluePaySubs\Block\Adminhtml\Subscription\Edit" name="subs_edit"/>
+        </referenceContainer>
+    </body>
+</page>

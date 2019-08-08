@@ -1,0 +1,21 @@
+<!-- ko if: isEnabled() -->
+<div class="aw-onestep-trust-seals">
+    <!-- ko if: getLabel() -->
+        <div class="trust-seals_label">
+            <span data-bind="text: getLabel()"></span>
+        </div>
+        <div class="trust-seals_badges">
+            <ul>
+                <!--ko foreach: getBadges() -->
+                <li>
+                    <div data-bind="html: script"></div>
+                </li>
+                <!-- /ko -->
+            </ul>
+        </div>
+    <!-- /ko -->
+    <div class="trust-seals_text">
+        <p data-bind="text: getText()"></p>
+    </div>
+</div>
+<!-- /ko -->

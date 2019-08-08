@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Adyen_Payment::css/styles.css"/>
+    </head>
+    <body>
+        <referenceBlock name="checkout.root">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="checkout" xsi:type="array">
+                            <item name="children" xsi:type="array">
+                                <item name="checkoutConfig" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="payment-post-processors" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="float-label-converter" xsi:type="array">
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="adyen_payment" xsi:type="array">
+                                                            <item name="component" xsi:type="string">Aheadworks_OneStepCheckout/js/view/payment-method/post-processor/float-label-converter/adyen-payment</item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                                <item name="actions-toolbar" xsi:type="array">
+                                    <item name="rendererList" xsi:type="array">
+                                        <item name="adyen_hpp" xsi:type="string">Aheadworks_OneStepCheckout/js/view/actions-toolbar/renderer/adyen/payment/hpp</item>
+                                        <item name="adyen_pos" xsi:type="string">Aheadworks_OneStepCheckout/js/view/actions-toolbar/renderer/adyen/payment/pos</item>
+                                        <item name="adyen_oneclick" xsi:type="string">Aheadworks_OneStepCheckout/js/view/actions-toolbar/renderer/adyen/payment/oneclick</item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

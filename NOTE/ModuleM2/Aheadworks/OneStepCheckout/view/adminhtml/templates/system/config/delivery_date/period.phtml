@@ -1,0 +1,48 @@
+<?php
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+
+/** @var $block \Aheadworks\OneStepCheckout\Block\Adminhtml\System\Config\DeliveryDate\Renderer\Period */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+    $htmlId = $block->getId();
+    $name = $block->getName();
+?>
+<div class="date-from-to-container">
+    <div data-show="single_day from_to" data-hide="recurrent_day_of_week recurrent_day_of_month" class="date-from-to-item item-from">
+        <div class="addon">
+            <input id="<?php /* @noEscape */ echo $htmlId . '_from-date' ?>"
+                   name="<?php /* @noEscape */ echo $name . '[from_date]' ?>"
+                   value="<%- period.from_date %>"
+                   class="input-text admin__control-text from-date-select"
+                   type="text"
+                   data-validate="{'validate-aw-osc-date':true, required:true}"
+                   data-enable="single_day from_to"
+                   data-disable="recurrent_day_of_week recurrent_day_of_month"
+                   data-mage-init='{"calendar": {"dateFormat": "mm/dd/yyyy"}}'>
+        </div>
+    </div>
+    <div data-show="from_to" data-hide="single_day recurrent_day_of_week recurrent_day_of_month" class="date-from-to-item item-to" style="display: none;">
+        <div class="addon">
+            <input id="<?php /* @noEscape */ echo $htmlId . '_to-date' ?>"
+                   name="<?php /* @noEscape */ echo $name . '[to_date]' ?>"
+                   value="<%- period.to_date %>"
+                   class="input-text admin__control-text to-date-select"
+                   type="text"
+                   data-validate="{'validate-aw-osc-date':true, required:true}"
+                   data-enable="from_to"
+                   data-disable="single_day recurrent_day_of_week recurrent_day_of_month"
+                   data-mage-init='{"calendar": {"dateFormat": "mm/dd/yyyy"}}'>
+        </div>
+    </div>
+</div>
+<div data-show="recurrent_day_of_week" data-hide="single_day recurrent_day_of_month from_to" style="display: none;">
+    <?php /* @noEscape */ echo $block->getWeekdaysSelectHtml() ?>
+</div>
+<div data-show="recurrent_day_of_month" data-hide="single_day recurrent_day_of_week from_to" style="display: none;">
+    <?php /* @noEscape */ echo $block->getDayOfMonthSelectHtml() ?>
+</div>

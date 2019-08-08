@@ -1,0 +1,11 @@
+<!-- ko if: isShown -->
+<div class="shipping-method-delivery">
+    <form class="form">
+        <fieldset class="fieldset">
+            <!-- ko foreach: getRegion('delivery-date-fieldset') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        </fieldset>
+    </form>
+</div>
+<!--/ko-->

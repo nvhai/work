@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 2018 IWD Agency - All rights reserved.
+  ~ See LICENSE.txt bundled with this module for license details.
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="IWD\BluePaySubs\Api\Data\SubscriptionSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+    <preference for="IWD\BluePaySubs\Api\Data\SubscriptionInterface" type="IWD\BluePaySubs\Model\Subscription" />
+    <preference for="IWD\BluePaySubs\Api\SubscriptionRepositoryInterface" type="IWD\BluePaySubs\Model\SubscriptionRepository" />
+
+    <preference for="IWD\BluePaySubs\Api\Data\LogSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+    <preference for="IWD\BluePaySubs\Api\Data\LogInterface" type="IWD\BluePaySubs\Model\Log" />
+    <preference for="IWD\BluePaySubs\Api\LogRepositoryInterface" type="IWD\BluePaySubs\Model\LogRepository" />
+    <preference for="IWD\BluePaySubs\Api\RebillManagementInterface" type="IWD\BluePaySubs\Model\RebillManagement" />
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="subs_sync" xsi:type="object">IWD\BluePaySubs\Console\Command\SyncCommand</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="IWD\BluePaySubs\Model\ResourceModel\Subscription\UiCollection">
+        <arguments>
+            <argument name="mainTable" xsi:type="const">IWD\BluePaySubs\Setup\InstallSchema::TABLE_IWD_BLUEPAY_SUBS</argument>
+            <argument name="resourceModel" xsi:type="string">IWD\BluePaySubs\Model\ResourceModel\Subscription</argument>
+        </arguments>
+    </type>
+    <type name="IWD\BluePaySubs\Model\ResourceModel\Log\UiCollection">
+        <arguments>
+            <argument name="mainTable" xsi:type="const">IWD\BluePaySubs\Setup\InstallSchema::TABLE_IWD_BLUEPAY_SUBS_LOG</argument>
+            <argument name="resourceModel" xsi:type="string">IWD\BluePaySubs\Model\ResourceModel\Log</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="bsubs_listing_data_source" xsi:type="string">IWD\BluePaySubs\Model\ResourceModel\Subscription\UiCollection</item>
+                <item name="bsubs_log_data_source" xsi:type="string">IWD\BluePaySubs\Model\ResourceModel\Log\UiCollection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Catalog\Model\Product">
+        <plugin name="iwd_subs_add_custom_options" type="IWD\BluePaySubs\Plugin\Catalog\Model\Product" />
+    </type>
+
+    <type name="Magento\Catalog\Controller\Adminhtml\Product\MassDelete">
+        <plugin name="iwd_subs_delete_product" type="IWD\BluePaySubs\Plugin\Catalog\Controller\Adminhtml\Product\MassDelete" />
+    </type>
+
+    <!--<type name="Magento\Payment\Model\MethodInterface">-->
+        <!--<plugin name="iwd_subs_is_need_initialize" type="IWD\BluePaySubs\Plugin\Payment\Model\Method\Adapter"/>-->
+    <!--</type>-->
+
+    <type name="Magento\Catalog\Model\Product\Option\SaveHandler">
+        <plugin name="iwd_subs_save_custom_options" type="IWD\BluePaySubs\Plugin\Catalog\Model\Product\Option\SaveHandler"/>
+    </type>
+    <type name="IWD\BluePaySubs\Model\Product\Option\Indexer\BatchSizeCalculator">
+        <arguments>
+            <argument name="batchSizes" xsi:type="array">
+                <item name="source" xsi:type="number">5000</item>
+            </argument>
+            <argument name="batchSizeManagers" xsi:type="array">
+                <item name="source" xsi:type="object">IWD\BluePaySubs\Model\Product\Option\Indexer\BatchSizeManagement</item>
+            </argument>
+        </arguments>
+    </type>
+    <!--Reinit BluePay Payment di configs-->
+
+    <virtualType name="IWDBluePayAuthorizeRequest">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="rebill" xsi:type="string">IWD\BluePaySubs\Gateway\Request\RebillDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="IWDBluePayVaultAuthorizeRequest">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="rebill" xsi:type="string">IWD\BluePaySubs\Gateway\Request\RebillDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!--We rewrite sales commands for rebill purpose -->
+    <virtualType name="IWDBluePaySaleCommand">
+        <arguments>
+            <argument name="client" xsi:type="object">IWD\BluePaySubs\Gateway\Http\Client\TransactionSaleRebill</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="IWDBluePayVaultSaleCommand">
+        <arguments>
+            <argument name="client" xsi:type="object">IWD\BluePaySubs\Gateway\Http\Client\TransactionSaleRebill</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="IWDBluePayAuthorizationHandler">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="recurring_payment" xsi:type="string">IWD\BluePaySubs\Gateway\Response\RecurringPaymentHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="IWDBluePayVaultResponseHandler">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="recurring_payment" xsi:type="string">IWD\BluePaySubs\Gateway\Response\RecurringPaymentHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+</config>

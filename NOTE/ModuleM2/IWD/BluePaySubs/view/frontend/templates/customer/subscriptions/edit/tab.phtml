@@ -1,0 +1,48 @@
+<?php
+/**
+ * Copyright © 2018 IWD Agency - All rights reserved.
+ * See LICENSE.txt bundled with this module for license details.
+ */
+?>
+<?php /** @var \Magento\Framework\View\Element\Template $block */ ?>
+<?php $childNames = $block->getChildNames() ?>
+<div class="child-subs wrapper list edit-list">
+    <ol class="child-subs edit-list items subs-items">
+        <?php /** @var \IWD\BluePaySubs\Model\Subscription $subscription */ ?>
+        <?php foreach ($childNames as $_childName): ?>
+            <?php if ($_childName === 'subscriptions_edit_tab_frequency') {
+                continue;
+            } ?>
+            <?php $childBlock = $block->getChildBlock($_childName) ?>
+            <li class="item child-subs subs-item"
+                data-mage-init='{"accordion":{"openedState": "active", "collapsible": false, "active": false, "multipleCollapsible": false, "closedState": "subs-cancel-frequency"}}'>
+                <div class="line"></div>
+                <div class="child-subs-item-info">
+                    <div class="subs-item-info-wrap" data-role="collapsible">
+                        <div>
+                            <div class="subs details child-subs-item-details">
+                                <span class="subs name child-subs-item-name"><?php echo $block->escapeHtml($childBlock->getTitle()) ?></span>
+                                <div class="subs summary child-subs-summary">
+                                    <span class="subs summary-info child-subs-summary-info"><?php echo $childBlock->getSummaryTabInfo() ?></span>
+                                </div>
+                            </div>
+                            <?php if ($block->canCustomerEdit() && $_childName != 'subscriptions_edit_tab_frequency'): ?>
+                                <div class="subs item-trigger-icon child-subs-item-trigger-icon" data-role="trigger">
+                                    <div class="child-subs-icon">
+                                        <span class="edit-button"><?php /* @escapeNotVerified */
+                                            echo __('Edit') ?></span>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                        <div class="child-subs-content" data-role="content">
+                            <?php if ($block->canCustomerEdit()): ?>
+                                <?php echo $block->getChildHtml($_childName) ?>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        <?php endforeach; ?>
+    </ol>
+</div>

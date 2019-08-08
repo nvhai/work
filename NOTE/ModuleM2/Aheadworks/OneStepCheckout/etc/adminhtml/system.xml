@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="aheadworks" translate="label" sortOrder="300">
+            <label>Aheadworks Extensions</label>
+        </tab>
+        <section id="aw_osc" translate="label" type="text" sortOrder="160" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>One Step Checkout</label>
+            <tab>aheadworks</tab>
+            <resource>Aheadworks_OneStepCheckout::config_aw_osc</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="title" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="description" translate="label" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Description</label>
+                </field>
+                <field id="apply_discount_code" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Apply Discount Code Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="order_note_enabled" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Order Notes Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="google_autocomplete_enabled" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1">
+                    <label>Enable Address Autocomplete Suggestions</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="google_places_api_key" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1">
+                    <label>Google API Key</label>
+                    <depends>
+                        <field id="google_autocomplete_enabled">1</field>
+                    </depends>
+                    <comment>
+                        <![CDATA[Get your API Key <a target="_blank" href="https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform">here</a>.]]>
+                    </comment>
+                    <frontend_class>required-entry</frontend_class>
+                </field>
+            </group>
+            <group id="newsletter" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Newsletter Subscription Option</label>
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="checked_by_default" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Checked by Default</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="default_values" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Default Values</label>
+                <field id="country_id" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Country</label>
+                    <source_model>Aheadworks\OneStepCheckout\Model\Config\Source\Country</source_model>
+                    <frontend_class>countries</frontend_class>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                <field id="region_id" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Region/State</label>
+                    <depends>
+                        <field id="country_id" negative="1"><![CDATA[]]></field>
+                    </depends>
+                </field>
+                <field id="city" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>City</label>
+                    <depends>
+                        <field id="country_id" negative="1"><![CDATA[]]></field>
+                    </depends>
+                </field>
+                <field id="shipping_method" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Shipping Method</label>
+                    <source_model>Aheadworks\OneStepCheckout\Model\Config\Source\ShippingMethod</source_model>
+                </field>
+                <field id="payment_method" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Payment Method</label>
+                    <source_model>Aheadworks\OneStepCheckout\Model\Config\Source\PaymentMethod</source_model>
+                </field>
+            </group>
+            <group id="delivery_date" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Delivery Date Options</label>
+                <field id="display_option" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Delivery Date</label>
+                    <source_model>Aheadworks\OneStepCheckout\Model\Config\Source\DeliveryDate\DisplayOption</source_model>
+                </field>
+                <field id="available_weekdays" translate="label" type="multiselect" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Available Weekdays</label>
+                    <source_model>Magento\Config\Model\Config\Source\Locale\Weekdays</source_model>
+                    <can_be_empty>1</can_be_empty>
+                    <depends>
+                        <field id="display_option" separator=",">1,2</field>
+                    </depends>
+                </field>
+                <field id="available_time_slots" translate="label" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Available Time Slots</label>
+                    <frontend_model>Aheadworks\OneStepCheckout\Block\Adminhtml\System\Config\DeliveryDate\TimeSlot</frontend_model>
+                    <backend_model>Aheadworks\OneStepCheckout\Model\Config\Backend\DeliveryDate\TimeSlot</backend_model>
+                    <depends>
+                        <field id="display_option" separator=",">2</field>
+                    </depends>
+                </field>
+                <field id="non_delivery_periods" translate="label" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Delivery is not Available During These Days and Periods</label>
+                    <frontend_model>Aheadworks\OneStepCheckout\Block\Adminhtml\System\Config\DeliveryDate\NonDeliveryPeriod</frontend_model>
+                    <backend_model>Aheadworks\OneStepCheckout\Model\Config\Backend\DeliveryDate\NonDeliveryPeriod</backend_model>
+                    <depends>
+                        <field id="display_option" separator=",">1,2</field>
+                    </depends>
+                </field>
+                <field id="min_order_delivery_period" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Days Between Order and Delivery Dates</label>
+                    <depends>
+                        <field id="display_option" separator=",">1,2</field>
+                    </depends>
+                    <validate>validate-digits, validate-zero-or-greater</validate>
+                </field>
+            </group>
+            <group id="shipping_customization" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Shipping Fields Customization</label>
+                <field id="fields_customization" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Shipping Fields Customization</label>
+                    <frontend_model>Aheadworks\OneStepCheckout\Block\Adminhtml\System\Config\Address\Customization\ShippingAddress</frontend_model>
+                    <backend_model>Aheadworks\OneStepCheckout\Model\Config\Backend\Customization</backend_model>
+                </field>
+            </group>
+            <group id="billing_customization" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Billing Fields Customization</label>
+                <field id="fields_customization" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Billing Fields Customization</label>
+                    <frontend_model>Aheadworks\OneStepCheckout\Block\Adminhtml\System\Config\Address\Customization\BillingAddress</frontend_model>
+                    <backend_model>Aheadworks\OneStepCheckout\Model\Config\Backend\Customization</backend_model>
+                </field>
+            </group>
+            <group id="trust_seals" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Trust Seals Block</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="label" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Secure Payment Label</label>
+                    <comment>If empty the label will not be shown on the checkout page.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="badges" translate="label" type="image" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Trust Seals</label>
+                    <frontend_model>Aheadworks\OneStepCheckout\Block\Adminhtml\System\Config\TrustSeals\Badges</frontend_model>
+                    <backend_model>Aheadworks\OneStepCheckout\Model\Config\Backend\TrustSeals\Badges</backend_model>
+                    <comment><![CDATA[<a target="_blank" href="https://en.wikipedia.org/wiki/Trust_seal">Trust seals</a> (security badges) will be displayed under the 'Place Order' button on the checkout page. Up to 3 seals can be added only.]]></comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="text" translate="label comment" type="textarea" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Text</label>
+                    <comment>This text will be displayed under the section with Trust Seals.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="geo_ip" translate="label" type="text comment" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>GeoIP Settings</label>
+                <field id="install_library" translate="label button_label_not_installed button_label_installed" sortOrder="10" showInDefault="1" showInWebsite="1">
+                    <label>GeoIP2 Library</label>
+                    <attribute type="button_label_not_installed">Download and Install</attribute>
+                    <attribute type="button_label_installed">Installed</attribute>
+                    <attribute type="package_name">geoip2/geoip2</attribute>
+                    <attribute type="submit_path">aw_osc/system_package/install</attribute>
+                    <frontend_model>Aheadworks\OneStepCheckout\Block\Adminhtml\System\Config\GeoIp\Install</frontend_model>
+                    <comment>
+                        <![CDATA[Install the <a href="https://github.com/maxmind/GeoIP2-php">library</a> to activate geo-targeting.]]>
+                    </comment>
+                </field>
+                <field id="download_database" translate="label button_label_not_downloaded button_label_downloaded" sortOrder="20" showInDefault="1" showInWebsite="1">
+                    <label>GeoIP2 Database</label>
+                    <attribute type="button_label_not_downloaded">Download</attribute>
+                    <attribute type="button_label_downloaded">Update</attribute>
+                    <attribute type="submit_path">aw_osc/system_geoipdb/download</attribute>
+                    <attribute type="download_url">geolite.maxmind.com/download/geoip/database/GeoLite2-Country.tar.gz</attribute>
+                    <attribute type="file_name">GeoLite2-Country.mmdb</attribute>
+                    <attribute type="package_name">geoip2/geoip2</attribute>
+                    <frontend_model>Aheadworks\OneStepCheckout\Block\Adminhtml\System\Config\GeoIp\DownloadDatabase</frontend_model>
+                </field>
+                <field id="enabled" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable IP Detection</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

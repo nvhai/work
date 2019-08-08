@@ -1,0 +1,1 @@
+<img class="ship-image" data-bind="attr: { src: require.toUrl('images/ship-icon.png') }" alt="Ship">

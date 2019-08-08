@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<!--
+  ~ Copyright © 2018 IWD Agency - All rights reserved.
+  ~ See LICENSE.txt bundled with this module for license details.
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="IWD_BluePaySubs::bsubs_manage" title="Subscriptions" module="IWD_BluePaySubs" dependsOnModule="IWD_BluePaySubs" dependsOnConfig="iwd_subs/general/active" sortOrder="100" parent="Magento_Sales::sales_operation" action="bsubs/subscription" resource="IWD_BluePaySubs::bsubs_manage" />
+    </menu>
+</config>

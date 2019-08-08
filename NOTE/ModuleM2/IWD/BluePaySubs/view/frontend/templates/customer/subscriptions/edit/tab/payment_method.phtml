@@ -1,0 +1,146 @@
+<?php
+/**
+ * Copyright © 2018 IWD Agency - All rights reserved.
+ * See LICENSE.txt bundled with this module for license details.
+ */
+?>
+<?php /** @var \IWD\BluePaySubs\Block\Customer\Subscriptions\Edit\Tab\PaymentMethod $block */ ?>
+<?php $formId = $block->escapeHtml($block->getFormId()); ?>
+<?php $submitUrl = $block->escapeUrl($block->getSubmitUrl()); ?>
+<form id="<?php echo $formId ?>" action="<?php echo $submitUrl ?>" method="post" enctype="multipart/form-data">
+    <div class="fieldset-wrapper" data-bind="scope: 'payment_method'">
+        <fieldset
+                data-bind="attr: {class: 'fieldset payment items ccard ' + getCode(), id: 'payment_form_' + getCode()}">
+            <!-- ko if: (getStoredAccounts())-->
+            <div class="field" data-bind="attr: {id: getCode() + '_choose_card_div'}">
+                <label data-bind="attr: {for: getCode() + '_choose_card'}" class="label">
+                    <span><!-- ko i18n: 'Choose Card'--><!-- /ko --></span>
+                </label>
+                <div class="control">
+                    <div class="fields group group-2">
+                        <div class="field no-label">
+                            <div class="control">
+                                <select name="payment[public_hash]"
+                                        class="select"
+                                        data-bind="attr: { id: getCode() + '_choose_card'},
+                                            options: getStoredAccounts(),
+                                            optionsValue: 'value',
+                                            optionsText: 'label',
+                                            value: hashStoredAccount
+                                        ">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /ko -->
+
+            <!-- ko if: (!hashStoredAccount())-->
+            <div class="field number required" data-bind="attr: {id: getCode() + '_cc_number_div'}">
+                <label data-bind="attr: {for: getCode() + '_cc_number', id: getCode() + '_cc_number_label'}"
+                       class="label">
+                    <span><!-- ko i18n: 'Card Number'--><!-- /ko --></span>
+                </label>
+                <div class="control">
+                    <input type="text" name="payment[cc_number]" class="input-text" value=""
+                           data-bind="attr: {
+                                    autocomplete: off,
+                                    id: getCode() + '_cc_number',
+                                    title: $t('Card Number'),
+                                    'data-container': getCode() + '-cc-number',
+                                    'data-validate': JSON.stringify({'required-number':true, 'validate-card-type':getCcAvailableTypesValues(), 'validate-card-number':'#' + getCode() + '_cc_type'})},
+                              value: creditCardNumber,
+                              valueUpdate: 'keyup' "/>
+                    <input type="hidden" name="payment[cc_type]"
+                           data-bind="attr: { id: getCode() + '_cc_type', value: creditCardType }"/>
+                    <input type="hidden" name="payment[payment_type]" value="CC"
+                           data-bind="attr: { id: getCode() + '_payment_type' }"/>
+                </div>
+            </div>
+
+            <div class="field date required" data-bind="attr: {id: getCode() + '_cc_type_exp_div'}">
+                <label data-bind="attr: {for: getCode() + '_expiration'}" class="label">
+                    <span><!-- ko i18n: 'Expiration Date'--><!-- /ko --></span>
+                </label>
+                <div class="control">
+                    <div class="fields group group-2">
+                        <div class="field no-label month">
+                            <div class="control">
+                                <select name="payment[cc_exp_month]"
+                                        class="select select-month"
+                                        data-bind="attr: {id: getCode() + '_expiration', 'data-container': getCode() + '-cc-month', 'data-validate': JSON.stringify({required:true})},
+                                            options: getCcMonthsValues(),
+                                            optionsValue: 'value',
+                                            optionsText: 'month',
+                                            optionsCaption: $t('Month'),
+                                            value: creditCardExpMonth">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="field no-label year">
+                            <div class="control">
+                                <select name="payment[cc_exp_year]"
+                                        class="select select-year"
+                                        data-bind="attr: {id: getCode() + '_expiration_yr', 'data-container': getCode() + '-cc-year', 'data-validate': JSON.stringify({required:true})},
+                                           options: getCcYearsValues(),
+                                           optionsValue: 'value',
+                                           optionsText: 'year',
+                                           optionsCaption: $t('Year'),
+                                           value: creditCardExpYear">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field cvv required" data-bind="attr: {id: getCode() + '_cc_type_cvv_div'}">
+                <label data-bind="attr: {for: getCode() + '_cc_cid'}" class="label">
+                    <span><!-- ko i18n: 'Verification Number'--><!-- /ko --></span>
+                </label>
+                <div class="control">
+                    <input type="number"
+                           autocomplete="off"
+                           class="input-text cvv"
+                           name="payment[cc_cid]"
+                           value=""
+                           data-bind="attr: {id: getCode() + '_cc_cid',
+                        title: $t('Verification Number'),
+                        'data-container': getCode() + '-cc-cvv',
+                        'data-validate': JSON.stringify({'required-number':true, 'validate-card-cvv':'#' + getCode() + '_cc_type'})},
+                        value: creditCardVerificationNumber"/>
+                </div>
+            </div>
+            <!-- /ko -->
+        </fieldset>
+    </div>
+
+    <div class="actions">
+        <button class="secondary subs-update" type="submit">
+            <span><?php /* @escapeNotVerified */
+                echo __('Update') ?></span>
+        </button>
+        <button class="secondary cancel subs-cancel" type="button">
+            <span><?php /* @escapeNotVerified */
+                echo __('Cancel') ?></span>
+        </button>
+    </div>
+</form>
+
+<script type="text/x-magento-init">
+    {
+        "#<?= $formId ?>": {
+            "validation": {}
+        },
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "payment_method": {
+                        "component": "IWD_BluePaySubs/js/view/payment_method",
+                        "config":  <?= /* @escapeNotVerified */ $block->getConfig() ?>
+                    }
+                }
+            }
+        }
+    }
+</script>

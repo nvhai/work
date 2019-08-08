@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Aheadworks\OneStepCheckout\Block\Adminhtml\System\Config\Address\Customization\BillingAddress"
+                 type="Aheadworks\OneStepCheckout\Block\Adminhtml\System\Config\Address\Customization">
+        <arguments>
+            <argument name="addressType" xsi:type="string">billing</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Aheadworks\OneStepCheckout\Block\Adminhtml\System\Config\Address\Customization\ShippingAddress"
+                 type="Aheadworks\OneStepCheckout\Block\Adminhtml\System\Config\Address\Customization">
+        <arguments>
+            <argument name="addressType" xsi:type="string">shipping</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Aheadworks\OneStepCheckout\Block\Adminhtml\Report\CheckoutBehavior\AddressAttributes\MetaProvider\BillingAddress"
+                 type="Aheadworks\OneStepCheckout\Block\Adminhtml\Report\CheckoutBehavior\AddressAttributes\MetaProvider">
+        <arguments>
+            <argument name="addressType" xsi:type="string">billing</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Aheadworks\OneStepCheckout\Block\Adminhtml\Report\CheckoutBehavior\AddressAttributes\MetaProvider\ShippingAddress"
+                 type="Aheadworks\OneStepCheckout\Block\Adminhtml\Report\CheckoutBehavior\AddressAttributes\MetaProvider">
+        <arguments>
+            <argument name="addressType" xsi:type="string">shipping</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Ui\Model\Export\MetadataProvider">
+        <plugin name="aw-osc-export-metadata-provider" type="Aheadworks\OneStepCheckout\Plugin\Export\Model\MetadataProvider"/>
+    </type>
+</config>

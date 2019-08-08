@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <aw_osc>
+            <general>
+                <title>One Step Checkout</title>
+                <apply_discount_code>1</apply_discount_code>
+                <order_note_enabled>1</order_note_enabled>
+                <google_autocomplete_enabled>0</google_autocomplete_enabled>
+            </general>
+            <newsletter>
+                <enable>0</enable>
+                <checked_by_default>0</checked_by_default>
+            </newsletter>
+            <delivery_date>
+                <available_weekdays>1,2,3,4,5</available_weekdays>
+                <min_order_delivery_period>0</min_order_delivery_period>
+            </delivery_date>
+            <trust_seals>
+                <enabled>0</enabled>
+                <label>100% Secure Payment</label>
+            </trust_seals>
+            <geo_ip>
+                <enabled>0</enabled>
+            </geo_ip>
+        </aw_osc>
+        <sales>
+            <totals_sort>
+                <discount>80</discount>
+            </totals_sort>
+        </sales>
+        <dev>
+            <js>
+                <minify_exclude>
+                    https://www.gstatic.com/charts/loader.js
+                </minify_exclude>
+            </js>
+        </dev>
+    </default>
+</config>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 2018 IWD Agency - All rights reserved.
+  ~ See LICENSE.txt bundled with this module for license details.
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:DataObject/etc/fieldset.xsd">
+    <scope id="global">
+        <fieldset id="quote_convert_payment">
+            <field name="echeck_type">
+                <aspect name="to_order_payment" />
+            </field>
+            <field name="echeck_account_type">
+                <aspect name="to_order_payment" />
+            </field>
+            <field name="echeck_account_name">
+                <aspect name="to_order_payment" />
+            </field>
+            <field name="echeck_routing_number">
+                <aspect name="to_order_payment" />
+            </field>
+        </fieldset>
+    </scope>
+</config>

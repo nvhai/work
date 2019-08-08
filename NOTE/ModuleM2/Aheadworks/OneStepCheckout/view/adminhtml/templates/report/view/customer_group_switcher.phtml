@@ -1,0 +1,36 @@
+<?php
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+
+/** @var \Aheadworks\OneStepCheckout\Block\Adminhtml\Report\View\CustomerGroupSwitcher $block */
+
+// @codingStandardsIgnoreFile
+?>
+<div class="aw-report-customer-group aw-page-menu">
+    <span><?php echo $block->escapeHtml(__('Filter Data:')) ?></span>
+    <div class="actions dropdown closable">
+        <button type="button"
+                class="admin__action-dropdown"
+                data-mage-init='{"dropdown":{}}'
+                data-toggle="dropdown"
+                aria-haspopup="true">
+            <span class="admin__action-dropdown-text">
+                <?php echo $block->escapeHtml(__($block->getGroupTitle())) ?>
+            </span>
+        </button>
+        <ul class="dropdown-menu">
+            <?php foreach($block->getOptions() as $option): ?>
+                <li>
+                    <?php $class = 'aw-report-customer-group__dropdown-menu-action' .
+                        ($option['value'] == $block->getGroupId() ? ' current' : '')
+                    ?>
+                    <a href="<?php /* @noEscape */ echo $block->escapeXssInUrl($block->getFilterUrl($option['value'])) ?>" class="<?php /* @noEscape */ echo $class ?>">
+                        <?php echo $block->escapeHtml($option['label']) ?>
+                    </a>
+                </li>
+            <?php endforeach;?>
+        </ul>
+    </div>
+</div>

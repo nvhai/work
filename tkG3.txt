@@ -7,7 +7,9 @@ port 21198
 user: ahtg3
 admin: UHaK&989
 
-ssh ahtg3@g3a.arrowhitech.net -p21198
+
+ahtg4/OAID886
+
 
 ssh-keygen
 vao C:\Users\NANI\.ssh mo file id_rsa.pub
@@ -53,5 +55,14 @@ source D:/mylightinghub.sql
 
 
 
+
 ssh ahtg3@g3a.arrowhitech.net -p21198
+
+
+'host' => 'localhost',
+                'dbname' => 'aht3731_vessel',
+                'username' => 'aht3731_vessel',
+                'password' => '3ysyqmfb9t',
+                'active' => '1',
+                'profiler' => '1'
 

@@ -1,0 +1,72 @@
+<?php
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+
+/** @var \Aheadworks\OneStepCheckout\Block\Adminhtml\Report\View\Period $block */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+    $dateRange = $block->getDateRange();
+?>
+<div class="aw-report-calendars-box" data-mage-init='{"awOscDateRangeSelector":{
+    "earliest": <?php /* @noEscape */ echo \Zend_Json::encode($block->getEarliestCalendarDateAsString()) ?>,
+    "latest": <?php /* @noEscape */ echo \Zend_Json::encode($block->getLatestCalendarDateAsString()) ?>,
+    "weekOffset": <?php /* @noEscape */ echo $block->getFirstDayOfWeek() ?>,
+    "rangeToDatesMap": <?php /* @noEscape */ echo \Zend_Json::encode($block->getRangeToDatesMap()) ?>
+}}'>
+    <div id="aw-report-calendars_header">
+        <?php /* @noEscape */ echo $dateRange['from']->format('M d, Y') ?> &nbsp;-&nbsp; <?php /* @noEscape */ echo $dateRange['to']->format('M d, Y') ?>
+    </div>
+    <div id="aw-report-calendars-container">
+        <div id="aw-report-calendars"></div>
+        <form id="aw-report-calendar_form" class="aw-report-calendar_form" data-role="calendar-form">
+            <div class="aw-report-date_range_box">
+                <span><?php echo $block->escapeHtml(__('Date Range')) ?>:</span>
+                <select class="input-text no-changes advanced-filter aw-report-custom_date_range"
+                        name="custom_date_range"
+                        data-role="custom-date-range-selector">
+                    <?php foreach ($block->getDateRangeOptions() as $option): ?>
+                        <option value="<?php /* @noEscape */ echo $option['value'] ?>"
+                            <?php /* @noEscape */ echo ($option['value'] == $dateRange['range']) ? 'selected' : '' ?>>
+                            <?php echo $block->escapeHtml(__($option['label'])) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="aw-report-fields">
+                <div class="field-from admin__field">
+                    <div class="admin__field-control">
+                        <input type="text"
+                               class="admin__control-text"
+                               id="aw-report-period_date_from"
+                               name="report_from"
+                               data-validate="{required:true}"
+                               value="<?php /* @noEscape */ echo $dateRange['from']->format('M d, Y') ?>"/>
+                    </div>
+                </div>
+                <div class="from-to-separator"><span>&nbsp;-&nbsp;</span></div>
+                <div class="field-to admin__field">
+                    <div class="admin__field-control">
+                        <input type="text"
+                               class="admin__control-text"
+                               id="aw-report-period_date_to"
+                               name="report_to"
+                               data-validate="{required:true}"
+                               value="<?php /* @noEscape */ echo $dateRange['to']->format('M d, Y') ?>"/>
+                    </div>
+                </div>
+            </div>
+            <div class="aw-report-button-set">
+                <button type="button" class="scalable task" data-role="apply-button"> <!-- was id="aw-report-apply-period" -->
+                    <span><?php echo $block->escapeHtml(__('Apply')) ?></span>
+                </button>
+                <button type="button" class="aw-report-hide-calendar-button scalable task" data-role="cancel-button"> <!-- was id="aw-report-cancel-period" -->
+                    <span><?php echo $block->escapeHtml(__('Cancel')) ?></span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

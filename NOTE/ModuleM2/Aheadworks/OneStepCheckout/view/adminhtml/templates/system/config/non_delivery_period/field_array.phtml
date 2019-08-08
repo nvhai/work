@@ -1,0 +1,94 @@
+<?php
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+
+/** @var $block \Aheadworks\OneStepCheckout\Block\Adminhtml\System\Config\DeliveryDate\NonDeliveryPeriod */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+    $htmlId = $block->getHtmlId() ? $block->getHtmlId() : '_' . uniqid();
+    $colSpan = $block->isAddAfter() ? 2 : 1;
+?>
+<div class="aw-osc_field-array aw-osc_non-delivery-periods" id="grid<?php /* @noEscape */ echo $htmlId ?>">
+    <script id="aw-osc_non-delivery-periods_template" data-role="row-template" type="text/x-magento-template">
+        <tr id="<%- _id %>" data-role="row" data-mage-init='{"awOscLinkedSelect": {}}'>
+            <?php foreach ($block->getColumns() as $columnName => $column): ?>
+                <td><?php /* @noEscape */ echo $block->renderCellTemplate($columnName) ?></td>
+                <?php if ($block->isAddAfter()): ?>
+                    <td>
+                        <button class="action-add"
+                                type="button"
+                                data-role="add-after-button">
+                            <span><?php echo $block->escapeHtml(__('Add after')) ?></span>
+                        </button>
+                    </td>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            <td class="col-actions">
+                <button class="action-delete"
+                        type="button"
+                        data-role="delete-button"
+                        data-row-id="<%- _id %>">
+                    <span><?php echo $block->escapeHtml(__('Delete')) ?></span>
+                </button>
+            </td>
+        </tr>
+    </script>
+    <div class="admin__control-table-wrapper">
+        <table class="admin__control-table" data-mage-init='{"awOscFieldArray": {
+            "defaultRowData": <?php /* @noEscape */ echo \Zend_Json::encode($block->getDefaultRowData()) ?>,
+            "rows": <?php /* @noEscape */ echo \Zend_Json::encode($block->getRows()) ?>,
+            "template": "#aw-osc_non-delivery-periods_template"
+        }}'>
+            <thead>
+            <tr>
+                <?php foreach ($block->getColumns() as $columnName => $column): ?>
+                    <th><?php echo $block->escapeHtml($column['label']) ?></th>
+                <?php endforeach; ?>
+                <th class="col-actions" colspan="<?php /* @noEscape */ echo $colSpan ?>"><?php echo $block->escapeHtml(__('Action')) ?></th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+                <td colspan="<?php /* @noEscape */ echo count($block->getColumns()) + $colSpan ?>" class="col-actions-add">
+                    <button  class="action-add"
+                             title="<?php echo $block->escapeHtml(__('Add')) ?>"
+                             type="button"
+                             data-role="add-button">
+                        <span><?php echo $block->escapeHtml(__('Add')) ?></span>
+                    </button>
+                </td>
+            </tr>
+            </tfoot>
+            <tbody data-role="rows-container"></tbody>
+        </table>
+    </div>
+    <input type="hidden" name="<?php /* @noEscape */ echo $block->getElement()->getName(); ?>[__empty]" value="" />
+</div>
+<script type="text/javascript">
+    require([
+        'jquery',
+        'jquery/validate',
+        'mage/translate'
+    ], function($){
+        $.validator.addMethod(
+            'validate-aw-osc-date', function (v) {
+                if ($.mage.isEmptyNoTrim(v)) {
+                    return true;
+                }
+                var regex = /^(\d{2})\/(\d{2})\/(\d{4})$/;
+                if ($.mage.isEmpty(v) || !regex.test(v)) {
+                    return false;
+                }
+                var d = new Date(v.replace(regex, '$1/$2/$3'));
+                return parseInt(RegExp.$1, 10) === (1 + d.getMonth()) &&
+                    parseInt(RegExp.$2, 10) === d.getDate() &&
+                    parseInt(RegExp.$3, 10) === d.getFullYear();
+
+            }, $.mage.__('Please use this date format: mm/dd/yyyy. For example 03/17/2006 for the 17th of March, 2006.')
+        );
+    });
+</script>

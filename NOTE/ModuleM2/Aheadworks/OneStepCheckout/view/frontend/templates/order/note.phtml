@@ -1,0 +1,18 @@
+<?php
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+
+/* @var $block \Aheadworks\OneStepCheckout\Block\Order\Note */
+
+// @codingStandardsIgnoreFile
+?>
+<div class="block block-order-note">
+    <div class="block-title">
+        <strong><?php echo $block->escapeHtml(__('Order Note')) ?></strong>
+    </div>
+    <div class="block-content">
+        <p><?php echo nl2br($block->escapeHtml($block->getOrderNote())) ?></p>
+    </div>
+</div>

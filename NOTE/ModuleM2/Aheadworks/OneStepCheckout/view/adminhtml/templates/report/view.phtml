@@ -1,0 +1,29 @@
+<?php
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+
+/** @var \Aheadworks\OneStepCheckout\Block\Adminhtml\Report\View $block */
+
+// @codingStandardsIgnoreFile
+?>
+<div class="page-main-actions">
+    <div class="aw-report_left-position">
+        <?php echo $block->getChildHtml('menu') ?>
+        <?php echo $block->getChildHtml('customer-group-switcher') ?>
+    </div>
+    <div class="aw-report_right-position">
+        <?php echo $block->getChildHtml('store-switcher') ?>
+        <?php echo $block->getChildHtml('period') ?>
+    </div>
+</div>
+<?php if ($block->getChildBlock('aggregation-switcher')): ?>
+    <div class="aw-report_content-top">
+        <div class="aw-report_right-position"><?php echo $block->getChildHtml('aggregation-switcher') ?></div>
+        <div class="aw-report_clear"></div>
+    </div>
+<?php endif; ?>
+<div class="aw-report_content">
+    <?php echo $block->getChildHtml('report_content') ?>
+</div>

@@ -1,0 +1,22 @@
+<?php
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+
+/** @var $block \Magento\Framework\View\Element\Template */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+    $order = $block->getOrder();
+    $deliveryDate = $order->getAwDeliveryDate();
+    $deliveryDateFrom = $order->getAwDeliveryDateFrom();
+    $deliveryDateTo = $order->getAwDeliveryDateTo();
+?>
+<?php if ($deliveryDate): ?>
+    <br /><?php echo $block->escapeHtml(__('Delivery Date')) ?>: <?php /* @noEscape */ echo $block->formatDate($deliveryDate) ?>
+<?php endif; ?>
+<?php if ($deliveryDateFrom && $deliveryDateTo): ?>
+    <br /><?php echo $block->escapeHtml(__('Delivery Time')) ?>: <?php /* @noEscape */ echo $block->formatTime($deliveryDateFrom) ?> - <?php /* @noEscape */ echo $block->formatTime($deliveryDateTo) ?>
+<?php endif; ?>

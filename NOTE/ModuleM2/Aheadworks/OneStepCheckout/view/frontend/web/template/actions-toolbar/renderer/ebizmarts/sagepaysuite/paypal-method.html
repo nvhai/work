@@ -1,0 +1,12 @@
+<div class="primary">
+    <button class="action primary checkout"
+            type="submit"
+            data-bind="
+                click: preparePayment,
+                enable: isPlaceOrderActionAllowed(),
+                css: {disabled: !isPlaceOrderActionAllowed()}
+                "
+            disabled>
+        <span data-bind="text: $t('Continue to PayPal')"></span>
+    </button>
+</div>

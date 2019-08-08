@@ -1,0 +1,13 @@
+<!-- ko if: isShown -->
+<div class="field addresses">
+    <div class="control">
+        <div class="shipping-address-items">
+            <ol>
+                <!-- ko foreach: { data: elems, as: 'element' } -->
+                <!-- ko template: element.getTemplate() --><!-- /ko -->
+                <!-- /ko -->
+            </ol>
+        </div>
+    </div>
+</div>
+<!-- /ko -->

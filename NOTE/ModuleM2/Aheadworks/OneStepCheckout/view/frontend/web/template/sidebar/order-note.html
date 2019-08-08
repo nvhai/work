@@ -1,0 +1,15 @@
+<div class="aw-sidebar_order-note" data-bind="visible: isVisible, mageInit: {'collapsible':{'openedState': 'active', 'active': inputValue()}}">
+    <span data-role="title" class="toggle" data-bind="i18n:'Add a Note'"></span>
+    <div class="content" data-role="content">
+        <form class="form form-order-note"
+              data-role="delivery-order-note"
+              method="post">
+            <div class="order-note">
+                <textarea id="order_note"
+                          name="order_note"
+                          data-role="order-note-input"
+                          data-bind="value: inputValue"></textarea>
+            </div>
+        </form>
+    </div>
+</div>

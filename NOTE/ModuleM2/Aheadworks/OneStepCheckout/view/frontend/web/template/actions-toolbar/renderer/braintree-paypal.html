@@ -1,0 +1,24 @@
+<div class="primary">
+    <button class="action primary checkout"
+            type="submit"
+            data-bind="
+                attr: {title: $t('Place Order')},
+                enable: isPlaceOrderActionAllowed(),
+                click: placeOrder,
+                visible: isPlaceOrderBtnVisible()
+                "
+            disabled>
+        <span translate="'Place Order'"></span>
+    </button>
+    <button class="action primary checkout"
+            type="submit"
+            data-bind="
+                attr: {title: $t(getPayBtnTitle())},
+                enable: isPlaceOrderActionAllowed(),
+                click: payWithPayPal,
+                visible: isPayBtnVisible()
+                "
+            disabled>
+        <span translate="getPayBtnTitle()"></span>
+    </button>
+</div>

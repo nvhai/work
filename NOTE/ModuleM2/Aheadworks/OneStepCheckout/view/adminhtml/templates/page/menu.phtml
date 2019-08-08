@@ -1,0 +1,22 @@
+<?php
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+
+/* @var $block \Aheadworks\OneStepCheckout\Block\Adminhtml\Page\Menu */
+
+// @codingStandardsIgnoreFile
+?>
+<div class="aw-page-menu general">
+    <div class="actions dropdown closable">
+        <button type="button"
+                class="admin__action-dropdown"
+                data-mage-init='{"dropdown":{}}'
+                data-toggle="dropdown"
+                aria-haspopup="true">
+            <span class="admin__action-dropdown-text"><?php echo $block->escapeHtml(__($block->getTitle())) ?></span>
+        </button>
+        <ul class="dropdown-menu"><?php echo $block->getChildHtml() ?></ul>
+    </div>
+</div>

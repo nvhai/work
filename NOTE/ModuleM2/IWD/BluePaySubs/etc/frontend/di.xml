@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<!--
+  ~ Copyright © 2018 IWD Agency - All rights reserved.
+  ~ See LICENSE.txt bundled with this module for license details.
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!--We use plugins instead of observer because don't know what shortcuts added yet / can't retrive -->
+    <type name="Magento\Paypal\Observer\AddPaypalShortcutsObserver">
+        <plugin name="iwd_subs_is_paypal_shortcuts_available" type="IWD\BluePaySubs\Plugin\Checkout\Block\QuoteShortcutButtons"/>
+    </type>
+    <type name="Magento\Braintree\Observer\AddPaypalShortcuts">
+        <plugin name="iwd_subs_is_braintree_shortcuts_available" type="IWD\BluePaySubs\Plugin\Checkout\Block\QuoteShortcutButtons"/>
+    </type>
+
+    <type name="IWD\BluePay\Model\Ui\ConfigProvider">
+        <plugin name="iwd_subs_is_force_save_in_secure_vault" type="IWD\BluePaySubs\Plugin\BluePay\Model\Ui\ConfigProvider"/>
+    </type>
+    <type name="IWD\BluePaySubs\Controller\Bsubs\Index">
+        <plugin name="iwd_bsubs_authentication_index" type="\IWD\BluePaySubs\Plugin\Customer\Authentication"/>
+    </type>
+    <type name="IWD\BluePaySubs\Controller\Bsubs\Edit">
+        <plugin name="iwd_bsubs_authentication_edit" type="\IWD\BluePaySubs\Plugin\Customer\Authentication"/>
+    </type>
+</config>

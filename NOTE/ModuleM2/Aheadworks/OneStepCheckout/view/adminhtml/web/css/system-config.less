@@ -1,0 +1,125 @@
+//
+//  System config
+//  _____________________________________________
+
+.adminhtml-system-config-edit {
+    .aw-osc_non-delivery-periods .date-from-to-container {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        flex-direction: row;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        justify-content: space-between;
+
+        .date-from-to-item {
+            width: 100%;
+            min-width: 130px;
+
+            &.item-to {
+                margin-left: 5px;
+            }
+        }
+
+        .addon {
+            display: block;
+            width: auto;
+
+            input[type="text"] {
+                border-width: 1px;
+            }
+        }
+    }
+
+    .period-type-select {
+        min-width: 150px !important;
+    }
+
+    .section-config #aw_osc_general,
+    .section-config #aw_osc_newsletter,
+    .section-config #aw_osc_delivery_date,
+    .section-config #aw_osc_shipping_customization,
+    .section-config #aw_osc_billing_customization,
+    .section-config #aw_osc_trust_seals,
+    .section-config #aw_osc_default_values {
+        .admin__control-table {
+            margin-top: 10px;
+            border-spacing: 0 3px;
+            border-collapse: initial;
+        }
+
+        td.value {
+            min-width: 530px;
+            width: 100%;
+            
+            input[type='text'] {
+                width: 100%;
+                max-width: 250px;
+            }
+
+            .aw-osc_fields-customization {
+                .aw-osc_customization-note {
+                    line-height: 0;
+                    padding-top: 17px;
+                }
+                .col-attributes {
+                    display: -webkit-flex;
+                    display: -ms-flexbox;
+                    display: flex;
+                    flex-direction: column;
+                    -webkit-flex-direction: column;
+                    -ms-flex-direction: column;
+                    align-items: stretch;
+                    -webkit-align-items: stretch;
+                    -ms-align-items: stretch;
+                    justify-content: flex-start;
+                    width: 100%;
+                    padding: 5px 0;
+
+                    [class^="attribute-item"] {
+                        display: -webkit-flex;
+                        display: -ms-flexbox;
+                        display: flex;
+                        flex-direction: row;
+                        -webkit-flex-direction: row;
+                        -ms-flex-direction: row;
+                        align-items: stretch;
+                        -webkit-align-items: stretch;
+                        -ms-align-items: stretch;
+                        justify-content: flex-start;
+                        margin: 0;
+                        padding: 5px 10px;
+
+                        .edit-actions {
+                            display: -webkit-flex;
+                            display: -ms-flexbox;
+                            display: flex;
+                            flex-wrap: wrap;
+                            flex-direction: row;
+                            -webkit-flex-direction: row;
+                            -ms-flex-direction: row;
+                            align-items: center;
+                            -webkit-align-items: center;
+                            -ms-align-items: center;
+                            min-width: 190px;
+                            justify-content: flex-start;
+                            margin-left: 20px;
+
+                            .label {
+                                padding: 0 20px 0 0;
+                            }
+
+                            input[type='checkbox'] {
+                                min-width: 16px;
+                            }
+                        }
+
+                        .float-spider {
+                            color: red;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

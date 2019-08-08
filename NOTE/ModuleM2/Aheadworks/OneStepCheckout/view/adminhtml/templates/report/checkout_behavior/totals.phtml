@@ -1,0 +1,24 @@
+<?php
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+
+/** @var \Aheadworks\OneStepCheckout\Block\Adminhtml\Report\CheckoutBehavior\Totals $block */
+
+// @codingStandardsIgnoreFile
+?>
+<div class="aw-report_totals">
+    <ul class="aw-report_totals-list">
+        <?php foreach ($block->getTotals() as $field => $value): ?>
+            <li class="aw-report_totals-item <?php /* @noEscape */ echo $field ?>">
+                <div class="aw-report_totals-value">
+                    <span><?php echo $block->escapeHtml($value) ?></span>
+                </div>
+                <div class="aw-report_totals-label">
+                    <span><?php echo $block->escapeHtml($block->getColumnLabel($field)) ?></span>
+                </div>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>

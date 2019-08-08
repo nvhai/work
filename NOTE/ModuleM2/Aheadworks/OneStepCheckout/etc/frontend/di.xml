@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Aheadworks\OneStepCheckout\Block\Checkout">
+        <arguments>
+            <argument name="layoutProcessors" xsi:type="array">
+                <item name="defaultProcessor" xsi:type="object">Aheadworks\OneStepCheckout\Model\Layout\Processor\DefaultProcessor</item>
+                <item name="addressFormAttributes" xsi:type="object">Aheadworks\OneStepCheckout\Model\Layout\Processor\AddressAttributes</item>
+                <item name="cartItemDetails" xsi:type="object">Aheadworks\OneStepCheckout\Model\Layout\Processor\CartItemDetails</item>
+                <item name="totals" xsi:type="object">Aheadworks\OneStepCheckout\Model\Layout\Processor\Totals</item>
+                <item name="paymentOptions" xsi:type="object">Aheadworks\OneStepCheckout\Model\Layout\Processor\PaymentOptions</item>
+                <item name="deliveryDate" xsi:type="object">Aheadworks\OneStepCheckout\Model\Layout\Processor\DeliveryDate</item>
+                <item name="htmlContent" xsi:type="object">Aheadworks\OneStepCheckout\Model\Layout\Processor\HtmlContent</item>
+                <item name="additionalServices" xsi:type="object">Aheadworks\OneStepCheckout\Model\Layout\Processor\AdditionalServices</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="one_step_checkout_config_provider" xsi:type="object">Aheadworks\OneStepCheckout\Model\ConfigProvider</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Customer\Block\SectionConfig">
+        <arguments>
+            <argument name="clientSideSections" xsi:type="array">
+                <item name="aw-osc-checkout-data" xsi:type="string">aw-osc-checkout-data</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Checkout\Controller\Index\Index">
+        <plugin name="aw_onestepcheckout_checkout_index_action_plugin" type="Aheadworks\OneStepCheckout\Plugin\Checkout\Controller\Index\Index"/>
+    </type>
+    <virtualType name="Aheadworks\OneStepCheckout\Model\Address\Form\AttributeMeta\Modifier\Attribute\Prefix"
+                 type="Aheadworks\OneStepCheckout\Model\Address\Form\AttributeMeta\Modifier\Attribute\PrefixSuffix">
+        <arguments>
+            <argument name="attributeCode" xsi:type="string">prefix</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Aheadworks\OneStepCheckout\Model\Address\Form\AttributeMeta\Modifier\Attribute\Suffix"
+                 type="Aheadworks\OneStepCheckout\Model\Address\Form\AttributeMeta\Modifier\Attribute\PrefixSuffix">
+        <arguments>
+            <argument name="attributeCode" xsi:type="string">suffix</argument>
+        </arguments>
+    </virtualType>
+    <type name="Aheadworks\OneStepCheckout\Model\Page\Initializer\ThirdPartyModuleList">
+        <arguments>
+            <argument name="modules" xsi:type="array">
+                <item name="0" xsi:type="string">Ebizmarts_SagePaySuite</item>
+                <item name="1" xsi:type="string">Adyen_Payment</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

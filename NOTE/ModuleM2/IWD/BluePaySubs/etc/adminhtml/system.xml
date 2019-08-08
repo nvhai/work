@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="iwd_subs" translate="label" type="text" sortOrder="1000" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Subscriptions</label>
+            <tab>iwd</tab>
+            <class>separator-top</class>
+            <resource>IWD_All::iwd_extensions</resource>
+            <group id="general" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Subscriptions</label>
+                <fieldset_css>iwd-bluepay-subs-section</fieldset_css>
+                <field id="register_info" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>IWD\BluePay\Block\Adminhtml\System\Config\RegisterInfo</frontend_model>
+                </field>
+                <field id="active" translate="label comment" type="select" sortOrder="100" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <backend_model>IWD\BluePaySubs\Model\Config\Backend\IndexerStatus</backend_model>
+                    <comment><![CDATA[<span style="color: #fc3e17;">Attention! Reindex required after changing this option</span>]]></comment>
+                </field>
+                <field id="cron_sync_active" translate="label comment" type="select" sortOrder="200" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable scheduled synchronization</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If 'No', subscriptions will not be rebilled automatically via Magento's scheduler.</comment>
+                </field>
+                <field id="payment_failed_run_count" translate="label comment" type="text" sortOrder="210" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Retry Run Count (Payment Failed)</label>
+                    <validate>required-entry integer validate-greater-than-zero</validate>
+                    <comment><![CDATA[Subscription retry run count for 'Payment Failed' status before changing to 'Stopped']]></comment>
+                </field>
+                <field id="payment_failed_retry_period" translate="label comment" type="text" sortOrder="220" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Retry Period (Payment Failed)</label>
+                    <validate>required-entry integer validate-greater-than-zero</validate>
+                    <comment><![CDATA[Subscription retry period for 'Payment Failed' status (days)]]></comment>
+                </field>
+                <field id="allow_customer_cancel" translate="label comment" type="select" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Allow customers to cancel/stop</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="allow_customer_edit" translate="label comment" type="select" sortOrder="400" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Allow customers edit on storefront</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Customers can change subscription payment and shipping details</comment>
+                </field>
+                <field id="option_label" translate="label comment" type="text" sortOrder="600" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Product option label</label>
+                    <backend_model>IWD\BluePaySubs\Model\Config\Backend\Escaper</backend_model>
+                    <comment><![CDATA[<span style="color: #fc3e17;">Attention! Reindex required after changing this option</span>]]></comment>
+                </field>
+                <field id="customer_sidebar_link" translate="label" type="text" sortOrder="700" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Customer Sidebar Link</label>
+                    <backend_model>IWD\BluePaySubs\Model\Config\Backend\Escaper</backend_model>
+                </field>
+                <field id="customer_grid_limit" translate="label comment" type="text" sortOrder="800" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Limit Subscriptions Per Page</label>
+                    <comment>Only for customer grid on storefront</comment>
+                    <validate>required-entry integer validate-greater-than-zero</validate>
+                    <backend_model>Magento\Config\Model\Config\Backend\Admin\Password\Link\Expirationperiod</backend_model>
+                </field>
+            </group>
+            <group id="generation_failed" translate="label comment" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Admin Email (Order Generation Failed)</label>
+                <comment>This will alert administrator whenever a subscription fails to generate new order.</comment>
+                <field id="active" translate="label comment" type="select" sortOrder="0" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="identity" translate="label" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+                <field id="receiver" translate="label" type="select" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Receiver</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+                <field id="template" translate="label" type="select" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="copy_to" translate="label comment" type="text" sortOrder="400" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Email Copy To</label>
+                    <comment>Separate by ",".</comment>
+                </field>
+                <field id="copy_method" translate="label" type="select" sortOrder="500" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Email Copy Method</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Method</source_model>
+                </field>
+            </group>
+            <group id="billing_failed" translate="label comment" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Admin Email (Billing Failed)</label>
+                <comment>This will alert administrator whenever a subscription fails to bill.</comment>
+                <field id="active" translate="label comment" type="select" sortOrder="0" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="identity" translate="label" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+                <field id="receiver" translate="label" type="select" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Receiver</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+                <field id="template" translate="label" type="select" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="copy_to" translate="label comment" type="text" sortOrder="400" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Email Copy To</label>
+                    <comment>Separate by ",".</comment>
+                </field>
+                <field id="copy_method" translate="label" type="select" sortOrder="500" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Email Copy Method</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Method</source_model>
+                </field>
+            </group>
+            <group id="payment_failed" translate="label comment" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Customer Email (Payment Failed)</label>
+                <comment>This will alert the customer when a subscription fails to pay on BluePay gateway.</comment>
+                <field id="active" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="identity" translate="label" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+                <field id="template" translate="label comment" type="select" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Template</label>
+                    <comment>Email template chosen based on theme fallback when "Default" option is selected.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="copy_to" translate="label comment" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Email Copy To</label>
+                    <comment>Separate by ",".</comment>
+                </field>
+                <field id="copy_method" translate="label" type="select" sortOrder="400" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Email Copy Method</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Method</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

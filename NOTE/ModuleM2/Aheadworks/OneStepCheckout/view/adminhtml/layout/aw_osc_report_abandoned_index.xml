@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="aw_osc_report_default"/>
+    <body>
+        <referenceBlock name="aw_osc.report.view_container">
+            <container name="report_content">
+                <uiComponent name="aw_osc_abandoned_checkout_report_listing"/>
+            </container>
+        </referenceBlock>
+    </body>
+</page>

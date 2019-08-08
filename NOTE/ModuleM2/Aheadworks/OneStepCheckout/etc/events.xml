@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_model_service_quote_submit_before">
+        <observer name="aw_osc_quote_submit_before" instance="Aheadworks\OneStepCheckout\Observer\QuoteSubmitBeforeObserver" />
+    </event>
+    <event name="payment_method_assign_data_paypal_express">
+        <observer name="aw_osc_paypal_express_data_assigner_workaround" instance="Aheadworks\OneStepCheckout\Observer\PaypalDataAssignObserver" />
+    </event>
+    <event name="payment_method_assign_data_paypal_express_bml">
+        <observer name="aw_osc_paypal_express_bml_data_assigner_workaround" instance="Aheadworks\OneStepCheckout\Observer\PaypalDataAssignObserver" />
+    </event>
+</config>

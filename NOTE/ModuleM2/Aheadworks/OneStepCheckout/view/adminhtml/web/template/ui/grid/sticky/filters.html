@@ -1,0 +1,16 @@
+<div class="data-grid-filters-actions-wrap">
+    <div class="data-grid-filters-action-wrap">
+        <button
+                class="action-default"
+                data-action="grid-filter-expand"
+                data-bind="
+                 click: function(){
+                    jQuery('.admin__data-grid-header')[0].scrollIntoView( true );
+                    $data.trigger('open');
+                 },
+                 attr: {disabled: !hasVisible()}">
+            <span data-bind="i18n: 'Filters'"></span>
+        </button>
+        <span class="filters-active" data-bind="text: countActive() || ''"></span>
+    </div>
+</div>

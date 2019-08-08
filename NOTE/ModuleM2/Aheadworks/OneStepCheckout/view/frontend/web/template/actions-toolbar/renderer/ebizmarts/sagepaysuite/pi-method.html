@@ -1,0 +1,39 @@
+<div class="primary">
+    <!-- ko if: (isDropInEnabled())-->
+    <button class="action primary checkout"
+            type="submit"
+            data-bind="
+                click: preparePayment,
+                attr: {title: $t('Load secure credit card form')},
+                css: {disabled: !isPlaceOrderActionAllowed()},
+                enable: isPlaceOrderActionAllowed(),
+                visible: isLoadCardFromBtnVisible()
+                "
+            disabled>
+        <span data-bind="text: $t('Load secure credit card form')"></span>
+    </button>
+    <button class="action primary checkout"
+            type="submit"
+            data-bind="
+                click: submitPayment,
+                attr: {title: $t('Submit payment')},
+                visible: isSubmitPaymentBtnVisible()
+                ">
+        <span data-bind="text: $t('Submit payment')"></span>
+    </button>
+    <!-- /ko -->
+
+    <!-- ko ifnot: (isDropInEnabled())-->
+    <button class="action primary checkout"
+            type="submit"
+            data-bind="
+                click: preparePayment,
+                attr: {title: $t('Place Order')},
+                css: {disabled: !isPlaceOrderActionAllowed()},
+                enable: isPlaceOrderActionAllowed()
+                "
+            disabled>
+        <span data-bind="text: $t('Place Order')"></span>
+    </button>
+    <!-- /ko -->
+</div>

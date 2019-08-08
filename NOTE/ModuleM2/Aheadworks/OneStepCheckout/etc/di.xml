@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright 2016 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Aheadworks\OneStepCheckout\Api\Data\CartItemOptionsDetailsInterface" type="Aheadworks\OneStepCheckout\Model\CartItemOptionsDetails" />
+    <preference for="Aheadworks\OneStepCheckout\Api\Data\CartItemUpdateDetailsInterface" type="Aheadworks\OneStepCheckout\Model\CartItemUpdateDetails" />
+    <preference for="Aheadworks\OneStepCheckout\Api\Data\DataFieldCompletenessInterface" type="Aheadworks\OneStepCheckout\Model\DataFieldCompleteness" />
+    <preference for="Aheadworks\OneStepCheckout\Api\Data\CheckoutSectionsDetailsInterface" type="Aheadworks\OneStepCheckout\Model\CheckoutSectionsDetails" />
+    <preference for="Aheadworks\OneStepCheckout\Api\Data\CheckoutSectionInformationInterface" type="Aheadworks\OneStepCheckout\Model\CheckoutSectionInformation" />
+    <preference for="Aheadworks\OneStepCheckout\Api\GuestCartItemManagementInterface" type="Aheadworks\OneStepCheckout\Model\GuestCartItemManagement" />
+    <preference for="Aheadworks\OneStepCheckout\Api\GuestCartItemOptionsManagementInterface" type="Aheadworks\OneStepCheckout\Model\GuestCartItemOptionsManagement" />
+    <preference for="Aheadworks\OneStepCheckout\Api\CartItemManagementInterface" type="Aheadworks\OneStepCheckout\Model\CartItemManagement" />
+    <preference for="Aheadworks\OneStepCheckout\Api\CartItemOptionsManagementInterface" type="Aheadworks\OneStepCheckout\Model\CartItemOptionsManagement" />
+    <preference for="Aheadworks\OneStepCheckout\Api\GuestPaymentMethodsManagementInterface" type="Aheadworks\OneStepCheckout\Model\GuestPaymentMethodsManagement" />
+    <preference for="Aheadworks\OneStepCheckout\Api\PaymentMethodsManagementInterface" type="Aheadworks\OneStepCheckout\Model\PaymentMethodsManagement" />
+    <preference for="Aheadworks\OneStepCheckout\Api\NewsletterSubscriberManagementInterface" type="Aheadworks\OneStepCheckout\Model\NewsletterSubscriberManagement" />
+    <preference for="Aheadworks\OneStepCheckout\Api\DataFieldCompletenessLoggerInterface" type="Aheadworks\OneStepCheckout\Model\DataFieldCompletenessLogger" />
+    <preference for="Aheadworks\OneStepCheckout\Api\GuestDataFieldCompletenessLoggerInterface" type="Aheadworks\OneStepCheckout\Model\GuestDataFieldCompletenessLogger" />
+    <preference for="Aheadworks\OneStepCheckout\Api\CheckoutSectionsManagementInterface" type="Aheadworks\OneStepCheckout\Model\CheckoutSectionsManagement" />
+    <preference for="Aheadworks\OneStepCheckout\Api\GuestCheckoutSectionsManagementInterface" type="Aheadworks\OneStepCheckout\Model\GuestCheckoutSectionsManagement" />
+    <type name="Magento\Checkout\Api\GuestPaymentInformationManagementInterface">
+        <plugin name="aw-osc-subscribe-for-newsletter" type="Aheadworks\OneStepCheckout\Model\Plugin\GuestNewsletterSubscriber"/>
+        <plugin name="aw-osc-add-order-note" type="Aheadworks\OneStepCheckout\Model\Plugin\GuestOrderNote"/>
+        <plugin name="aw-osc-add-delivery-date-time" type="Aheadworks\OneStepCheckout\Model\Plugin\GuestDeliveryDate"/>
+    </type>
+    <type name="Magento\Checkout\Api\PaymentInformationManagementInterface">
+        <plugin name="aw-osc-subscribe-for-newsletter" type="Aheadworks\OneStepCheckout\Model\Plugin\NewsletterSubscriber"/>
+        <plugin name="aw-osc-add-order-note" type="Aheadworks\OneStepCheckout\Model\Plugin\OrderNote"/>
+        <plugin name="aw-osc-add-delivery-date-time" type="Aheadworks\OneStepCheckout\Model\Plugin\DeliveryDate"/>
+    </type>
+    <type name="Magento\Quote\Api\Data\AddressInterface">
+        <plugin name="aw_onestepcheckout_quote_address_interface_plugin" type="Aheadworks\OneStepCheckout\Plugin\Quote\Address"/>
+    </type>
+    <type name="Magento\Framework\App\FrontControllerInterface">
+        <plugin name="core-bridge-initializer" type="Aheadworks\OneStepCheckout\Plugin\App\FrontController\CoreBridgeInitializer" />
+    </type>
+    <type name="Magento\Framework\View\Asset\Minification">
+        <plugin name="aw-osc-core-minification-plugin" type="Aheadworks\OneStepCheckout\Plugin\View\Asset\Minification" />
+    </type>
+    <type name="Aheadworks\OneStepCheckout\Model\Product\ConfigurationPool">
+        <arguments>
+            <argument name="configurations" xsi:type="array">
+                <item name="configurable" xsi:type="string">Aheadworks\OneStepCheckout\Model\Product\Configuration\Configurable</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Aheadworks\OneStepCheckout\Model\Address\Form\Customization\Config">
+        <arguments>
+            <argument name="reader" xsi:type="object">Aheadworks\OneStepCheckout\Model\Address\Form\Customization\Config\Reader\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Aheadworks\OneStepCheckout\Ui\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="aw_osc_abandoned_checkout_report_listing_data_source" xsi:type="string">Aheadworks\OneStepCheckout\Model\ResourceModel\Report\AbandonedCheckout\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Aheadworks\OneStepCheckout\Model\ResourceModel\Report\AbandonedCheckout\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">aw_osc_report_abandoned_checkouts_index</argument>
+            <argument name="eventPrefix" xsi:type="string">aw_osc_abandoned_checkout_report_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">abandoned_checkout_report_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Aheadworks\OneStepCheckout\Model\ResourceModel\Report\AbandonedCheckout</argument>
+        </arguments>
+    </type>
+    <virtualType name="AwOscReportGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AwOscAbandonedCheckoutReportDataProvider" type="Aheadworks\OneStepCheckout\Ui\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Aheadworks\OneStepCheckout\Model\ResourceModel\Report\AbandonedCheckout\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">AwOscReportGridFilterPool</argument>
+            <argument name="reporting" xsi:type="object" shared="false">Aheadworks\OneStepCheckout\Ui\DataProvider\Reporting</argument>
+        </arguments>
+    </virtualType>
+    <type name="Aheadworks\OneStepCheckout\Ui\DataProvider\DefaultFilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="customer_group" xsi:type="object">Aheadworks\OneStepCheckout\Ui\DataProvider\DefaultFilter\CustomerGroupId\Applier</item>
+                <item name="date_range" xsi:type="object">Aheadworks\OneStepCheckout\Ui\DataProvider\DefaultFilter\DateRange\Applier</item>
+                <item name="store_id" xsi:type="object">Aheadworks\OneStepCheckout\Ui\DataProvider\DefaultFilter\StoreId\Applier</item>
+                <item name="store_group_id" xsi:type="object">Aheadworks\OneStepCheckout\Ui\DataProvider\DefaultFilter\StoreGroupId\Applier</item>
+                <item name="website_id" xsi:type="object">Aheadworks\OneStepCheckout\Ui\DataProvider\DefaultFilter\WebsiteId\Applier</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Magento\Sales\Model\ResourceModel\Order\Grid">
+        <arguments>
+            <argument name="columns" xsi:type="array">
+                <item name="aw_delivery_date_from" xsi:type="string">sales_order.aw_delivery_date_from</item>
+                <item name="aw_delivery_date_to" xsi:type="string">sales_order.aw_delivery_date_to</item>
+                <item name="aw_delivery_date" xsi:type="string">sales_order.aw_delivery_date</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <preference for="Aheadworks\OneStepCheckout\Model\Address\Form\GeoIp\AdapterInterface" type="Aheadworks\OneStepCheckout\Model\Address\Form\GeoIp\Adapter\GeoIp2" />
+</config>
