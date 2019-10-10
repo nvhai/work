@@ -1,0 +1,361 @@
+<div class="block block-bigk-calculator-tool bigk-tool">
+    <div class="tool-detail clearfix">
+        <div class="tool-left">
+            <h3>Công cụ tính toán hệ thống BigK <br />
+                phù hợp cho gia đình</h3>
+            <p>Chỉ với 4 thông tin cơ bản, bạn sẽ ngay lập tức biết được hệ thống BigK phù hợp nhất cho gia đình, giúp tiết kiệm chi phí tối ưu, bảo toàn vốn đầu tư và đem lại không gian sống xanh cho ngôi nhà.</p>
+            <div class="tool-input">
+                <div class="ui-field-contain">
+                    <label for="roofsize">Diện tích mái nhà còn trống để lắp đặt điện mặt trời (M<sup>2</sup>)</label>
+                    <input id="roofsize" value="16" title="Diện tích mái nhà" autocomplete="off">
+                    <div style="line-height: 40px;"><span id="error-content"></span></div>
+                </div>
+                <div class="ui-field-contain">
+                    <label style="color: #44af19;" id="hlp-1">
+                        <b>Diện tích mái nhà tối thiểu</b> để lắp đặt hệ thống BigK là <b>16m<sup>2</sup>.</b><br />
+                        Vui lòng điền diện tích mái còn trống của bạn.
+                    </label>
+                    <label style="color: #44af19; display: none;" id="hlp-2">
+                        Mái nhà của bạn có thể lắp được hệ BigK với công suất tối đa là <strong id="kwp-max-text">...</strong> kWp.
+                        Vui lòng điền thêm thông tin để chọn được hệ phù hợp.
+                    </label>
+                </div>
+                <div class="ui-field-contain">
+                    <label for="bill">Chi phí điện bạn đang trả mỗi tháng (VNĐ)?</label>
+                    <input  title="Bill" id="bill" value="1000000" autocomplete="off">
+                    <input type="hidden" id="kwh">
+                </div>
+                <div class="ui-field-contain">
+                    <label>Bạn muốn tiết kiệm bao nhiêu % tiền điện với điện mặt trời?</label>
+                    <div class="tool-bar bar-style-2">
+                        <div id="input-tool-2"></div>
+                    </div>
+                </div>
+                <p>Khu vực sinh sống:</p>
+                <div class="list-area">
+                    <div class="area-item">
+                        <input type="radio" name="area" id="r3" value="MN" checked="checked">
+                        <label for="r3">Miền Nam</label>
+                    </div>
+                    <div class="area-item">
+                        <input type="radio" name="area" id="r2" value="MT">
+                        <label for="r2">Miền Trung</label>
+                    </div>
+                    <div class="area-item">
+                        <input type="radio" name="area" id="r1" value="MB">
+                        <label for="r1">Miền Bắc</label>
+                    </div>                            
+                </div>
+            </div>
+        </div>
+        <div class="tool-right">
+            <h3>Hệ thống BigK<br />
+                Phù hợp nhu cầu của bạn</h3>
+            <div class="tool-output">
+                <div class="bigk-sys clearfix">
+                    <div class="rooftop-img" id="rooftop-img">
+                        <img class="rf-1" src="<?php echo $this->getViewFileUrl('Magenest_Bigk::images/he-bigk/he_8panels.png'); ?>" alt="he-bigk">                        
+                    </div>
+                    <div class="rooftop-text">
+                        <div class="rooftop" id="rooftop">
+                            <strong>#</strong>
+                            <span>kWp</span>
+                            <input type="hidden" id="kwp">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="saving">
+                    <div class="row">
+                        <div class="col-sm-5" >
+                            <p>Bạn chỉ còn phải trả:</p>
+                        </div>
+                        <div class="col-sm-7">
+                            <p><strong id="bill-2">#</strong> VNĐ tiền điện mỗi tháng</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <p>Và từ bây giờ bạn sẽ tiết kiệm được (VNĐ):</p>
+                        </div>
+                        <div class="col-sm-7">
+                            <div id="save-detail">
+                                <p><strong id="save-1">#</strong> trong <strong>05 năm</strong></p>
+                                <p><strong id="save-2">#</strong> trong <strong>15 năm</strong></p>
+                                <p><strong id="save-3">#</strong> trong <strong>25 năm</strong></p>
+                                <input type="hidden" id="save-money">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="btn-bgia">
+                    <input type="hidden" id="payback">
+                    <input type="hidden" id="co2_reduction">
+                    <input type="hidden" id="trees_saved">
+                    <input type="hidden" id="gasoline_consumed">
+                    <input type="hidden" id="electricity_saving_rate">
+                    <input type="hidden" id="price">
+                    <input type="hidden" id="kwp-max">
+                    <input type="hidden" id="bill-saving">
+                    <p>Click để nhận báo giá online<br />
+                        <img src="<?php echo $this->getViewFileUrl('Magenest_Bigk::images/instruction_down_solid_dark.png'); ?>" alt="he-bigk">
+                    </p>
+                    <span id="btn-open-quot"  data-src="#form-bao-gia"
+                          data-click-slide="false" data-touch="false" class="btn-bigk bigk-button-baogia" style="width: 210px;">Nhận báo giá</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        require([
+            'jquery',
+            'Magento_Ui/js/modal/modal',
+            'Magenest_Bigk/js/cleave.min',
+            'Magenest_Bigk/js/wNumb',
+            'Magenest_Bigk/js/nouislider',
+            'Magenest_Bigk/js/jquery.fancybox-1.3.4'
+        ], function ($, modal, cleave, wNumb, noUiSlider, fancybox) {
+            $(document).ready(function () {
+                var vnFormat = wNumb({
+                    mark: ',',
+                    thousand: '.'
+                });
+                var deciFormat = wNumb({
+                    mark: ',',
+                    thousand: '.',
+                    decimals: 1
+                });
+                var deciFormatTwo = wNumb({
+                    mark: ',',
+                    thousand: '.',
+                    decimals: 2
+                });
+                var format_bill = new Cleave('#bill', {
+                    numeral: true,
+                    numeralThousandsGroupStyle: 'thousand',
+                    numeralDecimalMark: ',',
+                    delimiter: '.',
+                    numeralDecimalScale: 0,
+                    numeralPositiveOnly: true
+                });
+                var format_roofsize = new Cleave('#roofsize', {
+                    numeral: true,
+                    numeralThousandsGroupStyle: 'thousand',
+                    numeralDecimalMark: ',',
+                    delimiter: '.',
+                    numeralDecimalScale: 0,
+                    numeralPositiveOnly: true
+                });
+                $('#roofsize').change(function (e) {
+                    var roof = parseFloat(format_roofsize.getRawValue());
+                    if ((roof < 16) || isNaN(roof)) {
+                        format_roofsize.setRawValue('16');
+                    }
+                });
+                $('#bill').change(function (e) {
+                    var bill = parseFloat(format_bill.getRawValue());
+                    if (bill < 1 || isNaN(bill)) {
+                        format_bill.setRawValue('1');
+                    }
+                });
+                function calculate(input) {
+                    var bill = parseFloat(format_bill.getRawValue());
+                    var roofSize = parseFloat(format_roofsize.getRawValue());
+                    var expectedSaving = parseFloat(input) / 100;
+                    var area = $('input[name="area"]:checked').val();
+                    var url = '<?php echo $block->getConfig('bigk/general_settings/api_url'); ?>?roof_size=' + roofSize + '&monthly_electrical_bill=' + bill + '&expected_energy_saving=' + expectedSaving + '&area_code=' + area;
+                    // var url = `<?php echo $block->getConfig('bigk/general_settings/api_url'); ?>?roof_size=${roofSize}&monthly_electrical_bill=${bill}&expected_energy_saving=${expectedSaving / 100}&area_code=${area}`;
+                    //console.log(url);
+                    $.ajax({
+                        type: 'GET',
+                        url: url,
+                        dataType: 'json',
+                        error: function (xhr, status) {
+                            var message = xhr.responseJSON.Message;
+                            var mes2 = 'Diện tích mái tối thiểu để lắp đặt BigK là 16m<sup>2</sup>';
+                            $('#error-content').html(mes2);
+                        },
+                        success: function (data) {
+                            $('#rooftop strong').text(deciFormatTwo.to(data.normal_pack_result.pv_rooftop_kwp));
+                            $('#kwp').val(data.normal_pack_result.pv_rooftop_kwp);
+                            $('#save-1').text(vnFormat.to(data.normal_pack_result.total_cost_saving * 12 * 5));
+                            $('#save-2').text(vnFormat.to(data.normal_pack_result.total_cost_saving * 12 * 15));
+                            $('#save-3').text(vnFormat.to(data.normal_pack_result.total_cost_saving * 12 * 25));
+                            $('#bill-2').text(vnFormat.to(data.normal_pack_result.total_remaining_cost_after_saving));
+                            $('#bill-saving').val(vnFormat.to(data.normal_pack_result.total_cost_saving));
+                            $('#save-money').val(vnFormat.to(data.normal_pack_result.total_cost_saving * 12 * 25));
+                            $('#kwh').val((data.normal_pack_result.monthly_kwh));
+                            $('#payback').val(data.normal_pack_result.annual_payback);
+                            $('#co2_reduction').val(data.normal_pack_result.co2_emissions_reduction);
+                            $('#trees_saved').val(data.normal_pack_result.number_of_trees_saved_annually);
+                            $('#gasoline_consumed').val(data.normal_pack_result.gasoline_consumed);
+                            $('#electricity_saving_rate').val(data.normal_pack_result.electricity_saving_rate);
+                            $('#price').val(data.normal_pack_result.pv_rooftop_price);
+                            /********/
+                            $('#error-content').empty();
+                            /*if(data.normal_pack_result.pv_rooftop_kwp == 2.20)  {
+                             $('#price').val('50140000');
+                             } else if(data.normal_pack_result.pv_rooftop_kwp == 3.03) {
+                             $('#price').val('68960000');
+                             } else if(data.normal_pack_result.pv_rooftop_kwp == 4.13) {
+                             $('#price').val('93980000');
+                             } else if(data.normal_pack_result.pv_rooftop_kwp == 5.23) {
+                             $('#price').val('118990000');
+                             } else if(data.normal_pack_result.pv_rooftop_kwp == 6.05) {
+                             $('#price').val('137800000');
+                             } else if(data.normal_pack_result.pv_rooftop_kwp == 7.15) {
+                             $('#price').val('162820000');
+                             } else if(data.normal_pack_result.pv_rooftop_kwp == 8.25) {
+                             $('#price').val('187850000');
+                             } else if(data.normal_pack_result.pv_rooftop_kwp == 9.08) {
+                             $('#price').val('208650000');
+                             } else if(data.normal_pack_result.pv_rooftop_kwp == 10.18) {
+                             $('#price').val('231760000');
+                             }*/
+                        }
+                    });
+                }
+                var tool2 = document.getElementById('input-tool-2');
+                noUiSlider.create(tool2, {
+                    start: 50,
+                    step: 5,
+                    tooltips: true,
+                    connect: [true, false],
+                    format: wNumb({
+                        decimals: 0,
+                        suffix: '%'
+                    }),
+                    range: {
+                        'min': 5,
+                        'max': 100
+                    }
+                });
+                tool2.noUiSlider.on('end', function (e) {
+                    calculate(tool2.noUiSlider.get());
+                    if (!($("#btn-open-quot").hasClass('act'))) {
+                        $("#btn-open-quot").addClass('act');
+                    }
+                });
+                $('.tool-input input').change(function (e) {
+                    calculate(tool2.noUiSlider.get());
+                    $('.expected-savings-rate-input').val(tool2.noUiSlider.get());
+                    if (!($("#btn-open-quot").hasClass('act'))) {
+                        $("#btn-open-quot").addClass('act');
+                    }
+                });
+                $('#kwp-max').val(0);
+                var rfsize = parseFloat(format_roofsize.getRawValue());
+                if (rfsize >= 16 && rfsize < 24) {
+                    $('#kwp-max').val(2.56);
+                    $('#rooftop-img img').css('z-index', '-1');
+                    $('#rooftop-img .rf-1').css('z-index', '1');
+                } else if (rfsize >= 24 && rfsize < 32) {
+                    $('#kwp-max').val(3.84);
+                    $('#rooftop-img img').css('z-index', '-1');
+                    $('#rooftop-img .rf-2').css('z-index', '1');
+                } else if (rfsize >= 32 && rfsize < 40) {
+                    $('#kwp-max').val(5.12);
+                    $('#rooftop-img img').css('z-index', '-1');
+                    $('#rooftop-img .rf-3').css('z-index', '1');
+                } else if (rfsize >= 40 && rfsize < 48) {
+                    $('#kwp-max').val(6.40);
+                    $('#rooftop-img img').css('z-index', '-1');
+                    $('#rooftop-img .rf-4').css('z-index', '1');
+                } else if (rfsize >= 48 && rfsize < 56) {
+                    $('#kwp-max').val(7.68);
+                    $('#rooftop-img img').css('z-index', '-1');
+                    $('#rooftop-img .rf-5').css('z-index', '1');
+                } else if (rfsize >= 56 && rfsize < 64) {
+                    $('#kwp-max').val(8.96);
+                    $('#rooftop-img img').css('z-index', '-1');
+                    $('#rooftop-img .rf-6').css('z-index', '1');
+                } else if (rfsize >= 64) {
+                    $('#kwp-max').val(10.24);
+                    $('#rooftop-img img').css('z-index', '-1');
+                    $('#rooftop-img .rf-7').css('z-index', '1'); //32
+                } else if (rfsize === 0) {
+                    $('#kwp-max').val(10.24);
+                    $('#rooftop-img img').css('z-index', '-1');
+                    $('#rooftop-img .rf-7').css('z-index', '1');
+                }
+                //$('#kwp-max-text').text($('#kwp-max').val());
+                $('#roofsize').change(function (e) {
+                    var rfsize = parseFloat(format_roofsize.getRawValue());
+                    if (rfsize >= 16 && rfsize < 24) {
+                        $('#kwp-max').val(2.56);
+                        $('#rooftop-img img').css('z-index', '-1');
+                        $('#rooftop-img .rf-1').css('z-index', '1');
+                    } else if (rfsize >= 24 && rfsize < 32) {
+                        $('#kwp-max').val(3.84);
+                        $('#rooftop-img img').css('z-index', '-1');
+                        $('#rooftop-img .rf-2').css('z-index', '1');
+                    } else if (rfsize >= 32 && rfsize < 40) {
+                        $('#kwp-max').val(5.12);
+                        $('#rooftop-img img').css('z-index', '-1');
+                        $('#rooftop-img .rf-3').css('z-index', '1');
+                    } else if (rfsize >= 40 && rfsize < 48) {
+                        $('#kwp-max').val(6.40);
+                        $('#rooftop-img img').css('z-index', '-1');
+                        $('#rooftop-img .rf-4').css('z-index', '1');
+                    } else if (rfsize >= 48 && rfsize < 56) {
+                        $('#kwp-max').val(7.68);
+                        $('#rooftop-img img').css('z-index', '-1');
+                        $('#rooftop-img .rf-5').css('z-index', '1');
+                    } else if (rfsize >= 56 && rfsize < 64) {
+                        $('#kwp-max').val(8.96);
+                        $('#rooftop-img img').css('z-index', '-1');
+                        $('#rooftop-img .rf-6').css('z-index', '1');
+                    } else if (rfsize >= 64) {
+                        $('#kwp-max').val(10.24);
+                        $('#rooftop-img img').css('z-index', '-1');
+                        $('#rooftop-img .rf-7').css('z-index', '1'); //32
+                    } else if (rfsize === 0) {
+                        $('#kwp-max').val(10.24);
+                        $('#rooftop-img img').css('z-index', '-1');
+                        $('#rooftop-img .rf-7').css('z-index', '1');
+                    }
+                    $('#kwp-max-text').text($('#kwp-max').val());
+                    $('#hlp-1').hide();
+                    $('#hlp-2').show();
+                });
+                /**************/
+                $('#btn-open-quot').click(function (e) {
+                    //input
+                    var bill = vnFormat.to(parseFloat(format_bill.getRawValue()));
+                    var roof_size = vnFormat.to(parseFloat(format_roofsize.getRawValue()));
+                    var area = $('input[name="area"]:checked').val();
+                    //out-put
+                    var kwh = deciFormat.to(parseFloat($('#kwh').val()));
+                    var kwp = deciFormatTwo.to(parseFloat($('#kwp').val()));
+                    var electricity_saving_rate = deciFormat.to(parseFloat($('#electricity_saving_rate').val()) * 100);
+                    var save_money = $('#save-money').val();
+                    var payback = deciFormat.to(parseFloat($('#payback').val()));
+                    var co2_reduction = deciFormat.to(parseFloat($('#co2_reduction').val()) / 1000);
+                    var trees_saved = vnFormat.to(parseInt($('#trees_saved').val()));
+                    var gasoline_consumed = deciFormat.to(parseFloat($('#gasoline_consumed').val()));
+                    var kwp_max = deciFormatTwo.to(parseFloat($('#kwp-max').val()));
+                    var price = vnFormat.to(parseInt($('#price').val()));
+                    var bill_remaining = $('#bill-2').text();
+                    var bill_saving = $('#bill-saving').val();
+                    var url = 'roof_size=' + roof_size + '&bill=' + bill + '&electricity_saving_rate=' + electricity_saving_rate + '&area=' + area +
+                            '&kwh=' + kwh +
+                            '&kwp=' + kwp +
+                            '&kwp_max=' + kwp_max +
+                            '&price=' + price +
+                            '&save_money=' + save_money +
+                            '&payback=' + payback +
+                            '&co2_reduction=' + co2_reduction +
+                            '&trees_saved=' + trees_saved +
+                            '&gasoline_consumed=' + gasoline_consumed +
+                            '&bill_remaining=' + bill_remaining +
+                            '&bill_saving=' + bill_saving;
+                    $('.param-input').val(url);
+                    $('.expected-savings-rate-input').val(tool2.noUiSlider.get());
+                    //console.log($('.param-input').val());
+                });
+                /*********************/
+            });
+        });
+    </script>     
+</div>

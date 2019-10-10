@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+    <system>
+        <tab id="solarbk" translate="label" sortOrder="100">
+            <label>SolarBK</label>
+        </tab>
+        <section id="bigk" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10">
+            <class>separator-top</class>
+            <label>BigK Calculation Tool</label>
+            <tab>solarbk</tab>
+            <resource>Magenest_Bigk::config_bigk</resource>         
+            <group id="general_settings" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10">
+                <label>General Settings</label>
+                <field id="enabled" translate="label comment" type="select" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="api_url" translate="label comment" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="20">
+                    <label>API Url</label>
+                </field>
+            </group>            
+        </section>
+    </system>
+</config>
